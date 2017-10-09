@@ -1,0 +1,98 @@
+%!TEX root = thesis_main.tex
+
+\chapter{Introduction}\label{ch:Intro}
+
+% General outline:
+% Stroke and SCI is a big deal, rehabiliation is important
+% Robots to the resuce
+% Review of upper-limb devices (exos vs ee) >> wrist-exos
+% Coordinated hand-wrist exos don't really exist
+% Why might coordinated hand-wrist exos be important?
+% Preliminary READAPT sougtht to adresss this but had some issues
+% Here design reqment's for coordinated-hand wrist exos
+% Thesis outlin
+
+   \section{Background} \label{sec:background}
+
+    As the fifth leading cause of death in the United States and the leading cause of long-term disability, cerebrovascular accidents (CVAs or strokes) impact approximately 795,000 individuals each year. The related costs are projected to rise above the 2012 estimate of \$316.6 billion as survival rates continue to increase \cite{mozaffarian2015}. In addition, nearly 17,000 individuals per year will experience a Spinal Cord Injury (SCI) with yearly direct and indirect costs totaling \$20 billion. While CVA typically affects an older population, the average age of injury for SCI is under the age of 41. As such, SCI sufferers often live decades past their date of injury and incur a much heavier economic burden due to their disabilities \cite{berkowitz1998}. Improving the rehabilitative outcomes for individuals with disabling neuromuscular conditions will have large social and economic impacts.
+
+    Of the 7 million stroke survivors, over 90\% will require rehabilitation of the hand and wrist before they can perform activities of daily living (ADL) such as self-feeding, dressing, and bathing \cite{mozaffarian2015}. For SCI, approximately 50\% of all sufferers will also require similar rehabilitation \cite{steeves2007}. Rehabilitation regimes typically employ task-oriented movements to strengthen muscles and coordination in these patients \cite{riener2005}, and intensive therapy with high repetition numbers and long duration has been shown to improve functional outcomes by recovering lost brain plasticity \cite{butefisch1995}. As a result, rehabilitation sessions are labor intensive, expensive, and consequentially often shorter than they should be \cite{nef2007}. Furthermore, the clinician's ability to deliver high quality and consistent training also affects the therapeutic outcome of the patient.
+
+    Robotic rehabilitation devices have been proposed as a tool for clinicians in meeting the rising demand for training sessions. In addition to their ability to provide accurate and repeatable movements over long durations and high repetitions, robotic devices can also be leveraged to record objective, quantitative performance data for tracking the therapeutic progress of patients. These devices have been clinically verified as a path forward for both CVA and SCI rehabilitation in a number of clinical studies \cite{reinkensmeyer2000,krebs1998,charles2005,yozbatiran2011,yozbatiran2012,blank2014,lo2012,lum2005,lum2012}.
+
+    % Need a closing remark here
+
+    % Robotic rehabilitative devices enable the high intensity, long duration interventions needed for regaining motor function, and quantitative metrics for tracking therapeutic outcomes  Regaining the ability to perform activities of daily living (ADL) requires targeted rehabilitation of the upper extremity, in particular, the wrist and hand.
+
+
+   \section{Review of Upper-Extremity Rehabilitation Robots} \label{sec:rehabrobotics}
+
+   % https://jneuroengrehab.biomedcentral.com/articles/10.1186/1743-0003-11-3
+
+   Rehabilitation robots are typically classified as being either end-effector based robots or exoskeletons (see Fig. \ref{fig:exo_types}). An end-effector rehabilitation robot is one which only the robot's most distal link, or end-effector, interacts with the user. The most historically significant upper-extremity end-effector rehabilitation robot designs include: the 2 degree of freedom (DOF), planar MIT-MANUS \cite{charles2005,krebs1998,krebs2007} (commercially known as the InMotion ARM/WRIST); the Mirror Image Movement Enabler (MIME) \cite{lum2006}, a modification of the industrial 6-DOF PUMA robot; and the 3-DOF ARM Guide \cite{reinkensmeyer2000}. End-effector rehabilitation robots typically allow for large functional workspaces, but do not mirror human anatomy and are thus unable to apply torques directly to human joints.
+
+    \begin{figure}[!htb]
+        %\vspace{0.5em}
+        \begin{center}
+            \includegraphics[width=0.95\columnwidth]{Figures/Intro/exo_types.png}
+            \caption{\textbf{(a)} The MIT-MANUS (InMotion ARM) end-effector based rehabilitation robot. \textbf{(b)} MAHI-Exo II exoskeleton based rehabilitation robot.}
+            \label{fig:exo_types}
+        \end{center}
+        \vspace{-1.5em}
+    \end{figure}
+
+   Exoskeletons, on the other hand, are anthropomorphically designed where robot joint axes are typically collocated with human joints axes. They allow for the direct application of torque to individual joints. This mapping between robot and human movement makes exoskeletons more attractive than end-effector designs for rehabilitation robotics. Exoskeletons may be either worn by the user or grounded. Worn (or ungrounded) devices enable the user to engage in more natural movements in large workspaces, but are weight limited, primarily by their actuators, and cannot offer the torque capabilities that grounded robots do. Notable examples of upper-extremity exoskeletons include: the 6-DOF ARMin III \cite{nef2007}, the 7-DOF CADEN-7 \cite{perry2007}, the 5-DOF Rupert \cite{sugar2007}, 4-DOF MAHI-Exo II \cite{pehlivan2011}, and the 14-DOF X-Arm 2 (ungrounded). Specifically for wrist-only rehabilitation are the RiceWrist \cite{omalley2006,gupta2008}, the RiceWrist-S \cite{pehlivan2012,pehlivan2013,pehlivan2014}, the HWARD \cite{takahashi2008}, the WristGimbal \cite{martinez2013}, and the IIT Wrist Robot \cite{cappello2014}. A more comprehensive survey of upper-extremity devices can be found in \cite{maciejasz2014}.
+
+    \section{Hand and Wrist Robotic Rehabilitation} \label{sec:rehab}
+
+    While many devices have been developed for the wrist and hand \cite{schabowsky2010,bouzit2002,cempini2014,chiri2009,kawasaki2007} separately, few allow for coordinated hand and wrist movement. This separated approach overlooks the kinematic and dynamic linkings of the hand and wrist due to tendon and muscle anatomy \cite{li2002}, as well as their position-dependent passive properties \cite{deshpande2012, kuo2010, knutson2000,esteki1996}. Furthermore, muscles, tendons, and ligaments exert forces across multiple DOF and give rise to complex synergies. Implementing separate hand and wrist devices precludes the ability to exploit or retrain these synergies. Therefore, integrated hand and wrist therapy has the potential to improve the rehabilitative outcomes \cite{rose2015}.
+
+    The READAPT (Robotic Exoskeleton to Assist Distal Arm Physical Therapy), the coupling of a wrist exoskeleton developed in Rice University's MAHI Lab and the Maestro hand exoskeleton (Fig. \ref{fig:maestro}) developed in University of Texas' ReNeu Lab, was proposed to enable the coordinated hand and wrist movements required in ADL as suggested by the interconnected nature of hand-wrist musculature \cite{rose2015}. However, the requirements for designing coordinated hand-wrist exoskeletons remains relatively unknown due the sparse landscape of such devices.
+
+    \begin{figure}[!htb]
+        %\vspace{0.5em}
+        \begin{center}
+            \includegraphics[width=0.95\columnwidth]{Figures/Intro/maestro.png}{}
+            \caption{The Maestro hand exoskeleton developed by the ReNeu Lab at the University of Texas in Austin uses remotely located actuators and a Bowden cable style transmission to actuate the thumb, index, and middle fingers.}
+            \label{fig:maestro}
+        \end{center}
+        \vspace{-1.5em}
+    \end{figure}
+
+    \section{Design Requirements for Hand-Wrist Rehabilitation Robots and READAPT} \label{sec:motivation}
+
+    Rehabilitation robots must generally posses several key properties: (1) the ability to apply ergonomically appropriate torques directly to human joints \cite{schiele2006,esmaeili2011}; (2) a functional workspace meeting the requirements for activities that will be trained \cite{schiele2006}; (3) high backdravability with zero backlash \cite{hayward2007}, (4) quantitative evaluation of treatment \cite{esmaeili2011}; and (5) the means to implement advanced control algorithms \cite{pehlivan2015}.
+
+    Requirements specific to coordinated hand-wrist rehabilitation robots have also been identified. A preliminary implementation of the READAPT, which utilized the existing RiceWrist-S exoskeleton\cite{pehlivan2014}, identified finger metacarpalphalangeal (MCP) flexion/extension range of motion (ROM) limits (subsequently addressed in \cite{agarwal2017}), wrist static friction and inertia, and undesired interactions between the hand and wrist modules as key contributors to hand-wrist discoordination in redundant MCP and wrist flexion/extension pointing tasks \cite{rose2015}. Additionally, pre-clinical trials with the RiceWrist-S in a standalone mode \cite{pehlivan2014}, as well as experience and clinician feedback from other clinical studies \cite{fitle2015}, highlighted the necessity of the user's ability to easily don/doff devices. This is especially true during studies with fragile skinned subjects where donning/doffing closed-design exoskeletons (e.g. \cite{pehlivan2011,pehlivan2014,martinez2013}) is not only difficult and time consuming, but also potentially hazardous.
+
+    \begin{figure}[!htb]
+        %\vspace{0.5em}
+        \begin{center}
+            \includegraphics[width=1\columnwidth]{Figures/Intro/readapt.png}
+            \caption{A preliminary implementation of the READAPT utilized a heavily modified version of the existing RiceWrist-S wrist exoskeleton and an early iteration of the Maestro hand exoskeleton. \cite{rose2015}}
+            \label{fig:readapt_prelim}
+        \end{center}
+        %\vspace{-1.5em}
+    \end{figure}
+
+    In order of importance, future hand-wrist exoskeletons, including the READAPT, would need to (6) provide a harmonious interface between the the hand and wrist modules, (7) enable don/doff of impaired individuals with an easily accessed open design, (8) address ergonomics and user comfort, (9) and minimize the discoordinating effects of friction and inertia. Further increasing dynamic performance over previous devices and enabling compatibility with surface electromyography (sEMG) and passive marker motion capture were also included as design requirements specific to the READAPT. Following the guidelines of (1-9), this thesis details the design of the OpenWrist, the new wrist module of the READAPT.
+
+    \section{Characterization and Validation of Rehabilitation Robots}
+
+    Characterization of rehabilitation robots generally falls into one of two categories. The first category involves properties that may indicate how well the robot will perform as a \textit{training} device. The two most important properties, given by the design requirements (1) and (2), are torque output and ROM. The device must be able to provide interaction forces and a workspace sufficient to train desired activities. Following torque and ROM are dynamic properties of the robot such as inertia, viscous damping, and static and kinetic friction. Together, these properties indicate how transparent a device may be. Highly transparent devices, ones in which passive interaction forces between the human and robot are small, are desired for robotic rehabilitation since we would like to preserve natural human motion as much as possible. Intuitively, lower values of inertia, damping, and friction will give rise to a more transparent device.
+
+    The second category, often overlooked in the development of rehabilitation robots, includes analyses that may indicate how accurately the device will perform as an \textit{assessment} or measurement tool. Several metrics exist for assessment, however one of the most prominent is movement smoothness. It is well known that healthy individuals generate smooth movements during pointing or reaching tasks \cite{gordon1994,flash1985,morasso1981}. As such, tracking the improvement of movement smoothness during stroke rehabilitation may be indicative of therapeutic outcomes. The same robots that are employed for rehabilitation training are often used as assessment tools, usually through an unpowered back-drive \cite{yozbatiran2012} mode, or, if necessary, a ``zero-impedance'' mode where robot dynamics are canceled in the control implementation. A non-trivial assumption is usually made during assessment: that the robot has minimal effect on the measurements used to compute assessment metrics. This assumption has been shown to be invalid \cite{rose2015,erwin2017,rose2017}. A direct comparison between movement in the presence of the rehabilitation robot and the same movement in a no-robot condition is required to characterize and validate the device as an accurate assessment tool.
+
+    While the second category is intimately tied with the first (specifically through device transparency), to what extent remains an open question in the field. Specifically, what properties of the robot give rise to unnatural movements? Portions of this thesis attempt to provide some answers to this question.
+
+    %The first category involves the properties of the robot itself. Several metrics have been reported in literature including joint inertia, static and viscous friction, torque output, ROM, and closed-loop position bandwidth. While metrics such as these are useful for comparisons on a robot-to-robot basis, they're generally not useful for assessing a robot's efficacy as a training or assessment device.
+
+    %The second category involves quantifying the degree to which the robot perturbs natural movement.
+
+    %An open question in the field What remains relatively unknown is how the two categories relate. Specifically, what properties of the robot give rise to unnatural movements.
+
+        %motion-based transparency assessment
+
+    \section{Thesis Outline} \label{sec:outline}
+
+    This thesis is structured as follows: Chapter 2 details the design and development of the OpenWrist, the new wrist exoskeleton module to be used for coordinated hand-wrist rehabilitation in conjunction with the ReNue Maestro hand-exoskeleton, collectively known as the READAPT. Each of the nine design requirements for hand-wrist exoskeletons in Section \ref{sec:motivation} are addressed. Chapter 3 provides the characterization of performance properties of the OpenWrist as a training device, including joint inertia, viscous damping, static and kinetic friction, and closed-loop position bandwidth. Both Chapters 2 and 3 conclude with a comparison between the OpenWrist and other wrist-exoskeletons. Chapter 4 validates the OpenWrist as an assessment device, while also providing some insight into the effects that robot dynamic properties have on assessment smoothness metrics.

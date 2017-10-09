@@ -1,0 +1,85 @@
+\ifdefined\isdraft
+\documentclass[draft, onecolumn, letterpaper, 12pt, conference]{ruthesis}
+\else
+\documentclass[final, letterpaper, 12pt, conference]{ruthesis}
+\fi
+
+\IEEEoverridecommandlockouts
+\overrideIEEEmargins
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xspace}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{type1cm}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{microtype}
+\usepackage{algorithm}
+\usepackage{subcaption}
+\usepackage[keeplastbox,nospread]{flushend}
+\usepackage{tikz}
+\usepackage{comment}
+\usetikzlibrary{decorations,arrows,shapes}
+\usepackage{float}
+
+\setlength{\marginparwidth}{2cm}
+% \usepackage[obeyFinal]{todonotes}
+\usepackage{todonotes}
+\presetkeys{todonotes}{size=\footnotesize, color=orange!40, fancyline}{}
+
+\newcommand{\abbr}[1]{\textsc{\MakeLowercase{#1}}}
+
+\title{The Unceasing Cycling of Cycloids to See Cycloid Success}
+\ctitle{The Unceasing Cycling of Cycloids to See Cycloid Success}
+\author{Logan C. Farrell}
+\department{Department of Mechanical Engineering}
+\school{Rice University}
+\degree{Master of Science}
+
+\committee {
+        Marcia K. O'Malley, Chair \\
+        Professor of Mechanical Engineering \and
+        Fathi H. Ghorbel \\
+        Professor of Mechanical Engineering \and
+        Lydia E. Kavraki \\
+        Professor of Computer Science \and
+        Rob Ambrose \\
+        Division Chief of the NASA: JSC Software, Robotics, and Simulation Division
+}
+
+
+\address{Houston, Texas}
+\donemonth{April} \doneyear{2017} \makeindex
+\begin{document}
+  %\includepdf[pages={1}]{title1.pdf}
+  \begin{frontmatter}
+   \pagenumbering{roman}
+   \maketitle
+   \include{src/abstract}
+   \tableofcontents
+   \listoffigures
+   \listoftables
+  \end{frontmatter}
+\pagenumbering{arabic}
+
+\linespacing{1.7}
+
+\include{src/outline}
+\include{src/chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+\include{chapter5}
+
+\appendix
+\include{appendix-a}
+
+\bibliographystyle{ieeetr}
+\bibliography{thesisBib}
+\end{document}

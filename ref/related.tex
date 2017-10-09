@@ -1,0 +1,54 @@
+\todo[author=ZK/LF/MM, inline]{
+  Related work should start be introducing the state of art in whole-body control robot systems, which is currently not that much.
+  Along with this introduction a brief summary of some of the more challenging aspects should be given.
+  Maybe a brief historical perspective on how R2 has been controlled goes here?
+}
+
+\todo[author=ZK/LF/MM, inline]{
+  After prefixing the problem and discussing what we will be surveying in the literature, the first things that should be brought up are the superficially similar systems used for other robots.
+  These are systems that were employed for the DRC, what Valkyrie is currently using, HPP from Laumond's group, some related work on the PR2, and maybe what the HRP2 is up to today.
+  Here we can also talk about the difference in how motion is planned for each of these systems: reactive control (SQP solvers), workspace planning (craftsman, etc.), free-space planning (other quasi-static robots), teleoperation, and constrained planning.
+}
+
+\todo[author=LF, inline]{
+  For each component of the system we should have a brief discussion of the state-of-the-art and relate it to the solution we are employing.
+  LF, this will primarily be up to you to find references for.
+}
+
+\todo[author=LF, inline]{
+  Commanding tools that are similar: (This is super weak, not sure if we want or need, and definitely not sure how to phrase) 
+  The suite of tools that that has been developed for this system to accomplish these complex requests and plans stem from many previous works.
+  Affordance Templates(Cite AT) is a framework that encodes information about objects and the affordances that object allows for the robot to interact with it.
+  The scripting tools developed to operate the system was developed off of the framework of the Robot Task Commander (RTC)(Cite RTC), a python visual scripting system.
+  A unique visual scripting and execution framework was developed to address shortcomings of RTC.
+  However, commonly used applications were not suitable to adapt for this system such as Labview, Matlab, and Blah as they have the following shortcomings (Grab from Phil's paper if we actually want to say any of this)
+
+  NOTE: I'm not sure where we reference our previous work that built some of these commanding tools and such (IROS paper), but it probably should exist somewhere. 
+}
+
+\todo[author=ZK/LF/MM, inline]{
+  There needs to be some line of summarizing here that re-discusses the challenges faced by any system attempting to integrate so much of robotics, and what that system must be capable of to solve interesting problems.
+}
+
+% What our challenge is: designing a software system for a complex mobile manipulator that ties together many different elements
+
+% Teleoperation goes here, that's a full system design philosophy - we are _not_ this, designed for potentially laggy links
+% DRC work is interesting, distance ourself by talking about what we are not designed for: balancing humanoids
+% ... Maybe we should integrate the related work more tightly in the paper - this would be fairly interesting I think
+
+% Inside of problem, we should talk about other approaches after the main section (DRC, other house hold stuff, etc.)
+% not teleoperation, etc.
+
+% Cite some constraint stuff as well in the problem
+
+
+% Talk about SMACH / RTC in UI section for high-level task commander
+% Cite RViz, low-level interfaces
+
+% Object handling see if we can find some references for object localization (vision with ML (cite) or other fidicual (cite))
+% Check AT paper for other approaches there.
+
+% Cite some more constrained motion planning algorithms within the task and motion planning section
+% Planning in the now
+% Experience based planning
+

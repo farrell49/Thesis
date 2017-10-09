@@ -1,0 +1,168 @@
+The presented system is an organization of four major components, as shown in Figure~\ref{fig:system_diagram}.
+These components are
+  the robot and its underlying control framework,
+  the task and motion planning layer which plans for motions with task constraints,
+  the object handling layer which integrates vision and semantics with detected objects,
+  and the user interface which provides access to these components.
+Our system combines these individual layers into progressively higher-order structures that enable varying levels of command specificity, from low-level pose goals for an end-effector to a sequence of manipulation actions for multiple end-effectors.
+
+The robot layer, phrased simply, accepts joint trajectories and continually returns robot state.
+The robot is only controlled through the task and motion planning layer, which takes as input either fully-specified motion planning requests or under-specified, higher-level commands and infers any additional constraints based on current system state.
+For the purposes of the system, fully-specified motion planning problems are a set desired poses of end-effectors of the robot (phrased as a constraint), along with a set of path constraints that must hold throughout the entire motion.
+The constraints are as stated in Section~\ref{sec:problem}.
+Feeding into motion planning is the object handling layer, which classifies and localizes objects in the scene.
+Detected objects have associated semantics that detail sequences of manipulations tasks for the robot to execute.
+The user-interface layer contains a task engine enabling description of higher-order behavior and a lower-level interactive interface where robot state can be observed and controlled with a fine granularity.
+Each of these components are detailed in the following sections.
+
+\begin{figure}
+  \centering
+  \resizebox{0.49\textwidth}{!} {
+    \input{fig/Figure_03/system.tex}
+  }
+  \caption[High-level System Diagram] {
+    \label{fig:system_diagram}
+    A high-level diagram depicting the organization of the system.
+    The four layers and connections to their constituent parts are depicted.
+    Arrows depict the flow of ``commands'' within the system, not necessarily the entire flow of information.
+    The user interface provides low- and high-level interfaces to the task and motion planning layer.
+    Object handling automatically instantiates object semantics, which can be accessed through the interface.
+    The robot simply provides a means of execution, albeit with certain guarantees.
+  }
+\end{figure}
+
+\subsection{Robot Layer}
+At the lowest level of the system, there is the set of components that interact directly with and communicate the state of the robot.
+This layer must afford the task and motion planning layer joint-level trajectory execution, and provide the necessary interfaces to obtain robot state and sensor output.
+
+Although there is no system-level ``intelligence'' at this layer, there are assumptions about the properties of the robot that the entire system relies on.
+Namely, the ability for the robot to execute joint-level trajectories accurately over varying time-horizons.
+For many mobile manipulators and complex robots this property holds true, and the robot can position itself to any configuration with a quasi-static guarantee.
+Additionally, each task the robot carries out comes with some set of constraints.
+These constraints are phrased geometrically; the nature of these constraints, however, is generally that of allowable forces (e.g., a drawer only opens with force aligned to its axis of motion, a valve will turn given torque about its axis).
+Modeling these constraints geometrically avoids the difficulty of planning kinodynamically.
+However, given uncertainty, the robot must have some allowable \emph{compliance} as to enable successful motion, to allow the constraint's implicit forces to guide the robot.
+An impedance controller or the like is necessary for the tasks at hand.
+
+Robonaut 2, despite its humanoid morphology, is capable of executing quasi-static motion plans as it operates within microgravity and simply needs to maintain rigid contact with a handrail.
+This is not usually a feasible assumption with dynamically stable humanoid robots; our system is suited more to complex mobile manipulators or multiple end-effector systems rather than humanoids.
+Robonaut 2's actuators are series elastic and commanded through an impedance controller, and are therefore compliant~\cite{diftler2003evolution, Badger2014advancing}.
+
+\subsection{Task \& Motion Planning Layer}
+The task and motion planning layer encapsulates the capabilities of the system to autonomously reason over requested motions.
+This involves two main components:
+  the motion planning system that solves fully-specified motion planning requests,
+  and a monitoring process that observes the system state and appends necessary constraints to planning requests from higher levels of the system.
+Together, these components enable the system to respond to high-level task specifications that come from other components of the system.
+
+The monitoring process accepts planning requests and appends to these requests using knowledge of present system state, in order to generate feasible motions.
+Generally, the high-level components of the system do not specify full-body configurations of the robot; high-level components specify goals for one or a few end-effectors according to some task objective (e.g., moving a hand to a desired pose).
+In order to generate a feasible motion from this planning request, the robot must also remain in accord with other constraints imposed on the system (e.g., keeping both feet on the ground, keeping the torso upright).
+For example, when specifying a desired foot location for Robonaut 2 to dock with a handrail, only the desired pose of the foot is specified.
+The monitoring process appends constraints to keep the other foot down, keep the waist upright, and modifies the requested foot pose to be ``upright'' relative to the robot's pose, in order to successfully dock with the handrail.
+Overall, the monitor separates concerns of the entire system away from those that are specific to the task, and validates requests to verify feasibility given the current state of the robot.
+
+The low-level motion planning component takes fully-specified motion planning problems and attempts to find feasible paths that satisfy constraints.
+These constraints take the form specified in Section~\ref{sec:problem}.
+To solve these problems, a constrained sampling-based motion planning algorithm should be used~\cite{Berenson2011, Jaillet2013, Kim2016} in order to exploit the ability of the robot to execute geometrically specified plans.
+A constrained sampling-based algorithm can explore the redundancy of the manipulator more effectively than a pure inverse kinematic solution~\cite{Beeson-tamp-16} or a sequential optimization~\cite{Sentis2005, Schulman2014}, allowing the robot to escape configurations that are local minima for the task objective.
+
+For R2, \textit{MoveIt!}~\cite{chitta2012moveit} is used to interface with the Open Motion Planning Library (OMPL)~\cite{Sucan2012}, which implements the constrained sampling-based motion planning algorithms used to plan every motion the robot executes.
+A variation of the \textsc{CBiRRT2} algorithm~\cite{Berenson2011} is used to plan with constraints, using our enhanced constraint formulation.
+Another framework similar in scope is the humanoid path planner system~\cite{Mirabel2016}.
+For our system inverse kinematic solutions are cached in a nearest-neighbor structure to speed query resolution time by seeding the solver with known nearby configurations, similar to~\cite{Hauser2016}.
+With caching, our system responds to most planning queries within 2 seconds for a 15 DoF robot, allowing real-time planning for all motion queries.
+Planning is fast enough for our use-case with R2, and would be an ideal solution for any robot with complex motion and can afford to pause for at most few seconds, ``planning in the now''~\cite{kaelbling2011hierarchical-task-and-motion-planning}.
+It is of note that we can use a more complete, sampling-based approach due to some assumptions we place on the system.
+For R2, the series elasticity of the joints and compliant controllers allow for small deviations in the model to be corrected, and is precise enough to execute most plans without drift.
+
+
+\subsection{Object Handling Layer}
+The purpose of the object handling layer is to identify and localize objects in the scene and enable their manipulation, imbuing them with semantics to take advantage of what the objects may afford.
+The layer is composed of computer vision algorithms for object classification and localization, along with a component that imbues objects with semantics that describe how manipulation tasks are to be done.
+Object information is stored in a predetermined database, with a model or tag to be identified online by the classification and localization system.
+Augmented objects are placed into the robot's scene automatically from object classification and localization, or by user input from the user interface layer.
+
+% The advancements in this technology come coupled with the addition of constraint dictation and handling of the system.
+As the task and motion planning layer can understand and generate feasible plans that utilize constraints, a task specific to an object (from its associated semantics) can dictate constraints relevant to the trajectory (e.g, a valve must be rotated about its axis of movement).
+Constraint can be encoded within the object and dictate more complex motion, summarily passed down to the task and motion planning layer as an additional task-specific constraint.
+The framework allows for constraints to be dictated based on the object itself (e.g., the valve, or a drawer that must be opened along its axis of movement) or on a specific waypoint or motion (e.g., after moving the foot above a handrail, it must move along an axis down to the rail).
+Before, complex constraints involved in procedures (e.g., pre-grasp to grasp motions) would use a separate controller, such as visual servoing or Cartesian control.
+As the planner respects the constraints imposed on the planning request, these can now be encoded and passed through a unified system along with request to move within free space, unifying all motion undertaken by the robot.
+
+Previously, the authors presented the method for object classification and localization for Robonaut 2, which is what it utilized within this system~\cite{farrell2017}.
+To classify and localize an object, ALVAR fiducial markers~\cite{ar_track_alvar} are placed on objects of interest.
+When these markers are detected, they are be placed into the scene and are filtered for robustness.
+The identification number of the marker is then used to place the semantic object at the detected location, utilizing the predetermined database that associates marker numbers with pre-made objects.
+It is of note that fiducial markers are used simply for their robustness and ease of use as opposed to template matching or a learning-based approach.
+However, any other localization and classification approach could be used with minimal effort, such as other fiducial tags~\cite{olson2011apriltag} or a more advanced system that processes point cloud and image data~\cite{Quigley2009}.
+
+To imbue an object with common manipulation tasks, the Affordance Templates framework is used~\cite{Hart2015}.
+This structure allows the ``affordable'' actions a robot can take with an object encoded in an intuitve manner, as a set of labeled trajectories, composed of waypoints that describe end-effector location and configuration relative to the object.
+Within the sequence of trajectories, constraints are encoded that are necessary for manipulation, such as the axis of rotation for the valve example as stated above.
+Similar frameworks exist to enable object interaction with pre-built motions, such as team MIT~\cite{fallon2014affordance} and IHMC's~\cite{koolen2013summary} approach for the DRC.
+
+\subsection{User Interface Layer}
+
+\end{figure*}
+\begin{figure}
+  \centering
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{fig/Figure_04/Figure_04_a}
+    \caption[RViz]{
+      \label{fig:rviz}
+      RViz shows in real time the current status of R2 and allows a user to direct motion plans within its environment.
+      RViz engages with Affordance Templates, TaskForce and various sensor feedback from R2.
+      This screenshot shows the operator's view of Figure~\ref{fig:scenario_real}.
+    }
+  \end{subfigure}
+  \begin{subfigure}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{fig/Figure_04/Figure_04_b}
+    \caption[TaskForce]{
+      \label{fig:taskforce}
+      The TaskForce interface enables direction of supervised autonomous operations (e.g., handrail grabbing, torso positioning, valve manipulation, bag grasping).
+      This TaskForce block shows the closed-loop sequence for autonomous handrail localization and grasping.
+    }
+  \end{subfigure}
+  \caption[User Interface for the System] {
+    \label{fig:ui}
+    The low- and high-level interfaces within the system, RViz and TaskForce.
+  }
+\end{figure}
+
+
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[width=0.95\textwidth]{fig/Figure_05/Figure_05}
+
+  \caption[Robonaut 2 Executing Tasks]{
+    \label{fig:case}
+    Robonaut 2 turning the hatch wheel within the mock-up space station.
+    A sequence of still shows the task in execution.
+  }
+
+The user interface layer is a collection of tools for interacting with the rest of the system and therefore the robot itself.
+Two primary modalities exist and are provided to the user: a high-level task engine that enables the scripting and pre-programming of complex tasks, and a visual interface to specify motions with a finer grain of control.
+These tools enable commands ranging from direct motion planning requests with custom constraints to high-level scripts that utilize multiple Affordance Templates to accomplish complex manipulation goals (e.g., the valve and hatch scenario as proposed in Section~\ref{sec:problem}).
+
+The high-level task engine implements a finite state machine, an event-driven engine to describe non-linear behavior and complex tasks with potentially multiple avenues of operation.
+Note that other descriptions of non-linear behavior would fit within this framework, such as a more stateless event-driven system.
+Well-suited to this problem is a visual programming language to describe graphs that encode high-level behaviors, such as RTC~\cite{Hart2014} or SMACH~\cite{jonathan2013smach}.
+TaskForce is a visual scripting language developed for complex robotic systems allowing combinations of specific tasks, known as blocks, to create higher-order behaviors, with part of the interface shown in Figure~\ref{fig:taskforce}.
+This framework allows both linear sets of tasks (e.g., start-up sequences or queues of tasks) and non-linear tasks (e.g., grasping a handrail while performing checks for fault mitigation, and the recovery steps necessary to continue task execution).
+TaskForce is also not \textsc{ROS}-specific, and uses many means of message transport.
+An interesting further avenue of exploration for the high-level task engine is to automatically synthesize behavior given an underlying set of semantics, such as in STRIPS~\cite{fikes1971strips}, which could be imbued in the objects at the object handling layer.
+The domain described by the set of objects in the scene could leverage a task planning algorithm in tandem with the motion planner to generate higher-level behavior automatically~\cite{Dantam2016}.
+
+Low-level interaction requires the ability to fully-specify an instance of a motion plan.
+For these purposes, the system utilizes the RViz visualization framework~\cite{Gossow2011} to allow the user to dictate specific motion requests to the robot through a customized panel, similar to the one implemented by default for interacting with \textit{MoveIt!}.
+How the scenario in Figure~\ref{fig:scenario} looks within the RViz is shown in Figure~\ref{fig:rviz}.
+However, this panel comes with additional augmentations described in~\cite{Baker2017}, along with additional capabilities of generic constraint specification, interaction with the Affordance Templates framework, and interaction with the TaskForce engine.
+
+To specify a motion planning request, the end-effectors or joints of a robot can be manipulated in the visualization environment and a motion plan to a designated pose or configuration requested.
+Additionally, the user can now use constrained motion planners to dictate custom constraints on the motion, with precise values of relative frame locations generated online to handle the robot's movement.
+The constraints of the request are interpreted and ordered by the task and motion planning layer, allowing the user more control over specific motion request and freeing the user from worrying about details of modeling multiple constraints; poorly ordered constraints can result in unsolvable problems due to the hierarchical nature of the inverse kinematics solver.
+Affordance Templates, which contain models of the objects they are associated with, are also placed in the visualization environment, either automatically by the object handling layer or by user input.
+The objects provide context menus that can be interacted with to command high-level tasks directly, or specific components for debugging and generating new motions.
+TaskForce can also be interacted with through the interface, enabling command of the task blocks through a push-button panel.
+TaskForce blocks contain logic for order, fault detection, and retrying -- ideal for executing higher level tasks, which require such complex reasoning to accomplish autonomously, such as grabbing a handrail or executing a set of Affordance Template motions in tandem.

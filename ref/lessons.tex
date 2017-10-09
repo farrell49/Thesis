@@ -1,0 +1,36 @@
+The software system presented in this work was developed towards the goal of being able to solve the presented problem, with the ability to generalize to future problems of similar nature.
+Throughout the course of development, we began understand the form that the connections between the modules should take, and reshaped our understanding.
+
+In regards to the organization of the modules, an important feature that we realized early on was that most of the software could be robot agnostic, up until the task and motion planning layer.
+Planning for a system inherently requires a lot of domain specific knowledge, of the form of the robot, the specific kinematics solvers employed, and so on.
+However, the elements of the object handling and user interface layer are free from R2-specific knowledge in their implementation.
+This is advantageous for many reasons, primarily reducing the amount of configuration and implementation needed by any one part (as it would require extensive knowledge of the robot platform), but also enabling generality so the software system could be moved to another robot.
+Additionally, having a single motion planning system that is used for all movement of the robot streamlines the design of higher-order motions significantly, as there are no issues with handling hand-offs between controllers or control methods and a single interface with a single unifying constraint primitive is all that is necessary.
+This also enables development of both low- and high-level interaction that can be composed together and be used to help debug each other, as both systems use the same motion planning request format.
+A sequence of hand-commanded low-level motions can easily be encoded into a higher-level primitive, and low-level motions can be used to understand why high-level behavior is failing by testing the individual actions.
+
+Global motion planning using a sampling-based planner, as evidenced by the system in practical tasks, can be fast for high-dimensional systems and generate reliable motion plans.
+Exploitation of the manipulator's redundancy was essential for more kinematically complex tasks, such as torso pre-positioning with both feet rigidly attached to handrails.
+Additionally, critical to the execution of geometrically constrained plans is the compliance of the underlying robot.
+The small amount of give in the system when executing tightly constrained motions enable the implicit forces the constraints were modeling to keep the system on track, successfully executing motions that could have ended disastrously for a more rigid robot.
+
+For R2, a lesson that we learned when it came to developing an efficient motion planner was the difficulty of inverse kinematics (IK), specifically for a system with multiple end-effectors and potential goals for frames along the chain.
+We utilized a nearest-neighbor caching system not only to speed up the planning process as IK is used extensively in the constraint framework, but to enable plans that were impossible without \emph{a priori} knowledge of nearby states.
+We imagine that such a system would be a boon to any complex system that regularly uses IK as part of its critical loop.
+
+%% Something about how affordance templates streamlines creation of motions
+
+
+%% Virtual chains and articulated objects are hard to manage, especially in a dynamic fashion.
+
+%% A motion planner needs to be responsive and fast, as well as provide \emph{reasonable} results in order to be used in an interactive system.
+%% Maybe talk about problem simplification and having the human be able to reject plans here?
+
+%% IK is \emph{hard}, and any help that can be provided to the solver is useful. Caching, etc.
+%% Or is it?
+%% Is this just an R2 specific thing?
+
+%% Compliance in a robotic system is useful for executing constrained plans, as things do not go necessarily as planned.
+%% However, this is not reason to throw out geometric reasoning all together.
+
+%% etc... add some more

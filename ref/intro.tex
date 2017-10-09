@@ -1,0 +1,64 @@
+A robot operating in an unstructured environment is faced with a plethora of challenges, each at the frontier of what is possible with modern robotics.
+Recently, much work has gone into understanding how to command and control a robotic system inside the wide range of novel, complex environments that occur in domains such as disaster relief~(e.g., \cite{Johnson2015}), caregiving~(e.g., \cite{FISCHINGER201660}), and spacecraft logistics~(e.g., \cite{Baker2017}).
+These systems must integrate many disparate components of robotics technology and reliably use them: object detection and localization, task and motion planning, and human-robot interfaces.
+Each of these systems employs their own methods of composing these parts into a usable whole.
+Additionally, human operators must be able to command these robots to achieve real work.
+How to integrate these components together for a complex system with many degrees of freedom in a unstructured environment is an open question.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{fig/Figure_01/Figure_01.jpg}
+  \caption[Robonaut 2 Executing Various Tasks] {
+    \label{fig:r2_tasks}
+    Robonaut 2, a dexterous humanoid robot developed by NASA / GM, executing tasks with the proposed system.
+  }
+\end{figure}
+
+\begin{figure*}
+  \centering
+  \begin{subfigure}[t]{0.35\textwidth}
+    \includegraphics[width=\textwidth]{fig/Figure_02/Figure_02.jpg}
+    \caption[Robonaut 2 in Mock-Up Space Station]{
+      \label{fig:scenario_real}
+    }
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.6\textwidth}
+    \includegraphics[width=\textwidth]{fig/Figure_02/Figure_02.png}
+    \caption[Breakdown of Task at Hand]{
+      \label{fig:scenario_drawing}
+    }
+  \end{subfigure}
+  \caption[Archetypal Scenario for the System] {
+    \label{fig:scenario}
+    An example task that the system should solve.
+    \textbf{a)} Robonaut 2 in a microgravity simulator at NASA Johnson Space Center~\cite{Valle2011}.
+    \textbf{b)}
+    i) R2 starts at one end of the mock-up station,
+    ii) climbs towards the valve,
+    iii) positions torso by hatch while grasped with both feet,
+    iv) and turns the valve and pushes the hatch away.
+    v) R2 then climbs through the hatch,
+    vi) positions torso in by the rack while grasped with both feet,
+    vii) unbuckles the restraint,
+    viii) and removes the bag from the rack.
+  }
+\end{figure*}
+
+Technologies presented in the literature are generally demonstrated in isolation, not part of a systemic whole.
+Recently, studies and reports of integrating these technologies shows the additional challenges to consider when designing a system of this nature, such as how to handle the failure of any individual component within the context of the greater whole.
+For example, it is a challenge to transform under-specified user input into usable queries by an autonomous planning layer.
+This must be addressed in order to have usable high-level actions.
+Another challenge is to communicate inferences the system has made about its environment to a user (e.g., recognized objects and ways to manipulate them).
+
+This work has been demonstrated on is the Robonaut 2 (R2) system~\cite{Diftler2011}, depicted accomplishing tasks in Figure~\ref{fig:r2_tasks}.
+Resources are limited in spacecraft, creating need for a system can reuse human tools and spaces.
+R2 is a robotic platform designed to work in the same space as humans in spacecraft.
+Future NASA mission concepts also require spacecraft to be uncrewed for extended periods of time, but systems inside still require maintenance.
+R2 has two arms with seven degrees of freedom (DoF) and a 12 DoF hand each, a three DoF neck, a waist joint, and two seven DoF legs with end-effectors designed to interface with spacecraft handrails.
+R2 also has a sensor package within its head and at the end of each leg that gives image and depth data.
+Despite its humanoid form, R2 is more akin to a mobile manipulator with multiple end-effectors, providing an excellent testbed for the technologies needed to command complex tasks in unstructured environments. 
+
+This paper presents a software system capable of solving motion planning problems with a variety constraints through a single set of interfaces, enabling high- and low-level task specification.
+The system design problem and an archetypal problem the system should solve is shown in Section~\ref{sec:problem}.
+The presented system is shown in Section~\ref{sec:system}, and a case study presenting the system solving the archetypal problem is shown in Section~\ref{sec:study}.
+Finally, a summary of lessons learned is given in Section~\ref{sec:lessons}, with concluding remarks in Section~\ref{sec:conclusion}.

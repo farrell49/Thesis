@@ -1,0 +1,147 @@
+Ref to make bibtex not explode.\cite{Baker2017}
+
+\begin{enumerate}
+\item \textbf{Introduction}
+  \begin{enumerate}
+  \item
+    Figure 1: A cool picture or collection of pictures of R2 accomplishing tasks.
+    A hatch operation, bag grab, and handrail grab would be a good set.
+  \item
+    Introduce the types of problems we would like R2 to solve in the real world.
+    This is objectives like cislunar habitat caretaking, dormancy operations, logistics, etc.
+    Also talk about \emph{other} systems that should accomplish 
+  \item
+    Introduce requirements of a system that would be expected to achieve this set of tasks.
+    I.e., complex robotic system that can operate in human suited environments that can plan for complicated motions.
+  \item
+    Introduce R2 as the system we are demonstrating the concept on in this paper.
+  \item
+    Talk about sampling-based planning as a system to solve complex motion planning queries.
+  \item
+    Talk about the \emph{surprising} challenges that come about when integrating all these components in one software system.
+  \item
+    Talk about our system, a set of high level primitives that all operate through one motion planning system.
+  \end{enumerate}
+  %
+\item \textbf{Related Work}
+  \begin{enumerate}
+  \item
+    Talk about other systems that are reasonably similar to R2 and what we are proposing.
+    This would be things like DARPA, Valkyrie, HPP, PR2, and maybe the HRP2 system.
+  \item
+    Talk about solutions to humanoid movement that are not sampling-based planning, e.g. hierarchical QP solvers, etc.
+    Make sure to talk about differences with sampling-based planning.
+  \item
+    Talk about sampling-based planning in general.
+    Then about constrained planning and what additional features of the problem this adds.
+  \item
+    Find some examples of sampling-based planning used in a full system, reference them as good baselines for our work.
+  \end{enumerate}
+  %
+\item \textbf{Goals \& Scenario}
+  This section is dedicated towards describing the requirements of the system, or what we want the robot to be able to accomplish and what we want the interface to be able to specify.
+  \begin{enumerate}
+  \item
+    Figure 2: An isometric view of the mockup ISS with labeled callouts of the tasks R2 is expected to complete.
+  \item
+    Talk about the class of problems we want to be able to solve, maybe provide some light mathematical notation to make the domain clear (i.e. we want to handle specifically position \& orientation ``volumes'').
+    Definitely provide examples of problems that this format can solve.
+  \item
+    Talk about the specific scenario we will talk about for R2 - relate to the figure.
+  \end{enumerate}
+
+  This section is the glue that motivates the next two sections, which are the description of the interface and system.
+  
+\item \textbf{System}
+  This section will be dedicated towards describing the interaction layer between R2 and the system, and what the system does.
+  This includes affordance templates and how they relate to constraints, how they are used for most operations on the system, etc.
+  Also maybe talk about taskforce \& what it was used to control higher level actions?
+  This is up to the NASA people for how they want to frame the work.
+
+  Regardless, the interesting angle is having a comprehensive piece of software used to specify everything from dexterous manipulation (such as turning the valve and grabbing the valve) to more motion related queries (taking steps, torso movements).
+  Whatever is presented in the section should emphasize the importance of using a single piece of software to specify motions at a high level that interacts both through vision, external events, \& operator interface.
+  The lesson learned is 
+
+  \begin{enumerate}
+  \item
+    Figure 3: Screenshots with callouts describing elements of the interface.
+  \item
+    Talk about the interface to the software system, describing UI elements and other parts of the system.
+    What else here?
+  \item
+    What vision components are used and how do they influence the interface?
+    Marker placement, template placement, etc?
+  \item
+    How are constraints manipulated into usable components by the software system?
+    Give a formal description of the constraints, and emphasize how they are used within different manipulation problems.
+  \item
+    Figure 4: Figure describing constraints and how they relate to R2?
+  \item
+    Brief summary of how motion planning integrates into the system, through one interface.
+    Same planner \& same code to everything in the system.
+  \item
+    Why is it possible to use this motion planner for everything and why not use something like motion planning with visual servoing or just QP control?
+  \item
+    What types of constraints can the system consider, precisely stated?
+    Constraint compositions -- use heuristics based on kinematics to solve and is independent of problem.
+  \item
+    Some other notes on planning:
+    IK Caching to speed results,
+    Constraint sorting \& multi-threaded queries.
+    Plan playback and export.
+    Speed is paramount -- realtime planning.
+  \item
+    Talk about the controllers and how compliance plays in our favor.
+    We can allow tolerances in planning because we know the system can execute successfully while going slightly off-model.
+  \end{enumerate}
+
+\item \textbf{Case Study}
+  Description of what was actually achieved here.
+  When talking about it, we can now talk about the system components that were used to achieve the task.
+  
+  \begin{enumerate}
+  \item
+    Figure 5: Stills from an execution of valve turn or bag grab.
+    Or maybe an annotated figure showing a motion planning request for R2 - showing goal pose for an end-effector and filled in constraints to emphasize the difficulty of the problem?
+  \item
+    Describe the environment again, should have already been covered in the previous section describing the scenario.
+    Just be brief about it.
+  \item
+    If we have empirical results for success rate at achieving tasks or timing results that would be great to detail here.
+  \end{enumerate}
+
+\item \textbf{Lessons Learned}
+  Or the discussion section.
+  Here we should explicitly state what the ``lessons learned'' during implementation and execution were.
+  Contribute more to this section, this is what people come here for after staying seeing the cool robot.
+  Additionally, we should have a ``what we won't do next time'' section within here that describes design choices we would not make the next time.
+
+  \begin{enumerate}
+  \item
+    Something about how affordance templates streamlines creation of motions
+  \item
+    Using a single system to command motion of the robot is incredibly useful to limit duplication of work and streamline higher-level application development.
+  \item
+    Virtual chains and articulated objects are hard to manage, especially in a dynamic fashion.
+  \item
+    A motion planner needs to be responsive and fast, as well as provide \emph{reasonable} results in order to be used in an interactive system.
+    Maybe talk about problem simplification and having the human be able to reject plans here?
+  \item
+    IK is \emph{hard}, and any help that can be provided to the solver is useful. Caching, etc.
+    Or is it?
+    Is this just an R2 specific thing?
+  \item
+    Compliance in a robotic system is useful for executing constrained plans, as things do not go necessarily as planned.
+    However, this is not reason to throw out geometric reasoning all together.
+  \item
+    etc... add some more
+  \end{enumerate}
+
+\item \textbf{Conclusion}
+  \begin{enumerate}
+  \item
+    But really restate the introduction -- we describe a system that we built to control R2 through this scenario which can be applied broadly to this class of problems and gave some lessons that we learned that helped our development.
+  \item
+    Restate the important lessons learned here.
+  \end{enumerate}
+\end{enumerate}

@@ -1,0 +1,47 @@
+
+The core of the system design problem is the organization of a set of software modules, connecting their functionality to enable a robot to do useful work given operator direction.
+Ideally, the system allows an operator to synthesize complex behaviors by combining high-level building blocks while retaining the ability to further refine low-level motions.
+
+The proposed system consists of the following modules, described at a high-level:
+  task and motion planning, which can autonomously plan given specification of some higher-level task,
+  object handling, which ties together computer vision and object semantics,
+  and the user interface, which allows specification of motions at both a ``low-'' and ``high-level'', depending on the needs of the task.
+In isolation, these components are well-understood, but effectively binding their functionality together and exploiting their capabilities as a whole is a challenging problem.
+The challenge in integration is one perennial to software engineering, with the additional factor of attempting to abstract the ``real world.''
+For example, failures in execution and planning must be handled robustly, and information about the system must be abstracted lest high-level components be bogged down with micromanagement of a complex robotic platform.
+Additionally, the components of the system that are specific to one robot should be contained to make the system as general as possible.
+
+Teams at the DARPA robotics challenge (DRC) addressed the problem in context of disaster relief~\cite{Johnson2015, Kohlbrecher2015, Yanco2015, atkeson2015no, Karumanchi2017}, but the underlying core concept was the same:
+  how to organize and address the many challenges of robot software in a way to accomplish a complex task?
+The system presented in this paper differs from approaches taken at the DRC in the robotic platform used and the constraints on the task to achieve.
+DRC competitors were concerned with dynamic stability while walking as well as the low-bandwidth communication between operator and robot.
+Our system is designed towards mobile manipulators that can maneuver quasi-statically, which might have communication \emph{delays}.
+The PR2~\cite{Cousins2010} is more similar in scope to the problem we are addressing (e.g., the caretaker mobile manipulator presented in~\cite{FISCHINGER201660}).
+
+The system presented is designed around the problems that we want to solve: achieving tasks with a set of constraints with a complex, mobile manipulator.
+Moving through the environment and manipulating objects as a whole-body system naturally begets constraints --
+constraints both intrinsic to the robot (e.g., balance and closed-chain systems) and extrinsic (e.g., kinematics of a manipulated valve).
+For the class of problems we wish to solve, task constraints take the form of many challenging problems:
+  closed chain systems (e.g., bimanual manipulation, upper-body motion with both feet fixed),
+  fixed-frame position and orientation (e.g., keeping the upper-body upright still while walking),
+  linear constraints (e.g., opening a drawer),
+  planar constraints (e.g., writing on a board),
+  and rotation constraints (e.g., turning a valve, opening a door).
+The system must be able to handle problems composed of many tasks each with their own set of constraints, and enable an operator to maneuver the robot successfully and efficiently through these problem instances.
+
+Although seemingly disparate, these constraints are unified in a single abstraction which encodes the distance of a configuration from satisfying the constraint.
+The representation is inspired by \emph{task space regions / chains} from~\cite{Berenson2011}, albeit with modifications.
+Notable, the representation must be extended for systems with multiple end-effectors, and allow for \emph{relative frames} to be used as reference frames to encode close chain systems (described previously in~\cite{Baker2017}).
+To undertake more complicated tasks, the representation has been augmented with \emph{virtual chains} to encode kinematic structures in the environment.
+This constraint representation is useful to many robotic platforms, can encode many tasks, and allows use of established methodologies to solve complex problems.
+The system must enable an operator to describe problems that fit this mold, so that relevant problems can be solved.
+
+In R2's case, these problems manifest themselves in maneuvering within a spacecraft as well as in its manipulation tasks.
+An example scenario is depicted within Figure~\ref{fig:scenario}, which takes place in a mock-up of the International Space Station (ISS).
+This problem is composed of two different manipulation tasks, along with the locomotion required to move from task to task.
+In the case of the hatch (Figure~\ref{fig:scenario_drawing}iv), the valve must be turned to unlock the hatch, which requires respecting the rotation constraint imposed by the valve's geometry.
+The hatch must then be pushed out of the way , requiring linear motion of the robot while remaining in contact with the door.
+The bag must be unrestrained from the cargo rack and removed, requiring a complex set of dexterous manipulation skills along with a linear motion to extract the bag (Figure~\ref{fig:scenario_drawing}vii -- viii).
+R2 must also climb from handrail to handrail in order move throughout the mock-up ISS (Figure~\ref{fig:scenario_drawing}ii, v).
+Many different types of planning and manipulation are included in the scenario: long steps across handrails, autonomous grasping of the handrails, torso placement within an object's workspace with both feet down creating a closed-chain system (Figure~\ref{fig:scenario_drawing}iii, vi), and constrained manipulation of the hatch valve and sliding the hatch open.
+The presented system is one way of approaching the problem from a unified front. 

@@ -1,0 +1,46 @@
+
+The system as presented represents a combination of technologies that, in tandem, allow the user to dictate many ``types'' of plans with a multitude of constraints through a single framework.
+To validate the effectiveness of this system and demonstrate its capabilities at solving realistic problems, a scenario, as described in Section~\ref{sec:problem}, is presented that mimics the needs for future space missions.
+When a logistics spacecraft arrives to a habitat, cargo must be removed from the incoming ship and stowed, a tedious and time consuming tasks for astronauts, and a challenging one for a robotic system.
+For trials on Earth, the robot is placed in a mock-up space station while being offloaded by the Active Response Gravity Offload System (ARGOS)~\cite{Valle2011} to allow the simulation of micro-gravity.
+Due to the harnessing that secures Robonaut 2 to ARGOS, a constraint is placed on the robot's motion so that its torso must remain upright, parallel to gravity.
+This constraint must remain imposed throughout the entire course of the robot's motion.
+A view of this can be seen in Figure~\ref{fig:scenario} where R2 must walk up to a hatch, position itself as to rotate the valve to open the hatch, slide the hatch open, walk through the hatch to the cargo rack, position itself in the rack workspace, and then finally remove a restraint and a cargo transfer bag (CTB).
+The task involves many aspects that match to planning problems that exist for many robotic systems outlined in Section~\ref{sec:problem}, and is a collection of challenging tasks in their own right.
+
+First, the robot must be able to move from handrail to handrail, climbing through the mock space station.
+This involves both large (0.5m -- 1.5m step size) motion plans as well as the ability to identify and grasp a handrail.
+This framework allows these motions to be commanded simply via the RViz plugin.
+A simple request to move to a handrail from Affordance Templates will encode the necessary information for the constraints on the system, and a single TaskForce block will go through a planning, execution, and verification task to grasp the handrail.
+Simulation trials were run to verify the effectiveness of the planning tools to solve the large step motion plans.
+Three sets of trials were run over varying planning times with random foot positions varying $\pm$ 1.5m along the axis of the foot.
+Each trial varied the constraints on the system.
+These constraints and results can be seen in Figure~\ref{fig:experiments}, under the labels ``XY'', ``XYZ'', and ``XY, X-axis''.
+``XY'' denotes a footstep with the waist only constrained to remain upright, but may rotate about the axis of gravity freely.
+``XYZ'' constrains the waist further, allowing no rotation.
+``XY, X-axis'' allows the same rotation in ``XY'', but the foot must only move along the world's $x-$axis, a linear constraint.
+This planning type is useful for motion along a handrail, or when descending within a straight-line to grasp a handrail.
+
+Once both feet were on handrails near the hatch, the robot must lower itself into position and manipulate the hatch.
+The first move requires a closed kinematic chain motion with both feet fixed, denoted by ``Torso'' within Figure~\ref{fig:experiments}.
+The second motion requires an axis constraint about the valve.
+The position required for the torso to interact with the hatch is encoded inside the hatch Affordance Template, allowing the user to simply request this motion plan, and the underlying system will handle all of the necessary constrains of the closed kinematic chain.
+Similarly, the valve constraints can be simply encoded in the system to allow motion exclusively along the radius of the valve.
+Both of these types of requests were simulated to show efficacy. 
+
+From the remainder of the task, the robot had to open the hatch using an axis constrained motion of the torso parallel to the door, then take two large steps and affix to handrails near the rack.
+Once near the rack, the torso had to position with respect to the rack and then manipulate both a restraint and a CTB.
+Each of these tasks are still different motion plans in different contexts changing with the environment, but all were planned using the same suite of tools and the same interface.
+This shows the array of task types available to the system with the given
+framework.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.49\textwidth]{fig/Figure_06/Figure_06}
+  \caption[Experimental Results for Common Tasks] {
+    \label{fig:experiments}
+    The cumulative probability of motion planning success versus planning time for a variety of common tasks tested within the shown scenario.
+    All tasks are solvable in under 2 seconds with 100\% chance given 100 trials.
+    The problems and their labels are discussed within the text.
+  }
+\end{figure}
