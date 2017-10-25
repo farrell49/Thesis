@@ -1,11 +1,8 @@
 \ifdefined\isdraft
-\documentclass[draft, onecolumn, letterpaper, 12pt, conference]{ruthesis}
+\documentclass[draft, onecolumn, letterpaper, 12pt]{ruthesis}
 \else
-\documentclass[final, letterpaper, 12pt, conference]{ruthesis}
+\documentclass[final, 12pt]{ruthesis}
 \fi
-
-\IEEEoverridecommandlockouts
-\overrideIEEEmargins
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -27,13 +24,20 @@
 \usepackage{comment}
 \usetikzlibrary{decorations,arrows,shapes}
 \usepackage{float}
-
-\setlength{\marginparwidth}{2cm}
-% \usepackage[obeyFinal]{todonotes}
 \usepackage{todonotes}
 \presetkeys{todonotes}{size=\footnotesize, color=orange!40, fancyline}{}
 
 \newcommand{\abbr}[1]{\textsc{\MakeLowercase{#1}}}
+\usepackage{theorem}
+\newtheorem{proposition}{Proposition}
+
+\theoremheaderfont{\itshape} {\theoremstyle{break}
+\newtheorem{Fact}{Fact}[chapter]} \theoremstyle{break}
+\newtheorem{Lem}{Lemma}[chapter] \theoremstyle{break}
+\newtheorem{Thm}{Theorem}[chapter] {\theoremstyle{plain}
+  \theorembodyfont{\rmfamily}  \newtheorem{Prf}{Proof}[chapter]}
+{\theoremstyle{plain}
+  \theorembodyfont{\rmfamily}  \newtheorem{Def}{Definition}[chapter]}
 
 \title{The Unceasing Cycling of Cycloids to See Cycloid Success}
 \ctitle{The Unceasing Cycling of Cycloids to See Cycloid Success}
@@ -55,7 +59,7 @@
 
 
 \address{Houston, Texas}
-\donemonth{April} \doneyear{2017} \makeindex
+\donemonth{December} \doneyear{2017} \makeindex
 \begin{document}
   %\includepdf[pages={1}]{title1.pdf}
   \begin{frontmatter}
@@ -71,15 +75,25 @@
 \linespacing{1.7}
 
 \include{src/outline}
+\include{src/figure_list}
 \include{src/chapter1}
-\include{chapter2}
-\include{chapter3}
-\include{chapter4}
-\include{chapter5}
+\include{src/chapter2}
+\include{src/chapter3}
+\include{src/chapter4}
+\include{src/chapter5}
+
+%\include{ref/icra/abstract}
+%\include{ref/icra/intro}
+%\include{ref/icra/design}
+%\include{ref/icra/methods}
+%\include{ref/icra/results}
+%\include{ref/icra/dicsussion}
+%\include{ref/icra/conclusion}
+%\include{ref/icra/acknowledgements}
 
 \appendix
-\include{appendix-a}
+
 
 \bibliographystyle{ieeetr}
-\bibliography{thesisBib}
+\bibliography{bib/thesisBib}
 \end{document}

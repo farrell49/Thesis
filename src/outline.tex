@@ -1,7 +1,237 @@
-\chapter{Outline}\label{ch:Outline}
-
+\section{general outline}
 \begin{enumerate}
 \item \textbf{Chapters}
   \begin{enumerate}
-  \item \textbf{Chatper 1: Introduction}
-    Talk about "what are cycloids"
+  		\item \textbf{Acknowledgements}
+  		Thank all of the people. 
+  		Fiance.
+  		O'Malley.
+  		NASA folks. 
+  		Lab mates. 
+  		Parents. 
+
+	  \item \textbf{Chatper 1: Introduction}
+	    Talk about "what are cycloids" and why are they used? 
+
+	    What are the advantages and disadvantages of cyloids at a high level?
+
+	    What are harmonic drives? How do they work briefly? What is important about them versus Cycloids? Why are we interested in not using harmonics? 
+
+	    What work has been done on cycloids in the past? What research have people done, how did they test? 
+	    Go into more detail on what analysis people have done than in the conference paper. 
+	    The math might go here, but it also might go in the section on Design. 
+
+	    Maybe also talk about the projects for which these actuators were developed to give a little context to the work? 
+
+		\item \textbf{Chapter 2: Design}
+		Primarily composed of the design section for the two cyloid drives. 
+
+		Discuss in detail the design and analysis of the first 3 plate cycloid. 
+		Spend some time talking about the forces, how we designed the triple plates and why, and the undersizing of the input bearing, especially if those are the failing component 
+
+		Discuss in detail the design and analysis of the 2 stage cycloid.
+		Hit the math behind the reduction and stuff. 
+		Make sure to hit important points on its design that arise during testing.
+		This might be the section where we talk about initial backlash as well. 
+
+		\item \textbf{Chapter 3: Testing and Analysis of Gen 2 Cycloid}
+		Go through the experimental setup for the Gen2 Cycloid. 
+		Talk about the cycles that we ran it through ect. 
+
+		Discuss "early life" efficiency results and causes and possibilities and such 
+
+		Discuss "late life" efficiency results and study the effects on the components after it has failed.
+		Potentially here there can be a number of figures of the hardware after testing if that is interesting. 
+
+		Discuss the takeaway message of these types of numbers, lifetimes of components, lifetimes or robots, etc. 
+
+		\item \textbf{Chapter 4: Testing and Analysis of 2 stage Cycloid}
+		Go through the experimental steup for the 2 stage. This could turn into it's own Chapter since it applies to both, but probably not. 
+		Talk about the specific cycles that we ran the actuator through. 
+
+		Discuss the intial backlash and how we found it.
+
+		Go through the "early life" efficiency results and causes and possibilities and such 
+
+		Go through the "late life" (if I have it) and how this happened, post facto pictures if they exist. This might not be a thing but that's okay. 
+
+		Discuss the final backlash of the system to understand effects of wear in and use on backlash. 
+
+		Compare torque ripple at the beginning and the end and discuss the negative effects of torque ripple 
+
+		Compare to other actuators that do these huge reductions. 
+
+		\item \textbf{Chapter 4: Conculsions}
+		Go through how cycloids compare to harmonics and planetaries and they're bright sides and downsides. 
+		Talk about things to consider when selecting
+		Talk about things to consider when designing
+		Talk about lifetime characteristics and precautions and things to watch out for. 
+
+	\end{enumerate}
+\end{enumerate}
+
+\section{Actual Outline}
+
+\begin{enumerate}
+	\item \textbf{Chapter 1: Introduction} 
+	\begin{enumerate}
+		\item \textbf{template}
+		\begin{enumerate}
+			\item
+		\end{enumerate}
+		\item \textbf{motivation}
+		\begin{enumerate}
+			\item
+			As robotics continue to expand in our modern world, the demand for high reduction, compact actuators continues to grow. 
+			\item
+			Go through different examples of robotic systems that use actuators like this. Try to spend some time with some more lit review that discusses robotic system design and cite a few needs. 
+			\item
+			Talk about humanoid robotics and their increased development of late and their needs in actuation. Cite the Valkyrie papers here probably for design. Doubt Atlas has any, but it'd be good. 
+
+			Discuss the increasing market for 6DoF arms and their design and use cases. 
+
+			Keep this section a little short because Cycloids aren't applicable in super high precision cases. More high torque cases. 
+			\item
+			Discuss rovers and their needs and use cases. Specifically targeting joints that do not require perfect positioning. 
+		\end{enumerate}
+
+		\item \textbf{Harmonic intro}
+		\begin{enumerate}
+			\item
+			Give an overview of harmonic drives and what they are and what they are used for. Maybe include a graphic of a harmonic and how it works? Might be unecessary. 
+			\item
+			Discuss the specific efficiency and capability of harmonic drives, the types of torques and masses would be good. Duplicate some of the graphs from their data sheets like we did in the conf. paper. 
+		\end{enumerate}
+
+		\item \textbf{cycloid intro}
+		\begin{enumerate}
+			\item
+			Give an overview of the conceptual motion of a cycloid. Include the graphic for how cycloids move. 
+			\item
+			Discuss spectrum of design styles going over how many in industry use rolling elements at the housing and output pins to gain efficiency back (maybe lifetime too depending on how these fail) and how these are built that do not have any rolling elements to decrease mass but could cause slidign contact if/when manufacturing differences are present. 
+			\item
+			Discuss the previous research in the area of cycloids. 
+
+			Question: Do the design equations and stress information that we used for design go in here, or do they go in the second section? 
+		\end{enumerate}
+
+		\item \textbf{Projects that these actuators were built for}
+		\begin{enumerate}
+			\item 
+			Gen 2 Chariot: Go through the wheel module and design requirements for the actuator. 
+			\item
+			RP: Go through the motivation for the project and the design requirements for the suspension actuator 
+			\item
+			QUESTION: Do these go in here or do they go into the respective design sections? 
+		\end{enumerate}
+
+		\item \textbf{Thesis outline}
+		\begin{enumerate}
+			\item
+			Explicitely state the contribution of this work
+			\item
+			Go through what will be presented in each section. 
+		\end{enumerate}
+
+	\end{enumerate}
+
+	\item \textbf{Chapter 2: Cycloid Design}
+	\begin{enumerate}
+		\item \textbf{General Equations for Design}
+		\begin{enumerate}
+			\item 
+			Equations for Reduction and their sources 
+			\item
+			Equations for the decrease of size of profile for machining tolerances 
+			\item 
+			Equations for stress calculation for sizing of components. 
+		\end{enumerate}
+
+		\item \textbf{Gen 2}
+		\begin{enumerate}
+			\item
+			Driving values to size actuator 
+			\item 
+			Results from calculations to achieve the reduction we need 
+			\item
+			Results from calcs for sizing of the plates and pins based on previously developed equations 
+			\item 
+			Sizing of bearings. (This could be important if it is the input bearings that are going caput) 
+		\end{enumerate}
+
+		\item \textbf{2 Stage}
+		\begin{enumerate}
+			\item
+			Driving values to size the actuator
+			\item
+			Results from calcs to achieve the reduction that is needed 
+			\item 
+			results from calcs for sizing the plates and housing lobes etc.
+			\item
+			sizing of bearings etc.  
+		\end{enumerate}
+	\end{enumerate}
+
+	\item \textbf{Chapter 3: Testing and Analysis of Single Stage}
+	\begin{enumerate}
+		\item \textbf{Test Setup}
+		\begin{enumerate}
+			\item
+			Go through command and control of the actuator. Specifically discuss the controlling electronics (turbo and Renishaw) and how we are commutating the system to make it go. 
+			\item
+			Go through testing system. The brake, how we are controlling the brake. Why we have to gear up and how we are doing that. The load cell and the conversion board that it is going through that gets us the system. 
+			\item
+			Discuss the load profiles that were run on the system over time. 
+			\begin{enumerate}
+				\item initial setup time (5-10 hours)
+				\item long drive cycles (first 100 hours, rest of the hours) 
+				\item efficiency testing profile
+			\end{enumerate}
+		\end{enumerate}
+
+		\item \textbf{Results}
+		\begin{enumerate}
+			\item
+			Burn in time and implications of that 
+			\item 
+			lifetime charcteristics
+			\begin{enumerate}
+				\item
+				Number of hours and cyles run
+				\item
+				Failure mode (still need to discover) 
+				\item
+				Regrease and Re-Run of system and discussion if possible 
+			\end{enumerate}
+			\item
+			Efficiency numbers.
+			\begin{enumerate}
+				\item
+				After burn in 
+				\item
+				After ~250 hours and 125k cycles 
+				\item
+				POTENTIAL: After service and regrease 
+			\end{enumerate}
+			\item
+			Mass of system versus the cycloid (short section, may need to go somewhere else and mention again in discussion)
+			\item
+			Discussion of overall results and their meaning with regards to design of a system to be used in this application 
+		\end{enumerate}
+	\end{enumerate}
+
+	\item \textbf{Chapter 4: Testing and Analysis of Two Stage}
+	
+	This will evolve after I start testing. The general structure will be the same as Chapter 3
+	\begin{enumerate}
+		\item \textbf{Test setup}
+		\item \textbf{Results}
+	\end{enumerate}
+
+
+	\item \textbf{Chapter 5: Conclusions}
+	\begin{enumerate}
+		\item \textbf{some conclusion stuff}
+		\item \textbf{I'll fill this in more after I finish testing and know what all of my conclusions really and truly are}
+	\end{enumerate}
+\end{enumerate}
