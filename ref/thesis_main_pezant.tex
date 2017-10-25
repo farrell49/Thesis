@@ -1,0 +1,111 @@
+\documentclass[12pt]{ruthesis}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{graphics}
+\usepackage{epsfig,epsf,rotating}
+\usepackage{subfigure}
+\usepackage{epsf}
+\usepackage{color}
+
+\usepackage{etextools}
+%\usepackage{amssymb}
+\usepackage{float}
+\usepackage{makeidx}
+%\usepackage{amsmath}
+%\usepackage{epsfig}
+%\usepackage{epsf}
+\usepackage{psfrag}
+\usepackage{verbatim}
+%\usepackage{color}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{booktabs} % for \midrule, \bottomrule, etc, for tables
+    \setlength{\heavyrulewidth}{0.10em}
+    \newcommand{\otoprule}{\midrule[\heavyrulewidth]}
+%\usepackage[tight,footnotesize]{subfigure}
+\usepackage{array}
+\usepackage{soul}
+\usepackage{footnote}
+%\usepackage{mathptmx}
+\let\savedegree\degree
+\let\degree\relax
+\usepackage{gensymb}
+\let\degree\savedegree
+%\usepackage{subfloat}
+
+%\usepackage[all]{xy}
+%\usepackage{pgfplots}
+\usepackage{dblfloatfix}
+
+\usepackage{graphicx}
+\graphicspath{{Figures}}
+\DeclareGraphicsExtensions{.pdf,.png}
+\usepackage{bigstrut}
+\usepackage{standalone}
+\usepackage{preview}
+\usepackage{mathtools}
+\usepackage{cite}
+%\usepackage{hyperref}
+\usepackage{courier}
+\usepackage{pdfpages}
+
+
+\usepackage{theorem}
+\newtheorem{proposition}{Proposition}
+
+\theoremheaderfont{\itshape} {\theoremstyle{break}
+\newtheorem{Fact}{Fact}[chapter]} \theoremstyle{break}
+\newtheorem{Lem}{Lemma}[chapter] \theoremstyle{break}
+\newtheorem{Thm}{Theorem}[chapter] {\theoremstyle{plain}
+  \theorembodyfont{\rmfamily}  \newtheorem{Prf}{Proof}[chapter]}
+{\theoremstyle{plain}
+  \theorembodyfont{\rmfamily}  \newtheorem{Def}{Definition}[chapter]}
+
+\title{Design, Characterization, and Validation of the OpenWrist Exoskeleton}
+\ctitle{Design, Characterization, and Validation of the OpenWrist Exoskeleton}
+\author{Evan Pezent}
+\department{Department of Mechanical Engineering}
+\school{Rice University}
+\degree{Master of Science}
+
+\committee {
+        Marcia K. O'Malley, Chair \\
+        Professor of Mechanical Engineering \and
+        Fathi H. Ghorbel \\
+        Professor of Mechanical Engineering \and
+        Lydia E. Kavraki \\
+        Professor of Computer Science
+}
+
+\address{Houston, Texas}
+\donemonth{April} \doneyear{2017} \makeindex
+\begin{document}
+  \includepdf[pages={1}]{title1.pdf}
+  \begin{frontmatter}
+   \pagenumbering{roman}
+   %\maketitle
+   \include{abstract}
+   \include{ack}
+   \tableofcontents
+   \listoffigures
+   \listoftables
+  \end{frontmatter}
+\pagenumbering{arabic}
+
+\linespacing{1.7}
+
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+\include{chapter5}
+
+\appendix
+\include{appendix-a}
+
+\bibliographystyle{ieeetr}
+\bibliography{thesisBib}
+\end{document}
+

@@ -1,0 +1,104 @@
+\begin{figure}[!b]
+   \centering
+   \includegraphics[width=0.75\linewidth]{fig/test_stand}
+   \caption{Experimental Test Setup.
+   The cycloid actuator is mounted to structure via the load cell.
+   There is a speed increase so the brake can generate enough torque on the system.
+   Not pictured is the controlling computer, motor driver, and high voltage supply.}
+   \label{test_setup}
+\end{figure}
+
+The intent of testing the cycloidal drive is to experimentally determine and compare the in-use efficiency results to the published performance data for a comparable harmonic drive.
+To accomplish this, the actuator was mounted to a Futek TF600 5000inlb load cell to measure output torque of the actuator.
+The load cell signal was collected through a analog to digital converter and converted to standard units on the motor driver.
+A verification of torque readings was completed using a calibrated torque wrench to ensure accuracy of the conversion.
+Load was regulated by a Magtrol HB-1750 hysteresis brake.
+A 36:1 speed increase was added via three chain stages between the output of the actuator and the hysteresis brake to achieve the desired applied loads.
+The hysteresis brake was powered using a separate 24V Lambda-TDK power supply that was controlled through a RS-485 communication link to the test computer.
+NASA's 'turbodriver' motor driver was used for commanding motor currents.
+The motor driver was powered by a TDK-Lambda 12V supply for logic power and a TDK-Lambda 150V and 5A supply for high voltage power.
+A hysteresis current controller was used on the motor drive to accurately provide torque producing current to the motor.
+The motor driver monitored the actuator power by measuring torque from the load cell and speed with an incremental encoder located at the actuator motor shaft.
+The test computer monitored the high voltage supply and recorded voltage and current to determine input power to the system and recieved data from the motor driver to calculate output power.
+The test setup is shown in Fig \ref{test_setup}.
+
+Due to the tightly integrated actuator design, the motor and cycloid cannot be separated to purely isolate the losses in the cycloid.
+The efficiency map of the motor over its torque and speed range was provided by Parker Motors.
+For calculation purposes, this table is used as a lookup table for efficiency of the motor given the current motor velocity and rms input current.
+While this does generate a level of uncertainty in the data, these motors are mass manufactured and defects are assumed to be small.
+The error in the motor efficiency map is assumed to be small and would not influence the perceived trends and results.
+Power losses in the motor driver were also taken into consideration by calculating power losses in the IGBT that drives the motor.
+Instantaneous current draw and a switching frequency of 12 kHz were used for the calculation, neglecting small leakage losses \cite{ref:IGBTPower}.
+
+\begin{figure}[!b]
+   \centering
+   \includegraphics[width=\linewidth]{fig/eff_test_profile_v4}
+   \caption{Testing profile for efficiency.
+   At each speed step, torque is ramped up through five different levels, then the speed is increased.
+   At the last step, the maximum of the supply was reached so motor velocity dropped.}
+   \label{eff_profile}
+\end{figure}
+
+The system was tested in two separate ways, an efficiency cycle and a long term drive cycle.
+The efficiency cycle test was run after the long term drive cycle to ensure steady state performance before cycling through a set of velocities and torques.
+The actuator is subjected to eight velocity steps increasing 0.25 rad/s each time.
+In each velocity step, the torque is ramped up and maintained for 15 seconds at values of 1Nm, 15Nm, 52Nm, 94Nm, and 189Nm.
+This testing profile can be seen in Fig \ref{eff_profile}.
+The long term drive cycle was run continuously each day for 6 to 12 hours with the duty cycles shown in Table \ref{table_2}.
+The total runtime of the system, not including the initial checkout and verification of the actuator, has been 111 hours.
+
+\begin{table}[h]
+  \vskip0.2cm
+  \caption{Long Run Drive Cycle}
+  \label{table_2}
+  \begin{center}
+    \vskip-0.2cm
+    \begin{tabular}{|c||c||c|}
+    \hline
+    Time (s) & Velocity (rad/s) & Torque (Nm)\\
+    \hline
+    150 & 1.0 & 0.0\\
+    \hline
+    150 & -1.0 & 0.0\\
+    \hline
+    60 & 0.5 & 26.0\\
+    \hline
+    60 & -0.5 & 26.0\\
+    \hline
+    150 & 1.5 & 10.0\\
+    \hline
+    150 & -1.5 & 10.0\\
+    \hline
+    30 & 1.0 & 50.0\\
+    \hline
+    30 & -1.0 & 50.0\\
+    \hline
+    300 & 0.5 & 18.0\\
+    \hline
+    300 & -0.5 & 18.0\\
+    \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+It should be noted that the actuator was used briefly in the robot validation after initial development and construction of the prototype wheel module.
+The total time of use was approximately three hours.
+Afterwards, it was removed from the wheel module and subjected to the characterization that is discussed in this work.
+The motor has a continuous current rating of 4.3 A\textsubscript{rms} and a peak rating of 15A\textsubscript{rms}.
+The actuator was designed to be liquid cooled to allow operations above the continuous values, but this could not be achieved during testing.
+For long duration testing, the torque values were decreased to avoid thermal issues.
+The motor was tested to approximately 6A\textsubscript{rms} during efficiency testing due to the limit of the power supply.
+Also, the motor driver's rated limits are 150V, therefore the actuator's maximum rated speeds could not be tested.
+The nominal cycle of the actuator as seen in Fig \ref{duty_cycle} is still achievable and has been tested.
+
+\begin{figure*}[t]
+   \centering
+   \includegraphics[width=\linewidth]{fig/long_run_plot_v4}
+   \caption{Efficiency over time for three different speed/torque profiles during the drive cycle.
+   The forward motion can be seen with the dotted line, reverse with the solid line.
+   At the onset of testing, visible efficiency gains are made.
+   As each day begins, there is a clear warm-up period before steady state.
+   }
+   \label{long_run}
+\end{figure*}
+
