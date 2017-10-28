@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment this line out if you need a4paper
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{cite}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{textgreek}
+\usepackage{fixltx2e}
+
+
+%\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4 paper
+
+\IEEEoverridecommandlockouts                              % This command is only needed if 
+                                                          % you want to use the \thanks command
+
+\overrideIEEEmargins                                      % Needed to meet printer requirements.
+
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
+
+% The following packages can be found on http:\\www.ctan.org
+%\usepackage{graphics} % for pdf, bitmapped graphics files
+%\usepackage{epsfig} % for postscript graphics files
+%\usepackage{mathptmx} % assumes new font selection scheme installed
+%\usepackage{times} % assumes new font selection scheme installed
+%\usepackage{amsmath} % assumes amsmath package installed
+%\usepackage{amssymb}  % assumes amsmath package installed
+
+\title{\LARGE \bf
+Cycloidal Geartrain In-Use Efficiency Study
+}
+
+\author{Logan C. Farrell$^{1}$, James Holley$^{2}$, William Bluethmann$^{3}$, and Marcia K. O'Malley$^{4}$% <-this % stops a space
+\thanks{$^{1}$Logan Farrell is with the Department of Mechanical Engineering at Rice University and NASA: Johnson Space Center.
+		{\tt\small Logan.C.Farrell@NASA.gov}}%
+\thanks{$^{2}$James Holley is with the Department of Mechanical Engineering at Rice University and NASA: Johnson Space Center.}%
+\thanks{$^{3}$William Bluethmann is the project manager for rovers at NASA: Johnson Space Center.}%
+\thanks{$^{4}$Marcia O'Malley is on the Faculty in the Department of Mechanical Engineering at Rice University, Houston, TX}%
+}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\section{Introduction}
+\label{intro}
+\input{sections/intro}
+
+\section{Cycloid Design}
+\label{design}
+\input{sections/design}
+
+\section{Experimental Methods}
+\label{methods}
+\input{sections/methods}
+
+\section{Results}
+\label{results}
+\input{sections/results}
+
+\section{Discussion}
+\label{discussion}
+\input{sections/discussion}
+
+\section{Conclusion}
+\label{conclusion}
+\input{sections/conclusion}
+
+\section{Acknowledgements}
+\label{acknowledgements}
+\input{sections/acknowledgements}
+
+\bibliographystyle{IEEEtran}
+\bibliography{Cycloid_ICRA_Bib}
+
+\end{document}
