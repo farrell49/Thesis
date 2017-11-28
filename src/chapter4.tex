@@ -1,15 +1,26 @@
 %!TEX root = thesis_main.tex
 
-\chapter{Testing and Analysis of Dual Stage Cycloid}\label{ch:dual}
+\chapter{Design and Analysis of a Two Stage Cycloid}\label{ch:dual}
+% Give the abstract for a 2-stage 
+% People did not put many numbers on pages for these things 
+% We built one based on the available information, that lead us to understand many of the deficiencies and to further investigate, leading to the equations I'm presenting before you. 
+
+\section{Overveiw of Existing Equations} \label{ch:dual:initial_equations}
+% Go over the 4 papers and talk about what they say, how it's derived, and finish with "what they're missing" 
+% - present the way math behind my derived values, changes of frame etc. 
+
+\section{Development of Two-Stage Design Equations} \label{ch:dual:equations}
+% Go over what I have invented
+% - the motion equations of the pins 
+% - The load equations on the pins 
+% - the projected efficiency of the system. 
 
 
-\section{Test Setup} \label{dual:test_setupd}
-
-typity type type type
-new line
-
-double new line 
-
-\section{Results} \label{dual:results}
+\section{Simulation and Test Results} \label{dual:test_results}
+% Go over the simulation results, loads in different conditions etc.
+% - show the losses as a function of torque and velocity 
+% - look at losses for different ratios of R/Rr 
+% - show the predicted losses versus the actual losses of the designed cycloid. 
 
 \section{Discussion} \label{dual:discussion}
+% Two-stages aren't awesome because you have such a multiplication of force, and the loss scales more sharply with force (not to mention the huge multiplcation of velocity too for that matter that scales by a different factor) and that causes pretty inefficient designs for this compact style. They should be built with rolling elements based on this analysis, and no one has said that yet, so boom bitches. 
