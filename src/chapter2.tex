@@ -212,10 +212,10 @@ Knowing the reduction must be 59:1 and the output torque of the cycloid before t
 The interaction between the elements of a single stage cycloid can be seen in Fig. \ref{fig:single_loads} that details the forces present in a cycloid. The input force from the motor drives through the eccentric bearing to the wobble plate. These loads are then reacted through the housing rollers and output pins. One will notice that the loads can only form on one half of the rollers and pins at a time, as these members are in compression, and if a tension force forms, they will separate and not carry load. In a perfectly manufactured arrangement, the number of lobes in contact, \textit{N\textsubscript{lc}} and output pins in contact, \textit{N\textsubscript{oc}}, is simply 
 
 \begin{equation}
-N_{lo} = \frac{N_{lobes}}{2},\ if\ N_{lobes}\ is\ even 
+N_{1c} = \frac{N_{1} - 1}{2},\ if\ (N_1 -1)\ is\ even 
 \end{equation}
 \begin{equation}
-= \frac{N_{lobes} - 1}{2},\ if\ N_{lobes}\ is\ odd 
+= \frac{(N_{1}-1) - 1}{2},\ if\ (N_{1} - 1)\ is\ odd 
 \end{equation}
 \begin{equation}
 N_{oc} = \frac{N_{pins}}{2},\ if\ N_{pins}\ is\ even 
@@ -229,11 +229,16 @@ There are a geometric number of values depicted in Fig. \ref{fig:single_loads} t
 \begin{equation} \label{eq:single_b}
 \beta_i = \frac{2\pi i}{N_1}
 \end{equation}
+\begin{equation} \label{eq:single_d:x}
+d_x = R \cos(\beta_i) - E N_1 \cos(\phi_2)
+\end{equation}
+\begin{equation} \label{eq:single_d:y}
+d_y = R\sin(\beta_i) - E N_1 \sin(\phi_2)
 \begin{equation} \label{eq:single_d}
-d = \sqrt{\rho_1^2 + R^2 - 2 \rho_1 R \cos{\beta_i}}
+d = \sqrt{d_x^2 + d_y^2}
 \end{equation}
 \begin{equation} \label{eq:single_alpha}
-\alpha_i = \sin^{-1}\left[{\frac{R \sin{\beta_i}}{d}}\right]
+\alpha_i = \sin^{-1}\left[{\frac{R \sin{\beta_i - \phi_2}}{d}}\right]
 \end{equation}
 \begin{equation} \label{eq:single_rho2}
 \rho_2 = \rho_1 - E
@@ -251,13 +256,13 @@ M_a = \frac{R_o}{N_1} \sum_{j=1}^{N_{oc}} F_{oj} \sin(\beta_j + N_1 \phi_2)
 Ma = F_{input} E \cos(N_1 \phi_2 + \gamma)
 \end{equation}
 \begin{equation} \label{eq:single_x}
-\sum_{i=1}^{N_{lc}} F_{ri} \cos{\alpha_i} - \sum_{j=1}^{N_{oc}} F_{oj} \cos(N_1*\phi_2) - F_{input} \sin{\gamma} = 0
+\sum_{i=1}^{N_{1c}} F_{ri} \cos{\alpha_i} - \sum_{j=1}^{N_{oc}} F_{oj} \cos(N_1*\phi_2) - F_{input} \sin{\gamma} = 0
 \end{equation}
 \begin{equation} \label{eq:single_y}
--\sum_{i=1}^{N_{lc}} F_{ri} sin{\alpha_i} + \sum_{j=1}^{N_{oc}} F_{oj} sin(N_1*\phi_2) + F_{input} \cos{\gamma} = 0
+-\sum_{i=1}^{N_{1c}} F_{ri} sin{\alpha_i} + \sum_{j=1}^{N_{oc}} F_{oj} sin(N_1*\phi_2) + F_{input} \cos{\gamma} = 0
 \end{equation}
 \begin{equation} \label{eq:single_torqe}
-\sum_{i=1}^{N_{lc}}F_{ri} l_i - \sum_{j=1}^{N_{oc}}F_{oj} R_o \sin(\beta_j + N_1 \phi_2) = 0
+\sum_{i=1}^{N_{1c}}F_{ri} l_i - \sum_{j=1}^{N_{oc}}F_{oj} R_o \sin(\beta_j + N_1 \phi_2) = 0
 \end{equation}
 
 In order to solve this system of equations, an additional assumption must be made. That is, that the forces on the pins and rollers are relative to their length \textit{l\textsubscript{ij}}, that is 
@@ -395,7 +400,8 @@ Using this relationship, the sliding velocity between the cycloid plate and hous
 Due to the assertion that there is sliding of some type (either the plate along the pin, or the pin rolling in the housing) and there are forces acting on these pins shown in Fig \ref{fig:single_force}, there is some loss associated with this interaction that has not previously been captured in the literature. Using the forces developed along the pins in Section \ref{ch:design:single:force_analysis} and the sliding velocities for each pin developed in Section \ref{ch:design:pin_roll_1s:sliding_equations}, the power losses for the system can be estimated using 
 
 \begin{equation} \label{eq:single_power_loss}
-P_L = \sum_{i=1}^{N_{lc}}\mu F_ri V
+P_L = \sum_{i=1}^{N_{1c}}\mu F_ri V
+\end{equation}
 
 Note that there will only be losses on pins that have a contact force, which was defined as the number of pins divided by two at any given time. The estimated losses due to the cycloid disk rolling along the housing pins, which must then slide in the housing can be calculated for the single stage cycloid for a given range of inputs. These results are shown in Table \ref{table:single_slide_estimate}.
 
