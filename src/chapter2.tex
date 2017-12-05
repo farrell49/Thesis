@@ -7,87 +7,114 @@
 \section{General Design Calculations} \label{ch:design:basic_calc}
 % Talk about the basic design equations for a cycloid, how do you generate the driving profile? 
 
-Cycloidal Drives harness a unique motion to create the desired reduction ratios in a drive device. The combination of an eccentric input coupled with a epitrochoid plate creates a potentially high reduction device. In addition, this device is made of solid, relatively easy to manufacture pieces, giving it a unique advantage over other high reduction systems such as a harmonic drive. The design equations for many aspects of a single stage cycloidal design have been well covered in the literature. The basic generating profiles will be discussed here to develop an understanding of the motion, and to lay a foundation for additiional analysis and calculations for a single stage in \ref{ch:design:pin_roll_1s} and as a basis for a two-stage design presented in \ref{ch:dual}. 
+Cycloidal Drives harness a unique motion to create the desired reduction ratios in an actuator. The combination of an eccentric input coupled with an epitrochoid plate creates a potentially high reduction device. In addition, this device is made of solid, relatively easy to manufacture pieces, giving it a unique advantage over other high reduction systems such as a harmonic drive. The design equations for many aspects of a single stage cycloidal design have been well covered in the literature. The basic generating profiles will be discussed here to develop an understanding of the motion, and to lay a foundation for additional analysis and calculations for a single stage in Section \ref{ch:design:pin_roll_1s} and as a basis for a two-stage design presented in Chapter \ref{ch:single}. 
 
 \subsection{Conceptual Overview of Cycloidal Motion} \label{ch:design:basic_calc:overview}
-\todo[inline]{Is this subsection needed?}
 
 Cycloidal drives harness eccentric motion with interaction between a plate and a housing to result in the reductions gained. The basic construction of a single stage cycloid can be seen in fig \ref{fig:single_cartoon} involves four distinct pieces
 \begin{enumerate}
 	\item the motor input, a concentric shaft with an eccentric circle with eccentricity \textit{E} (color)
-	\item the ``wobble-plate'' that is mounted to the eccentric circle (color)
-	\item the housing that contains the rollers that the wobble plate interacts with (color),
-	\item and the output, which uses pins to harness the rotation of the wobble plate and bring the motion back to concentric (color).
+	\item the ``cycloid-plate'' that is mounted to the eccentric circle (color)
+	\item the housing that contains the rollers that the cycloid plate interacts with (color),
+	\item and the output, which uses pins to harness the rotation of the cycloid plate and bring the motion back to concentric (color).
 \end{enumerate}
-The motion induced is complex and generally non-intuitive to most. An illustration of this motion can be seen in the collection of images in Fig. \ref{fig:single_motion}. The system is designed such that the wobble plate has one fewer lobe than the housing has rollers \cite{Pollit}. If the housing did not exist, the wobble plate would just move in an eccentric circle with no rotation due to the input shaft's eccentricity. However, due to the lobes interacting with the pins in the housing, and there being one fewere lobe than pins, the lobes move into the spaces created by the pins during the eccentric motion. This pushing into these gaps causes the wobble plate to rotate about it's local axis, which will be referred to as the C-axis. This counter-rotation is defined by \ref{eq:single_stage_ratio} \cite{ref:on_the_lobe}.
+
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.60\linewidth]{fig/cycloid_cartoon_v2}
+   \caption{Simple rendering of the key elements that create a cycloidal drive.
+   A drive shaft spins a cycloidal disk (cycloid plate) via an eccentric circle.
+   The cycloid plate reacts against the housing pins to create a counter-rotation, harnessed by the output pins.}
+   \label{fig:single_cartoon}
+\end{figure}
+
+The motion induced is complex and generally non-intuitive to most. An illustration of this motion can be seen in the collection of images in Fig. \ref{fig:single_motion}. The system is designed such that the cycloid plate has one fewer lobe than the housing has rollers \cite{ref:pollitt}. Analysis has been done on systems with more than one lobe difference \cite{ref:hsieh_traditional}, but a single lobe difference is used in this work. If the housing did not exist, the cycloid plate would just move in an eccentric circle with no rotation due to the input shaft's eccentricity. However, due to the lobes interacting with the pins in the housing, and there being one fewer lobe than pins, the lobes move into the spaces created by the pins during the eccentric motion. The pushing of the cycloid plate lobes into these gaps causes the cycloid plate to rotate about it's local axis, which will be referred to as the C-axis. This counter-rotation is defined by \ref{eq:single_stage_ratio} \cite{ref:on_the_lobe} where \textit{N\textsubscript{1}} is the number of housing rollers.
 
 \begin{equation} \label{eq:single_stage_ratio}
-Z = \frac{Z_{lobes}} {Z_{pins} - Z_{lobes}}
+Q = \frac{N_1-1} {N_1 - (N_1 - 1)} = N_1 -1
 \end{equation}
 
-The intution for the creation of the counter-rotation of the wobble plate has now been established, but this counter-rotation must be harnessed in order to create an effective reduction. This is where the output component plays in. This output component must not only harness the counter-rotation, but must also return the output to be concentric with the input to be used effectively. If the output were fixed to the wobble-plate, the output would have eccentric motion. This results in the conceptual design presented, in which an output plate is mounted on a conenctric bearing and has pins of radius \textit{R\textsubscript{o}} that are fixed to it. These pins insert into the wobble plate into holes that are 
+The intuition for the creation of the counter-rotation of the cycloid plate has now been established, but this counter-rotation must be harnessed in order to create an effective reduction. This is where the output component plays in. This output component must not only harness the counter-rotation, but must also return the output to be concentric with the input to be used effectively. If the output were fixed to the cycloid-plate, the output would have eccentric motion. This results in the conceptual design presented, in which an output plate is mounted on a concentric bearing and has pins of radius \textit{R\textsubscript{o}} that are fixed to it. These pins insert into the cycloid plate into holes that are 
 
 \begin{equation} \label{eq:pin_hole_diam}
 R_{hole} = R_o + 2E.
 \end{equation}
 
-This larger diameter hole allows the wobble plate to move eccentrically around the pins and therefore, half of the pins are recieving the load at any one time from the wobble-plate. This basic concept allows for the high reductions and loads seen in single-stage cycloids.
+This larger diameter hole allows the cycloid plate to move eccentrically around the pins and therefore, half of the pins are receiving the load at any one time from the cycloid-plate. This concept allows for the high reductions and loads seen in single-stage cycloids.
 
-\begin{figure}[!b]
-   \centering
-   \includegraphics[width=0.60\linewidth]{fig/cycloid_cartoon_v2}
-   \caption{Simple rendering of the key elements that create a cycloidal drive.
-   A drive shaft spins a cycloidal disk (wobble plate) via an eccentric circle.
-   The wobble plate reacts against the housing pins to create a counter-rotation, harnessed by the output pins.}
-   \label{fig:single_cartoon}
-\end{figure}
-
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
    \includegraphics[width=0.60\linewidth]{fig/single_stage_motion}
    \caption{Create a graphic for the motion of a single stage through space. Do it similar to my animation for a 2 stage, but put in the input pins... I know, it sucks}
-   \label{fig:singe_movement_cartoon}
+   \label{fig:singe_motion}
 \end{figure}
 
 \subsection{Lobe Profile Calculation} \label{ch:design:basic_calc:profile}
 
-Now that the basic design and motion of a single-stage cycloid has been established, the specific profile that allows the meshing of the wobble-plate with the housing pins can be established. These equations have been established by multiple authors in previous works, however, they will be fully described in this section to allow expansion by the work presented in this Thesis in subsequent sections and chapters. 
+Now that the basic design and motion of a single-stage cycloid has been established, the specific profile that allows the meshing of the cycloid-plate with the housing pins can be discussed. These equations have been presented by multiple authors in previous works, however, they will be fully described in this section to allow expansion by the work presented in this Thesis in subsequent sections and chapters. 
 
-The work by Shin et. al. \cite{ref:on_the_lobe} describes the generating equations for the cycloid profile well and was used as the basis for the equations used in this work, however, many other works prior to Shin et. al. give the full detail of these profiles \cite{ref:malhorta}, \cite{ref:hwang_hsieh}, \cite{ref:design_and_application}.
-\todo{Not sure I like this phrasing}.
-The primary goal of generating a profile if manufacturing conditions are perfect, is that the lobes of the cycloid plate would stay in perfect contact with the pins of the housing throughout he motion. In practice, some clearance is desired when not transmitting load to allow assembly and manufacturing tolerances, but this will be addressed later. The basic principle that is harnessed to generate these profiles is Kennedy's Theorem. Kennedy's Theorem states that ``any three bodies having planar motion relative to one another have three instant centers, and they lie on a straight line.''\cite{ref:kinematics_and_dynamics}. This concept is illustrated in fig \ref{fig:kennedy_sliding}. That is, any two bodies that are in contact must have an instant center that falls along the line made by the line of centers of the bodies. In addition, this instant center must also fall along the common tangent line of their interaction. Using this definition for where the instant center falls for the contact between the bodies and the common normal, the equations for the profile to meet these criteria can be generated. 
-
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
-   \includegraphics[width=0.60\linewidth]{fig/kennedy_sliding}
-   \caption{Create a graphic similar to that found in the text for Kennedy's Theorem. Use the phrasing "figure adapted from \cite{ref:kinematics_and_dynamics}"}
+   \includegraphics[width=0.60\linewidth]{fig/kennedy_sliding_TODO}
+   \caption{TODO: Create a graphic similar to that found in the text for Kennedy's Theorem. Use the phrasing "figure adapted from \cite{ref:kinematics_and_dynamics}"}
    \label{fig:kennedy_sliding}
 \end{figure}
 
-\begin{figure}[!b]
+The work by Shin et. al. \cite{ref:on_the_lobe} describes the generating equations for the cycloid profile well and was used as the basis for the equations used in this work, however, many other works prior to Shin et. al. give the full detail of these profiles \cite{ref:malhorta_2}, \cite{ref:hwang_hsieh}, \cite{ref:design_and_application}.
+The cycloid plate profile, if manufacturing were perfect, would result in the lobes of the cycloid plate staying in perfect contact with the housing pins throughout the motion. In practice, some clearance is desired when not transmitting load to allow assembly and manufacturing tolerances, but this will be addressed later. The basic principle that is harnessed to generate these profiles is Kennedy's Theorem. Kennedy's Theorem states that ``any three bodies having planar motion relative to one another have three instant centers, and they lie on a straight line.''\cite{ref:kinematics_and_dynamics}. This concept is illustrated in fig \ref{fig:kennedy_sliding}. That is, any two bodies that are in contact must have an instant center that falls along the line made by the line of centers of the bodies. In addition, this instant center must also fall along the common tangent line of their interaction. Using this definition for where the instant center falls for the contact between the bodies and the common normal, the equations for the profile to meet these criteria can be generated. 
+
+\begin{figure}[h]
    \centering
-   \includegraphics[width=0.60\linewidth]{fig/single_frames}
-   \caption{Create a graphic of the frames used to generate the profiles}
+   \includegraphics[width=0.60\linewidth]{fig/single_frames_TODO}
+   \caption{TODO: Create a graphic of the frames used to generate the profiles}
    \label{fig:single_frames}
 \end{figure}
 
-Before the equations are defined, a number of parameters necessary for design must be established. The eccentric distance is denoted as \textit{E}, the roller housing diameter is defined as \textit{Rr}, the radius from the fixed frame center to the center of the housing roller is defined as \textit{R}, the output pin diameter is denoted as \textit{R\textsubscript{ro}}, the radius from the fixed frame center to the output roller center is \textit{R\textsubscript{ro}}, the number of housing pins \textit{N\subscript{1}}, the number of lobes \textit{N\textsubscript{lobe}} which is generally 
-\begin{equation}
-N_{lobe} = N_1 - 1
-\end{equation}
-(however, designs with two and three lobe differences have been analyzed in \cite{ref:hsieh_traditional} and the number of output pins \textit{No}. The variable parameters during motion that are also used for calculations are the motor input angle \textit{\textphi\textsubscript{2}} and the cycloid plate rotation \textit{\textphi\textsubscript{3}}. These design parameter decisions and restrictions will be discussed further in section \ref{ch:design:single}. 
+Before the equations are defined, a number of parameters necessary for design must be established, listed in Table \ref{table:variable_definitions}. 
+These design parameter decisions and restrictions will be discussed further in section \ref{ch:design:single}. 
+
+\begin{table*}[h]
+  \vskip0.2cm
+  \caption{Design Variables}
+  \label{table:variable_definitions}
+  \begin{center}
+    \vskip-0.2cm
+    \begin{tabular}{|c|c|}
+    \hline
+    Variable Designation & Variable Description\\
+    \hline
+    \textit{E} & eccentric offset distance\\
+    \hline
+    \textit{R\textsubscript{r}} & radius of the housing roller \\
+    \hline
+    \textit{R} & radius from the fixed frame center to the center of the housing roller\\
+     \hline
+    \textit{R\textsubscript{ro}} & output pin diameter \\
+     \hline
+    \textit{N\subscript{1}} & number of housing rollers \\
+     \hline
+    \textit{N\textsubscript{o}} & number of output pins\\
+     \hline
+    \textit{\textphi\textsubscript{2}} & the input angle from the motor \\
+     \hline
+    \textit{\textphi\textsubscript{3}} & the output angle of the cycloid plate \\
+    \hline
+    \end{tabular}
+  \end{center}
+\end{table*}
+
 
 With these defined parameters, the equations necessary for generating the profiles can be developed.
 Fig \ref{fig:single_frames} shows an illustration of the frames necessary for a single stage cycloid. In this case, the first link is the ground link, the second link is the motor input via the eccentric arm, and the third link is the cycloid plate itself. The interaction that must satisfy Kennedy's Theorem is between the cycloid link and the ground link, (links 1 and 3). The interaction between those two links must have an instant center that falls on the line of instant centers I\textsubscript{12} and I\textsubscript{23} that is normal to the common tangent. To create the cycloid plate profile, the location of this point must be put into the frame of the cycloid plate. Three frames are denoted in \ref{fig:single_frame}, the fixed frame \textit{F}, the motor frame \textit{M}, and the cycloid plate \textit{C}. 
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
-   \includegraphics[width=0.60\linewidth]{fig/single_angles}
-   \caption{Create a graphic for the angles and definitions that are used to calculate}
+   \includegraphics[width=0.60\linewidth]{fig/single_angles_TODO}
+   \caption{TODO: Create a graphic for the angles and definitions that are used to calculate}
    \label{fig:single_angles}
 \end{figure}
 
-The transforms between the fixed frame and the motor frame (Eq \ref{eq:T_fm}) and the motor frame and the cyloid frame (Eq \ref{eq:T_mc}) are first defined. 
+The transforms between the fixed frame and the motor frame (Eq \ref{eq:T_fm}) and the motor frame and the cycloid frame (Eq \ref{eq:T_mc}) are first defined. 
 
 \begin{equation} \label{eq:T_fm}
 T_f^m = \left[{\begin{array}{cccc}
@@ -105,10 +132,10 @@ T_m^c = \left[{\begin{array}{cccc}
 		0 & 0 & 0 & 1 \end{array} } \right]
 \end{equation}
 
-Next, the point point P of intersection between links 1 (the ground via the housing roller) and link 3 (the cycloid plate) can be defined using the diagram \ref{fig:single_angles}. The line between the two centers of rotation for the motor (link 1 to link 2) and the cycloid plate (link 2 to link 3) is extended. A line is then drawn from the center of the housing roller to the intersection of the extended line of centers. This defines the common normal line to the common tangent of interaction between the housing roller and the cycloid plate. Therefore, triangles can be drawn and using this definition, the angle \textpsi can be found 
+Next, the point point P of intersection between links 1 (the ground via the housing roller) and link 3 (the cycloid plate) can be defined using the diagram \ref{fig:single_angles}. The line between the two centers of rotation for the motor (link 1 to link 2) and the cycloid plate (link 2 to link 3) is extended and shown as a dotted line. A line is then drawn from the center of the housing roller to the intersection of the extended line of centers and the intersection is labeled \textit{M}. The length of OM can be defined as \textit{EN\textsubscript{1}} in \cite{ref:on_the_lobe}. This defines the common normal line to the common tangent of interaction between the housing roller and the cycloid plate. Therefore, triangles can be drawn and using this definition the angle, \textpsi,\ can be found 
 
 \begin{equation} \label{eq:psi}
-\psi = \taninv\frac{\sininv\phi_2}{\frac{R}{EN} - \cos{\phi_2}}
+\psi = \taninv\frac{\sin\phi_2}{\frac{R}{EN} - \cos{\phi_2}}
 \end{equation}
 
 and the location of point P with respect to the fixed frame can then be defined as 
@@ -143,7 +170,7 @@ C_c = \left[\begin{array}{c}
 		\end{array} \right]
 \end{equation}
 
-These equations fully define the basic cycloidal plate profile. However, real life is generally not as friendly to these perfect equations. Therefore, design considerations must be taken into account when actually manufacturing the wobble plates. These undersizing considerations for machine tolerances are well developed in \cite{ref:design_and_application} and the recommended undersizing is applied to the design of the cycloids tested in this work. Finally, equations to determine whether undercutting exists in the cycloid profile are presented in \cite{ref:ye} to aid in sizing of the cycloidal profile. 
+These equations fully define the basic cycloidal plate profile. However, real life is generally not as friendly as these perfect equations. Therefore, design considerations must be taken into account when actually manufacturing the cycloid plates. These undersizing considerations for machine tolerances are well developed in \cite{ref:design_and_application} and the recommended undersizing is applied to the design of the cycloids tested in this work. Finally, equations to determine whether undercutting exists in the cycloid profile are presented in \cite{ref:ye} to aid in sizing of the cycloidal profile. 
 
 
 
@@ -154,7 +181,23 @@ After the development of the basic equations for the profile of the cycloid, the
 
 \subsection{Single Stage Cycloid Design Requirements}
 
-\begin{table*}[!b]
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.40\linewidth]{fig/wheel_module_CAD}
+   \caption{CAD model of rover wheel module prototype.
+   Suspension arms hold the steering column.
+   Each wheel has an in-wheel drive motor.}
+   \label{fig:wheel_module}
+\end{figure}
+
+In 2007 and 2008, NASA developed a manned rover prototype for planetary surfaces for future missions \cite{ref:rover}.
+This robotic vehicle is made up of six independent wheel modules, each with their own drive, steering, and both active and passive suspension.
+In 2014, a new prototype wheel module was designed and created to analyze potential technologies that could be used in these applications.
+In the new design layout, it was possible for the drive wheels to counter-rotate against the steering and put large shock loads into the steering system.
+These requirements called for a compact package, high load, high shock load, and allowed tolerance of backlash lent themselves to the selection of a cycloidal drive for the steering actuator.
+The prototype wheel module layout can be seen in Fig \ref{fig:wheel_module}.
+
+\begin{table*}[h]
   \vskip0.2cm
   \caption{Designed Duty Cycles for System}
   \label{duty_cycle}
@@ -176,22 +219,6 @@ After the development of the basic equations for the profile of the cycloid, the
   \end{center}
 \end{table*}
 
-In 2007 and 2008, NASA developed a manned rover prototype for planetary surfaces for future missions \cite{ref:rover}.
-This robotic vehicle is made up of six independent wheel modules, each with their own drive, steering, and both active and passive suspension.
-In 2014, a new prototype wheel module was designed and created to analyze potential technologies that could be used in these applications.
-In the new design layout, it was possible for the drive wheels to counter-rotate against the steering and put large shock loads into the steering system.
-These requirements called for a compact package, high load, high shock load, and allowed tolerance of backlash lent themselves to the selection of a cycloidal drive for the steering actuator.
-The prototype wheel module layout can be seen in Fig \ref{fig:wheel_module}.
-
-\begin{figure}[t]
-   \centering
-   \includegraphics[width=0.40\linewidth]{fig/wheel_module_CAD}
-   \caption{CAD model of rover wheel module prototype.
-   Suspension arms hold the steering column.
-   Each wheel has an in-wheel drive motor.}
-   \label{fig:wheel_module}
-\end{figure}
-
 Based on the load cases, the actuator was required to output a stall torque of 2,440 Nm (1800 ft-lb) with a max output speed of 1.57 rad/s (90 deg/s) at 1,626 Nm (1200 ft-lb).
 The required torque/speed data points are presented in Table \ref{duty_cycle} with an assumed loss of 88\% chosen based on the available literature.
 The actuator layout for the vehicle placed the motor and cycloid off center of the steering axis with an additional 5:1 reduction into the steering column, thus decreasing the torque needed for the cycloid output, but increasing the potential shock loading.
@@ -200,16 +227,16 @@ The actuator layout for the vehicle placed the motor and cycloid off center of t
 
 First, the motor and cycloid reduction were sized together to determine the appropriate motor and reduction to use for the system. The motor selected was a Parker Frameless Kit Motor, model K089200-7Y with no hall commutation with a cycloid reduction of 59:1 before going into an additional 5:1 reduction to the final steering output. The motor is commutated using a Renishaw RM-44 magnetic encoder mounted to the input shaft. 
 
-Knowing the reduction must be 59:1 and the output torque of the cycloid before the final 5:1 redution, the maximum load developed by the cycloid (\textit{F\textsubscript{max}}) is 488 Nm and the maximum speed of the cycloid {\textomega\textsubscript{max}} is 7.85 rad/s. These values can be used in conjunction with a well defined set of equations presented in previous works \cite{ref:malhorta}, \cite{ref:li}, and \cite{ref:unified_approach} to determine the allowable sizes of the components of the system. The analysis presented by Malhorta and Parameswaran details the analysis necessary for the loads on the housing pins and the output pins for a single stage degisn. This methodology has been adopted for this work and will be further expanded upon in Chapter \ref{ch:dual} so it is presented in its completeness here. 
+Knowing the reduction must be 59:1 and the output torque of the cycloid before the final 5:1 reduction, the maximum load developed by the cycloid (\textit{F\textsubscript{max}}) is 488 Nm and the maximum speed of the cycloid {\textomega\textsubscript{max}} is 7.85 rad/s. These values can be used in conjunction with a well defined set of equations presented in previous works \cite{ref:malhorta}, \cite{ref:li}, and \cite{ref:unified_approach} to determine the allowable sizes of the components of the system. The analysis presented by Malhorta and Parameswaran details the analysis necessary for the loads on the housing pins and the output pins for a single stage design. This methodology has been adopted for this work and will be further expanded upon in Chapter \ref{ch:dual} so it is presented in its completeness here. 
 
-\begin{figure}[t]
+\begin{figure}[h]
    \centering
    \includegraphics[width=0.40\linewidth]{fig/single_stage_loads}
    \caption{TODO - Make a figure with the loads drawn out for a single stage design}
    \label{fig:single_loads}
 \end{figure}
 
-The interaction between the elements of a single stage cycloid can be seen in Fig. \ref{fig:single_loads} that details the forces present in a cycloid. The input force from the motor drives through the eccentric bearing to the wobble plate. These loads are then reacted through the housing rollers and output pins. One will notice that the loads can only form on one half of the rollers and pins at a time, as these members are in compression, and if a tension force forms, they will separate and not carry load. In a perfectly manufactured arrangement, the number of lobes in contact, \textit{N\textsubscript{lc}} and output pins in contact, \textit{N\textsubscript{oc}}, is simply 
+The interaction between the elements of a single stage cycloid can be seen in Fig. \ref{fig:single_loads} that details the forces present in a cycloid. The input force from the motor drives through the eccentric bearing to the cycloid plate. These loads are then reacted through the housing rollers and output pins. One will notice that the loads can only form on one half of the rollers and pins at a time, as these members are in compression, and if a tension force forms, they will separate and not carry load. In a perfectly manufactured arrangement, the number of lobes in contact, \textit{N\textsubscript{lc}} and output pins in contact, \textit{N\textsubscript{oc}}, is simply 
 
 \begin{equation}
 N_{1c} = \frac{N_{1} - 1}{2},\ if\ (N_1 -1)\ is\ even 
@@ -247,7 +274,7 @@ d = \sqrt{d_x^2 + d_y^2}
 l_i = \rho_2 \sin{\alpha_i}
 \end{equation}
 
-Using this knowledge, the forces on the contacting lobes and pins can be calculated. This calculation methodology starts with a power analysis to determine the forces on the output pins (eq. \ref{eq:single_power}). Using this as a basis, equations for the forces in the x-direction (eq \ref{eq:single_x}), y-direction (eq. \ref{eq:single_y}), and the moment about the wobble-plate's center (eq. \ref{eq:single_torque}) can be written for any reducer with \textit{N\textsubscript{c1}} lobes (\texit{N\textsubscript{1}} housing rollers) and \textit{N\textsubscript{p1}} output pins. The forces on housing roller \textit{i} is denoted as \textit{F\textsubscript{ri}} and on output pin \textit{j} as \textit{F\textsubscript{oj}}.
+Using this knowledge, the forces on the contacting lobes and pins can be calculated. This calculation methodology starts with a power analysis to determine the forces on the output pins (eq. \ref{eq:single_power}). Using this as a basis, equations for the forces in the x-direction (eq \ref{eq:single_x}), y-direction (eq. \ref{eq:single_y}), and the moment about the cycloid-plate's center (eq. \ref{eq:single_torque}) can be written for any reducer with \textit{N\textsubscript{c1}} lobes (\texit{N\textsubscript{1}} housing rollers) and \textit{N\textsubscript{p1}} output pins. The forces on housing roller \textit{i} is denoted as \textit{F\textsubscript{ri}} and on output pin \textit{j} as \textit{F\textsubscript{oj}}.
 
 \begin{equation} \label{eq:single_power}
 M_a = \frac{R_o}{N_1} \sum_{j=1}^{N_{oc}} F_{oj} \sin(\beta_j + N_1 \phi_2)
@@ -332,22 +359,22 @@ Using this system of equations, the forces on the input pins can be determined f
 
 \subsection{Final Single Stage Design} \label{ch:design:single:final}
 
-Using the equations and analysis laid out in Section \ref{ch:design:basic_calc:overview} and Section \ref{ch:design:single:force_analysis}, the final design was completed and manufacutred. In the design, the wobble-plates need a thickness of 7.94 mm, to accomplish this thickness and balance the system for vibrations, three wobble-plates are used in tandem, each 120\textdegree offset from the other. In this design, the housing rollers are free to rotate. A channel is cut into the housing and the pin rests in that channel, so it is assumed they will slide freely. The output pins however are pressed into the output plate, so they are assumed to remain fixed through operation, and this assumption is validated in the results. The cross section profile of the CAD model can be see in Fig \ref{fig:single_stage} and an image of the actual system can be seen in Fig \ref{fig:single_stage_actual}.
+Using the equations and analysis laid out in Section \ref{ch:design:basic_calc:overview} and Section \ref{ch:design:single:force_analysis}, the final design was completed and manufactured. In the design, the cycloid-plates need a thickness of 7.94 mm, to accomplish this thickness and balance the system for vibrations, three cycloid-plates are used in tandem, each 120\textdegree offset from the other. In this design, the housing rollers are free to rotate. A channel is cut into the housing and the pin rests in that channel, so it is assumed they will slide freely. The output pins however are pressed into the output plate, so they are assumed to remain fixed through operation, and this assumption is validated in the results. The cross section profile of the CAD model can be see in Fig \ref{fig:single_stage} and an image of the actual system can be seen in Fig \ref{fig:single_stage_actual}.
 
 \begin{figure}
    \centering
    \includegraphics[width=0.5\linewidth]{fig/exploded_labeled}
    \caption{Exploded view of the cycloidal reducer.
-   Three wobble plates are driven by the input shaft with 120\textdegree\ offsets.
+   Three cycloid plates are driven by the input shaft with 120\textdegree\ offsets.
    The ring pins are are free pins inserted in the housing.
-   The output has pins run through all three wobble plates to harness the counter-rotation for the drive output.}
+   The output has pins run through all three cycloid plates to harness the counter-rotation for the drive output.}
    \label{fig:single_stage}
 \end{figure}
 
 \begin{figure}
    \centering
    \includegraphics[width=0.5\linewidth]{fig/single_stage_actual}
-   \caption{Get a picture of the actual assembly to put here}
+   \caption{TODO Get a picture of the actual assembly to put here}
    \label{fig:single_stage_actual}
 \end{figure}
 
@@ -357,18 +384,18 @@ Using the equations and analysis laid out in Section \ref{ch:design:basic_calc:o
 
 Through testing and analysis, a gap in the literature was identified pertaining to the relative sliding between the cycloid plate and the housing pins. The cycloid profile is generated based off of Kennedy's Theorem about links in contact and their required instant centers, discussed in Section \ref{ch:design:basic_calc:overview}. Kennedy's Theorem states that for two links to have only sliding motion with respect to each other, the point of contact must lie along the line of centers between each links instant center shown in \ref{fig:kennedy_rolling}, otherwise, sliding must occur. Using this fact, equations for the necessary sliding motion between the cycloid plate and the rollers needs to be developed to make a more accurate predictive loss model for the compact cycloid designs.
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
-   \includegraphics[width=0.7\linewidth]{fig/kennedy_rolling}
-   \caption{Create a picture of the rolling contact for kennedy theorem}
+   \includegraphics[width=0.7\linewidth]{fig/kennedy_rolling_TODO}
+   \caption{TODO Create a picture of the rolling contact for Kennedy theorem}
    \label{fig:kennedy_rolling}
 \end{figure}
 
 \subsection{Sliding Equations} \label{ch:design:pin_roll_1s:sliding_equations}
 
-Kennedy's Theorem states that the two links in contact can only move in the direction of the common normal and rotate about the instant center between the two links. In Fig \ref{fig:kennedy_sliding} different velocities can be defined. First, the point of contact, P, that is shared on each link can only have a velocity in the \textit{S} direction, along the common nomral to maintain contact. Then, velocities \textit{M} and \textit{L} can be defined as the velocities normal to \textit{S} for link 1 and link 2 respectively. The difference between \textit{M} and \textit{L} is the sliding velocity between the two links \cite{ref:kinematics_and_dynamics}.
+Kennedy's Theorem states that the two links in contact can only move in the direction of the common normal and rotate about the instant center between the two links. In Fig \ref{fig:kennedy_sliding} different velocities can be defined. First, the point of contact, P, that is shared on each link can only have a velocity in the \textit{S} direction, along the common normal to maintain contact. Then, velocities \textit{M} and \textit{L} can be defined as the velocities normal to \textit{S} for link 1 and link 2 respectively. The difference between \textit{M} and \textit{L} is the sliding velocity between the two links \cite{ref:kinematics_and_dynamics}.
 
-Using these definitions, the relationship between \texit{M} and \textit{L} can be derived for a single stage cycloid. In this case, there is no motion of the point along the common normal between the two links in contact, the cycloid plate and the housing roller, because the housing roller is fixed in space. Therefore, the only relative velocity between the two links comes with the rotation about the instant center between the cyloid plate and housing roller. This can be calculated simply using the length from the instant center to the contact point, \textit{l\textsubscript{c}} and the rotational velocity of the cycloid plate, \textit{\textomega\textsubscript{3}} for each pin around the housing. 
+Using these definitions, the relationship between \texit{M} and \textit{L} can be derived for a single stage cycloid. In this case, there is no motion of the point along the common normal between the two links in contact, the cycloid plate and the housing roller, because the housing roller is fixed in space. Therefore, the only relative velocity between the two links comes with the rotation about the instant center between the cycloid plate and housing roller. This can be calculated simply using the length from the instant center to the contact point, \textit{l\textsubscript{c}} and the rotational velocity of the cycloid plate, \textit{\textomega\textsubscript{3}} for each pin around the housing. 
 
 \begin{equation} \label{eq:single_slide_offset}
 offset = i \frac{2\pi}{N_1}
@@ -383,7 +410,7 @@ V_i = \omega_3 * l_{ci}
 
 Using this relationship, the sliding velocity between the cycloid plate and housing rollers can be determined. However, the cycloid is designed such that the pins rest in the housing and are free to rotate, therefore, the sliding velocity will be translated to a rotational velocity of the pin. An example of the relative sliding velocities for four different input angles \textphi\textsubscript{2} can be seen in Fig \ref{fig:single_sliding} with an input velocity \textomege\textsubscript{2} of 1.5 rad/s.
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
    \begin{tabular}{cc}
 	   \includegraphics[width=0.48\linewidth]{fig/single_vel_0pi} &
@@ -405,7 +432,7 @@ P_L = \sum_{i=1}^{N_{1c}}\mu F_ri V
 
 Note that there will only be losses on pins that have a contact force, which was defined as the number of pins divided by two at any given time. The estimated losses due to the cycloid disk rolling along the housing pins, which must then slide in the housing can be calculated for the single stage cycloid for a given range of inputs. These results are shown in Table \ref{table:single_slide_estimate}.
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
    \begin{tabular}{cc}
 	   \includegraphics[width=0.48\linewidth]{fig/single_force_0} &
@@ -417,18 +444,24 @@ Note that there will only be losses on pins that have a contact force, which was
    \label{fig:single_sliding}
 \end{figure}
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
-   \begin{tabular}{cc}
+   \be
+    gin{tabular}{cc}
 	   \includegraphics[width=0.48\linewidth]{fig/single_power_0} &
 	   \includegraphics[width=0.48\linewidth]{fig/single_power_pi2} \\
 	   \includegraphics[width=0.48\linewidth]{fig/single_power_pi} &
 	   \includegraphics[width=0.48\linewidth]{fig/single_power_3pi2}
    \end{tabular}
-   \caption{The losses contributed by the interation with each housing roller in the single stage cycloid through a single rotation.}
+   \caption{The losses contributed by the interaction with each housing roller in the single stage cycloid through a single rotation.}
    \label{fig:single_sliding}
 \end{figure}
 
-\todo[inline]{Make a table of losses for the single stage slidnig} 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\linewidth]{fig/two_stage_as_designed}
+   \caption{TODO - make for a single stage like the two stage shown }
+   \label{fig:two_stage_as_designed}
+\end{figure}
 
-The losses of each pin can be summed to get the instantanous power loss of the cycloid due to the interaction between the cycloid plate and the housing pins. For this case the desired output is 1.5 rad/s and 94 Nm. If a coefficient of sliding friction (\textmu) is assumed to be 0.1, the losses associated solely with this interaction are 19.62 W, resulting in an effciency of 87.8\% due only to the sliding at this interface. This number is heavily dependant on \textmu, if \textmu decreases to 0.5, the efficiency increases to 93.5\%, \textmu increased to 2.0, the efficiency decreases to 78\%.Therefore, the optimization of this interaction is pivotal. Nearly all manufacturers of cycloidal drives use roller bearings at this interaction, which have \textmu of 0.01 or less, resulting in efficiencies of 98.6\% or higher. So when designing a compact cycloid for a robotic application, great care must be taken in designing the surfaces and sliding of this interface. 
+The losses of each pin can be summed to get the instantaneous power loss of the cycloid due to the interaction between the cycloid plate and the housing pins. For this case the desired output is 1.5 rad/s and 94 Nm. If a coefficient of sliding friction (\textmu) is assumed to be 0.1, the losses associated solely with this interaction are 19.62 W, resulting in an efficiency of 87.8\% due only to the sliding at this interface. This number is heavily dependent on \textmu, if \textmu decreases to 0.5, the efficiency increases to 93.5\%, \textmu increased to 2.0, the efficiency decreases to 78\%.Therefore, the optimization of this interaction is pivotal. Nearly all manufacturers of cycloidal drives use roller bearings at this interaction, which have \textmu of 0.01 or less, resulting in efficiencies of 98.6\% or higher. So when designing a compact cycloid for a robotic application, great care must be taken in designing the surfaces and sliding of this interface. 

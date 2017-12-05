@@ -3,9 +3,9 @@
 \chapter{Testing and Analysis of Single Stage Cycloid}\label{ch:single}
 %Give and Overview of Chapter 3
 
-There is a gap in the literature for the in-use efficiency and lifetime characteristics of cycloidal reducers of the compact design that was presnted in Chapter \ref{ch:design}. Previously, the longest set of test data for a compact cycloid was 80 minutes. This work aims to develop an understanding of the in-use characteristics of the single-stage compact design cycloid reducer in both efficiency and the initial analysis of lifetime for a cycloid of this type. Therefore, the single-stage design previously discussed was run through a long duration life-cycle with efficiency testing performed periodically to understand these pertinent characteristics. The actuator was run for over 300 hours with 130k output revolutions. The peak efficiency achieved through this time was 81\% which shows this actuator is competitive in efficiency with a harmonic drive. In addition, no appreciable degradation of performance was seen from break in until testing completion, showing the actuator's lifetime easily exceeds the current testing time.  
+There is a gap in the literature for the in-use efficiency and lifetime characteristics of cycloidal reducers of the compact design that was presented in Chapter \ref{ch:design}. Previously, the longest set of test data for a compact cycloid was 80 minutes. This work aims to develop an understanding of the in-use characteristics of the single-stage compact design cycloid reducer in both efficiency and the initial analysis of lifetime for a cycloid of this type. Therefore, the single-stage design previously discussed was run through a long duration life-cycle with efficiency testing performed periodically to understand these pertinent characteristics. The actuator was run for over 300 hours with 130k output revolutions. The peak efficiency achieved through this time was 81\% which shows this actuator is competitive in efficiency with a harmonic drive. In addition, no appreciable degradation of performance was seen from break in until testing completion, showing the actuator's lifetime easily exceeds the current testing time.  
 
-This work has been submitted to the International Conference on Robotics and Automation, ICRA with the title ``Cycloidal Geartrain In-Use Efficency Study.'' Portions of this section are taken directly from this publication. 
+This work has been submitted to the International Conference on Robotics and Automation, ICRA with the title ``Cycloidal Geartrain In-Use Efficiency Study.'' Portions of this section are taken directly from this publication. 
 
 \section{Test Setup} \label{ch:single:test_setup}
 %Give the test setup for the single stage, basically pull the info from the paper 
@@ -21,7 +21,7 @@ NASA's 'turbodriver' motor driver was used for commanding motor currents.
 The motor driver was powered by a TDK-Lambda 12V supply for logic power and a TDK-Lambda 150V and 5A supply for high voltage power.
 A hysteresis current controller was used on the motor drive to accurately provide torque producing current to the motor.
 The motor driver monitored the actuator power by measuring torque from the load cell and speed with an incremental encoder located at the actuator motor shaft.
-The test computer monitored the high voltage supply and recorded voltage and current to determine input power to the system and recieved data from the motor driver to calculate output power.
+The test computer monitored the high voltage supply and recorded voltage and current to determine input power to the system and received data from the motor driver to calculate output power.
 The test setup is shown in Fig \ref{fig:test_setup}.
 
 \begin{figure}[!b]
@@ -117,7 +117,7 @@ The nominal cycle of the actuator as seen in Fig \ref{fig:duty_cycle} is still a
    \includegraphics[width=\linewidth]{fig/total_runtime}
    \caption{Efficiency over time for three different speed/torque profiles during the drive cycle.
    The forward motion can be seen with the dotted line, reverse with the solid line.
-   Testing transitions from day to day are denoted with verticle dotted lines.
+   Testing transitions from day to day are denoted with vertical dotted lines.
    At the onset of testing, visible efficiency gains are made.
    As each day begins, there is a clear warm-up period before steady state.
    }
@@ -135,7 +135,7 @@ The nominal cycle of the actuator as seen in Fig \ref{fig:duty_cycle} is still a
 \begin{figure*}[t]
    \centering
    \includegraphics[width=0.8\linewidth]{fig/eff_final}
-   \caption{Efficiency of single stage cylcoid after 300 hours of testing. No appreciable loss of efficiency after 129k revolutions.}
+   \caption{Efficiency of single stage cycloid after 300 hours of testing. No appreciable loss of efficiency after 129k revolutions.}
    \label{fig:eff_results_final}
 \end{figure*}
 
@@ -146,7 +146,7 @@ Once this checkout was complete, the 300 hours of duty cycle testing were conduc
 Three of the torque/speed combinations in forward and reverse are plotted on Fig \ref{fig:long_run} to show the general characteristic trends seen in actuator performance.
 
 After the break in period and steady state performance was achieved, a profile of speeds and torques (see Fig \ref{fig:eff_profile} were run on the actuator to show the relationship between speed, torque, and efficiency.
-This profile was run three times and the results at each torque and speed combination were averaged. The first efficiency cycle was run as seen in Fig \ref{fig:eff_results}. Effieciency cycles were run after each subsequent 100 hours of testing to understand performancy over time. The final efficiency test is shown in Fig \ref{fig:eff_results_final}.
+This profile was run three times and the results at each torque and speed combination were averaged. The first efficiency cycle was run as seen in Fig \ref{fig:eff_results}. Efficiency cycles were run after each subsequent 100 hours of testing to understand performance over time. The final efficiency test is shown in Fig \ref{fig:eff_results_final}.
 
 \section{Wear Analysis} \label{ch:single:wear_analysis}
 % Look at the pictures that we took to say "check it out, this thing can probably go for a lot longer based on how well it's done so far."
@@ -181,7 +181,7 @@ Three of the housing pins can be seen as an example in Fig \ref{fig:housing_pins
 \end{figure}
 
 
-The output pins can be seen in Fig \ref{fig:single_output_pins}. The output pins were fixed in the output plate and could not roll, which is evident in their wear pattern. One side of the pin has wear, while the other still has the original black oxide coating. This result makes sense since the pin is only in contact with the cycloid plate through half of the revolution. One interesting result from this though is that some pins show much more wear than others, indicating that fewere output pins were carrying load than the maximum possible, potentially resulting in more losses. A more optimal design of this system would allow these pins to roll in their housing to wear more evenly and in a potentially lower friction interation. 
+The output pins can be seen in Fig \ref{fig:single_output_pins}. The output pins were fixed in the output plate and could not roll, which is evident in their wear pattern. One side of the pin has wear, while the other still has the original black oxide coating. This result makes sense since the pin is only in contact with the cycloid plate through half of the revolution. One interesting result from this though is that some pins show much more wear than others, indicating that fewer output pins were carrying load than the maximum possible, potentially resulting in more losses. A more optimal design of this system would allow these pins to roll in their housing to wear more evenly and in a potentially lower friction interaction. 
 
 \begin{figure}[t]
    \centering
@@ -194,7 +194,7 @@ The output pins can be seen in Fig \ref{fig:single_output_pins}. The output pins
 % Summary
 % Single stage reductions built in this style can result in highly competitive efficiency ratios and 2x specific torque. You still have to deal with torque ripple and a little bit of backlash (unmeasured), but if you can handle those, drop these bad boys in. 
 
-The efficiency of the system is dependant on the torque through the gearbox as shown in Fig \ref{fig:eff_results_final}.
+The efficiency of the system is dependent on the torque through the gearbox as shown in Fig \ref{fig:eff_results_final}.
 This contradicts previous studies that suggested that cycloidal drives have a constant efficiency across the torque range.
 There is also a much less pronounced relationship between the velocity and the cycloid efficiency that can be noted in the torque bands.
 This result suggests that the cycloid efficiency behaves more like a planetary or harmonic drive gearbox in its efficiency profile.
@@ -233,6 +233,6 @@ This was chosen because it is designed for high loads for extended periods of ti
 Therefore, during the warm-up period as the actuator temperature increases, the viscosity decrease is likely enough to cause a notable increase in efficiency of the system.
 The authors leave the study of a lower viscosity grease's effect on performance, as well as grease suitable for vacuum, for future work.
 
-Finally, through the efficiency comparrison after 100 hours of testing (Fig. \ref{fig:eff_results}) and 300 hours of testing (Fig. \ref{fig:eff_results_final}) there was no appreciable loss in efficiency of the system. The actuator maintained a high level of effeicincy, 81\% peak, throughout the testing. This result, coupled with the qualitative analysis of the parts after disassembly suggests that the lifetime of this actuator can greatly exceed the current testing of 130k revolutions, which suggests this is a viable actuator for robotic systems where backlash is acceptable and a high reduction and high torque actuator is necessary. 
+Finally, through the efficiency comparison after 100 hours of testing (Fig. \ref{fig:eff_results}) and 300 hours of testing (Fig. \ref{fig:eff_results_final}) there was no appreciable loss in efficiency of the system. The actuator maintained a high level of efficiency, 81\% peak, throughout the testing. This result, coupled with the qualitative analysis of the parts after disassembly suggests that the lifetime of this actuator can greatly exceed the current testing of 130k revolutions, which suggests this is a viable actuator for robotic systems where backlash is acceptable and a high reduction and high torque actuator is necessary. 
 
 
