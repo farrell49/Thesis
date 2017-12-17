@@ -2,116 +2,121 @@
 
 \chapter{Introduction}\label{ch:intro}
 Write once I am finished with the rest of the introduction so I can summarize it in a sort of "abstract." 
+Robotic systems often demand high reduction drives in small packages for use in robotic manipulators, vehicles, and many other applications. There are many choices for these reductions, planetary gearsets, belt drives, and harmonic drives. Harmonic drives, outlines in section \ref{intro:harmonic} are the usual go-to reduction when a compact design with high reduction is needed. However, these drives cannot be custom manufactured easily and have torque limitations due to their design. Cycloidal actuators, outlined in section \ref{intro:cycloids} are an alternative high-reduction actuator style that can achieve high reductions in compact packages and carry substantially more torque per mass. The background on these reductions will first be outlined, followed by a summary of the contributions (Section \ref{intro:contributions}) of this thesis and an outline of the main content of the work (\ref{intro:outline}). 
 
 \section{Motivation} \label{intro:motivation}
 
 As robotic applications flourish in our modern world, robotic systems are pushing to be smaller, lighter, and more efficient. 
-Therefore the need for effective torque reduction in small, compact, and weight efficent packages increases. 
-The prevelance of robots in development throughout the world is striking. 
-Everyone can recognize the famous robots like the great work out of Boston Dymamics with Big Dog, Atlas, spot, and many others \cite{ref/boston_dynamics}, or the Honda's Asimo \cite{ref/asimo}.  
+Therefore the need for effective torque reduction in small, compact, and weight efficient packages increases. 
+The prevalence of robots in development throughout the world is striking. 
+Everyone can recognize the famous robots like the great work out of Boston Dynamics with Big Dog, Atlas, spot, and many others \cite{ref:boston_dynamics}, or the Honda's Asimo \cite{ref:asimo}. \todo{find citations}  
 However, this is a very small subset of the robots that are currently on the market now. 
-There are a huge number of 6 DoF manipulators being constructed and sold like the UR series from Universal Robotics, the industrial arms from KUKA, ABB, Fanuc, DENSO and even small servo operated arms available for hobbiests. 
+There are a huge number of 6 DoF manipulators being constructed and sold like the UR series from Universal Robotics, the industrial arms from KUKA, ABB, Fanuc, DENSO and even small servo operated arms available for hobbyists. 
 Nearly every one of these larger robots has some sort of gear reduction between the motor and the output of each joint, therefore, the expansion of the available technologies for these reductions is clear as robotics push further and further into our factories, cities, and everyday lives. 
 
 These technologies also translate directly to the work being done by NASA in the area of robotics. 
 NASA is active in many types of robotic systems including humanoid robotics, rovers, and satellite technologies. 
-The two primary examples of NASA's robotic technologies comes from their humanoid robots, Robonaut 2 (R2) \cite{ref:r2}, and Valkyrie \cite{valkyrie} as well as the rover technologies like the Mars rovers, most recently Curiosity \cite{ref:curiosity}, the manned rover prototypes \cite{ref:rover}, and lunar rovers \cite{ref:RP}. 
+The two primary examples of NASA's robotic technologies comes from their humanoid robots, Robonaut 2 (R2) \cite{ref:r2}, and Valkyrie \cite{ref:valkyrie} as well as the rover technologies like the Mars rovers, most recently Curiosity \cite{ref:curiosity}, the manned rover prototypes \cite{ref:rover}, and lunar rovers \cite{ref:RP}. \todo{find citations}
 These robotic systems share many of the same design challenges as those found in industry, as well as additional challenges due to the extreme environments they travel to. Therefore, the advancement of actuator technology is especially important in these areas as NASA strives to go further into the solar system with humans and robotic systems. 
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
    \includegraphics[width=0.7\linewidth]{fig/robot_collage}
-   \caption{insert a collage picture of the above mentioned NASA robots}
+   \caption{The family of NASA, Johnson Space Center robots including both humanoid and mobile platforms}
    \label{fig/robot_collage}
 \end{figure}
 
 
 Generally, these robots must balance a number of factors based on their specific design goals, these usually involve efficiency, strength, speed, and precision in some combination. 
-With these aforementioned goals comes the trade of the actuator design for where factors such as backlash, backdriveability, efficiency, torque output, speed, and packaging. 
+With these aforementioned goals comes the trade of the actuator design factors such as backlash, backdriveability, efficiency, torque output, speed, and size. 
 Reductions for these systems are usually one of three types: planetary gearsets, belt drives, and harmonic drives. 
 Each of these drives has their own advantages. 
-Planetary gearsets can be customized to meet a desired reduction, are commonly produced, and run very efficienctly.
+Planetary gearsets can be customized to meet a desired reduction, are commonly produced, and run very efficiently.
 Belt drives share many of the benefits of planetary gearsets, and have very minimal backlash, but take more volume for a similar reduction. 
 Harmonic drives are generally much more compact for the reduction they provide and have no backlash as well, but run less efficiently than the other two. 
-Due to the higher reduction per volume, harmonic drives are usaully the reduction of choice in robotic actuator design in cases where compact design is favored over efficiency.
+Due to the higher reduction per volume, harmonic drives are usually the reduction of choice in robotic actuator design in cases where compact design is favored over efficiency.
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
    \includegraphics[width=0.7\linewidth]{fig/actuator_type_collage}
-   \caption{insert a picture collage of other types of reducers}
+   \caption{TODO: insert a picture collage of other types of reducers}
    \label{fig:reducer_collage}
 \end{figure}
 
-There exists a fourth option to add to this list however, cycloidal drives. 
+There exists a fourth option to add to this list, cycloidal drives. 
 Cycloidal drives provide a high reduction per volume similar to a harmonic drive, but can provide a higher specific torque than a harmonic drive. 
-Cycloidal drives do generally have backlash, so these designes cannot replace a harmonic drive in every situation, but a cycloid does provide an interesting option in design cases where high reduction and high torque in a small package is necessary, and a small amount of backlash is acceptable. 
-However, these cycloidal drives are not currently in common use even with these distinct advantages over a harmonic drive due to the lack of information on their actual in-use characteristics. 
+Cycloidal drives do generally have backlash, so these designs cannot replace a harmonic drive in every situation, but a cycloid does provide an interesting option in design cases where high reduction and high torque in a small package are necessary, and a small amount of backlash is acceptable. 
+However, these cycloidal drives are not currently in common use even with these distinct advantages over a harmonic drive partially due to the lack of information on their actual in-use characteristics. 
 
 \section{Harmonic Drives} \label{intro:harmonic}
 
-The concept of a harmonic drive was proposed as early as 1959 by Walton Musser \cite{ref:harmonic_original} and have been further improved in design and implementation through the years. The original harmonic drive patent has been cited in over 200 subsequent patents according to Google patent search. These drives were first used in spaceflight applications in 1971 as the primary drive motors for the Apollo Lunar Rovoers \cite{ref:harmonic_apollo}. A notable adapation of this patent that lead to the current common method of manufacturing harmonic drives was issued by Harmonic Drive in 1989 \cite{ref:harmonic_drive_co} which lead that company to be one of the primary producers of harmonic drive technologies until recently when the patent expired. 
+The concept of a harmonic drive was proposed as early as 1959 by Walton Musser \cite{ref:harmonic_original} and have been further improved in design and implementation through the years. The original harmonic drive patent has been cited in over 200 subsequent patents according to Google patent search. These drives were first used in spaceflight applications in 1971 as the primary drive motors for the Apollo Lunar Rovers \cite{ref:harmonic_apollo}. A notable adaptation of this patent that lead to the current common method of manufacturing harmonic drives was issued to Harmonic Drive in 1989 \cite{ref:harmonic_drive_co} which lead the Harmonic Drive company to be one of the primary producers of harmonic drive technologies until recently when the patent expired. 
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
    \includegraphics[width=0.7\linewidth]{fig/harmonic_cartoon}
-   \caption{Insert cartoon of harmonic drive}
+   \caption{Cartoon rendering of the primary components of a harmonic drive, the wave-generator (green), flex-cup (red), and the circular spline (blue). The wave-generator is connected to the input shaft, the circular spline is fixed to the housing, and the output is harnessed through the motion of the flex-cup. \\
+   This figure was created by Jahobr and made available to the public domain.}
    \label{fig:harmonic_cartoon}
 \end{figure}
 
-Harmonic drives utilizes the deflection of metal to induce motion. The harmonic drive consists of three main pieces, a wave-generator, a flex cup, and a circular spline (Fig \ref{fig:harmonic_cartoon}). The wave generator is a slightly elliptical shape that is mounted to the output of the motor. This is inserted into the flex cup, a thin metal cup with T\textsubscript{flex} teeth that allows some flexing as the elliptical wave-generator rotates through it. Finally, the flex cup and wave-generator sytem is inserted into the circular spline, a thicker, stiff piece of metal that has a different number of teeth (T\textsubscript{circ}) than the input. As the wave-generator rotates inside the flex cup, pushing the walls out, it slowly works its way into the next available tooth, creating a counter-rotation of the flex-cup which is harnessed as the output of the system. This results in high ratios in the form of 
+Harmonic drives utilizes the deflection of metal to induce motion. These drives consists of three main pieces, a wave-generator, a flex cup, and a circular spline (Fig \ref{fig:harmonic_cartoon}). The wave generator is a slightly elliptical shape that is mounted to the output of the motor. This is inserted into the flex cup, a thin metal cup with \textit{N\textsubscript{flex}} teeth that allows some flexing as the elliptical wave-generator rotates through it. Finally, the flex cup and wave-generator system is inserted into the circular spline, a thicker, stiff piece of metal that has a different number of teeth, \texit{N\textsubscript{circ}} than the input, typically 1 more. As the wave-generator rotates inside the flex cup, pushing the walls out, it slowly works its way into the next available tooth, creating a counter-rotation of the flex-cup which is harnessed as the output of the system. This results in high ratios in the form of 
 
-\begin{equation} \label{eq:0}
+\begin{equation} \label{eq:harmonic_ratio}
 ratio = \frac{T_{flex} - T_{circ}} {T_{flex}}.
 \end{equation}
 
 Harmonic drives have two primary advantages in their use. First, harmonic drives can accomplish high reductions in a smaller volume than a typical planetary reduction. Second, harmonic drives have no backlash, allowing precision control with no additional considerations that must be taken. However, these positives come at a cost as well, the efficiency of harmonic drives is generally substantially lower than their planetary counterpart and varies drastically with temperature. In \ref{fig:harmonic_eff} a reproduction of the efficiencies quoted in the harmonic drive manual can be seen for reference. These efficiency results from the data sheet can be further supported for space applications by the research of Schafer et. al. \cite{ref:harmonic_space_lube} and \cite{ref:harmonic_performance}. Even with these disadvantages, harmonic drives are still the primary source of high reduction ratios in robotic platforms today. 
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
    \includegraphics[width=0.7\linewidth]{fig/harmonic_eff}
-   \caption{insert a reproduced graph from the harmonic drive manual for the drive that's comparble to the 1 stage }
+   \caption{TODO - correct values -- Harmonic efficiencies over the torque input for a Harmonic Drive CSG-50-80-2UH, a similarly sized actuator to the cycloidal drive studied in this work. This graph is recreated from the information in the Harmonic Drive catalog \cite{ref:harmonic_sheet}. }
    \label{fig:harmonic_eff}
 \end{figure}
 
 \section{Cycloidal Drives} \label{intro:cycloid}
 
-An alternative technology for high reductions in small packages comes in the form of cycloidal drives. The original concept for the induced motion seen in a cycloidal drive pre-dates harmonic drive. The original patent for the idea was filed by Hoist in 1931 \cite{cycloid_original}. However, the proliferation of this technology did not accelerate at the same speed as the harmonic drive, with this original patent only receiving 12 citations. A large development in the technology came with the invention of Rudolf Braren in 1977 \cite{ref:cycloid_one_stage} who proposed the concept and equations necessary for the common method of constructing cycloids that is used today. In 1981, Keith Rodaway patented the concept of a pinwheel reduction \cite{ref:cycloid_pinwheel}, which allowed much more compact designs of the cyloidal system. This compact design allows is the driving design for the compact, high torque density and high specific torque designs that are discussed in this work.
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.60\linewidth]{fig/Cycloidal_drive_parts}
+   \caption{Simple rendering of the key elements that create a cycloidal drive.
+   A drive shaft spins a cycloidal disk via an eccentric circle.
+   The cycloid plate reacts against the housing pins to create a counter-rotation, harnessed by the output pins. 
+   \\This image was created by Petteri Airmonen and has been released into the public domain.}
+   \label{fig:cycloid_cartoon}
+\end{figure}
+\\\todo[author=MKO,inline]{The cycloid cartoon figure \ref{fig:cycloid_cartoon} is available on wikipedia with the explicit licensing section releasing it to public domain for any use. Do I need any additional citation other than what I've put?}
 
-The premise of this design leverages a plate, referred to as the wobble plate, with lobes interacting with pins in the housing designed using trochoidal motion being spun on an eccentric shaft with a bearing.
-This eccentric lobe to pin interaction induces a counter-clockwise motion of the plate that is harnessed with the interior pins as the output of the mechanism (seen in Fig \ref{fig:cycloid_cartoon}) with the reduction equation \ref{eq:single_stage_ratio}.
+An alternative technology for high reductions in small packages comes in the form of cycloidal drives. The original concept for the induced motion seen in a cycloidal drive pre-dates harmonic drive. The original patent for the idea was filed by James Johnson in 1931 \cite{ref:cycloid_original}. However, the proliferation of this technology did not accelerate at the same speed as the harmonic drive, with this original patent only receiving 12 citations. A large development in the technology came with the invention by Rudolf Braren in 1977 \cite{ref:cycloid_one_stage} who proposed the concept and equations necessary for the common method of constructing cycloids that is used today. In 1981, Keith Rodaway patented the concept of a pinwheel reduction \cite{ref:cycloid_pinwheel}, which allowed much more compact designs of the cycloidal system. This compact design is the driving design for the compact, high torque density and high specific torque designs that are discussed in this work.
+
+The premise of this design leverages a plate, referred to as the cycloid plate, with lobes interacting with pins in the housing being spun on an eccentric shaft with a bearing.
+This eccentric lobe to pin interaction induces a counter-clockwise motion of the plate that is harnessed with the interior pins as the output of the mechanism (seen in Fig \ref{fig:cycloid_cartoon}) with the reduction equation \ref{eq:single_stage_ratio} where \textit{N\textsubscript{lobes}} is the number of lobes, and \textit{N\textsubscript{pins}} is the number of pins. 
 
 \begin{equation} \label{eq:single_stage_ratio}
-Z = \frac{Z_{lobes}} {Z_{pins} - Z_{lobes}}
+Q = \frac{N_{lobes}} {N_{pins} - N_{lobes}}
 \end{equation}
 
 This geartrain design has been used in industry for high torque, high shock load applications for many years including companies like Natbesco Motion Control and Onvio.
 However, in many of these applications, many or all of the interacting surfaces like the housing pins and output pins use needle roller bearings to transmit load.
 This allows for higher efficiency and load carrying capability, but it also increases mass and volume.
 In the robotic industry, groups are striving to reduce the mass and volume of these actuators while still achieving high reduction and load capabilities.
-One method for reducing mass is eliminating the rolling elements at the interaction points between the wobble plate, housing pins, and output pins.
-This allows for very compact and strong designs to be considered, but leaves the potential for larger losses and shorter system lifetime. The details of this design will be presented in \ref{ch:design_1s} and the efficiency of an example compact design will be presented in \ref{ch:design_2s}. 
+One method for reducing mass is eliminating the rolling elements at the interaction points between the cycloid plate, housing pins, and output pins.
+This allows for very compact and strong designs to be considered, but leaves the potential for larger losses and shorter system lifetime. The details of this design will be presented in Chapter \ref{ch:design_1s} and the efficiency of an example compact design will be presented in Chapter \ref{ch:dual}. 
 
-\begin{figure}[!b]
-   \centering
-   \includegraphics[width=0.60\linewidth]{fig/cycloid_cartoon_v2}
-   \caption{Simple rendering of the key elements that create a cycloidal drive.
-   A drive shaft spins a cycloidal disk (wobble plate) via an eccentric circle.
-   The wobble plate reacts against the housing pins to create a counter-rotation, harnessed by the output pins. TODO -- add labels for number of teeth}
-   \label{fig:cycloid_cartoon}
-\end{figure}
 
-More recently, authors have proposed designs that create a ``two-stage'' reduction using the cycloid profile. Instead of a typical two stage reduction system in which the output of one cycloid reducer drives the eccentric shaft as the input of the second reducer, the counter-rotation of the wobble plate is harnessed and directly passed to a second wobble plate that interacts with the lobes in the housing that are free to rotate \cite{ref:new_two_stage}. This design allows for more compact high reduction systems with a reduction defined in eq. \ref{eq:two_stage_ratio} \cite{ref:two_stage_tooth_mod}. The details of this design with be outlined more completely in \ref{chapter3:design}.
+More recently, authors have proposed designs that create a ``two-stage'' reduction using the cycloid profile. Instead of a typical two stage reduction system in which the output of one cycloid reducer drives the eccentric shaft as the input of the second reducer, the counter-rotation of the cycloid plate is harnessed and directly passed to a second cycloid plate that interacts with the pins in the housing with the entire housing mounted on a bearing and free to rotate \cite{ref:new_two_stage}. This design allows for more compact high reduction systems with a reduction defined in eq. \ref{eq:two_stage_ratio} \cite{ref:two_stage_tooth_mod} with \textit{N\textsubscript{1}} stage 1 pins and \textit{N\textsubscript{2}} stage 2 pins with a single tooth difference in each. The details of this design with be outlined more completely in \ref{ch:dual}.
 
 %put 2 stage equation
-\begin{equation} \label{eq:single_stage_ratio}
-Z = \frac{Z_{lobes}} {Z_{pins} - Z_{lobes}}
+\begin{equation} \label{eq:two_stage_ratio}
+Q = \frac{1}{1 - \frac{N_1 (N_2-1)}{N_2 (N_1-1)}}
 \end{equation}
 
-Many works have been presented on the subject of the theoretical design of these cycloidal drives \cite{ref:on_the_lobe} \cite{ref:hwang_hsieh}, designing with machine tolerances \cite{ref:design_and_application}, contact and stress analysis \cite{ref:li}, and performance characteristics such as torque ripple and backlash \cite{ref:hsieh_traditional} \cite{ref:hsieh_dynamics} as will be presented in Section \ref{design}.
+Many works have been presented on the subject of the theoretical design of these cycloidal drives \cite{ref:on_the_lobe} \cite{ref:hwang_hsieh}, designing with machine tolerances \cite{ref:design_and_application}, contact and stress analysis \cite{ref:li}, and performance characteristics such as torque ripple and backlash \cite{ref:hsieh_traditional} \cite{ref:hsieh_dynamics} as will be presented in Chapter \ref{ch:design_1s}.
 These works lay a solid foundation for a designer, providing the equations and design considerations for a cycloid.
 Still, there is a need to present in-use characteristics to support the theoretical calculations and models.
 
-Theoretical cycloid efficiencies have been reported in the 88-98\% range \cite{ref:Malhorta}, \cite{ref:unified_approach}.
+Theoretical cycloid efficiencies have been reported in the 88-98\% range \cite{ref:malhorta_2}, \cite{ref:unified_approach}.
 More recently, Sinsinger and Lipsey reported experimentally determined efficiencies for fused roller designs (42.3\%) and pin designs (71\%) based on 80 minutes of run-time \cite{ref:cycloid_vs_harmonic}.
 The distinction between a fused roller and pin design comes in the design of the housing.
 In a fused design, the input pins are machined as part of the housing, and in a pin design, pins are inserted to ride in the housing, allowing relative motion.
@@ -119,10 +124,17 @@ In a fused design, the input pins are machined as part of the housing, and in a 
 Hsieh verified the stress present in the drives in simulation and in-use which demonstrated lower stress levels and torque ripple when using fused rollers \cite{ref:hsieh_dynamics}.
 These two results leave an open trade to designers if stress and torque ripple need to be minimized versus maximizing efficiency.
 
-The previous work in this area lays a foundation of understanding for the construction and theoretical design of a single stage cyloidal drive, but there is a gap in the literature when it comes to in-use efficiency and lifetime of these devices. The benefits of designs like this are clear, but under-utilized in the robotic community. Additionally, the concept for a two-stage cycloid has been presented, but is lacking in the necessary design equations to produce compact two-stage cycloids. 
-
-\section{Actuator System Motivation} \label{intro:projects}
+The previous work in this area lays a foundation of understanding for the construction and theoretical design of a single-stage cycloidal drive, but there is a gap in the literature when it comes to in-use efficiency and lifetime of these devices. The benefits of designs like this are clear, but under-utilized in the robotic community. Additionally, the concept for a two-stage cycloid has been presented, but is lacking in the necessary design equations to produce compact two-stage cycloids. 
 
 \section{Contribution} \label{intro:contribution}
 
-\section{Thesis Outline} 
+The contribution of this thesis is three-fold,
+\begin{enumerate}
+	\item Development of explicit relative velocity equations for the lobe to pin interaction,
+	\item Long duration testing of a compact pin-in-housing single-stage cycloid reducer,
+	\item Development of force and velocity equations for a fused two-stage cycloid, yielding predicted loss equations. 
+\end{enumerate}
+Through these three items, key gaps in the literature are closed. First, a closed form solution for the relative motion between lobes and pins has yet to be presented, allowing estimated losses for this interaction. Second, very limited testing has been presented for a compact, pin-in-housing design of a single-stage cycloid. Therefore, extended duration testing is presented to understand in-use efficiency and lifetime for these actuators. Finally, very little has been presented on the new two-stage cycloid design aside from the geometric analysis, so closed form solutions for velocity and force for the lobe to pin interactions is developed to give predicted losses for a two-stage design. This leads to design recommendations that can be made for future designers of these devices. 
+
+\section{Thesis Outline} \label{intro:outline}
+The body of this thesis is broken into three chapters. Chapter 2 will cover the design equations for a single-stage cycloid, the design of the tested single-stage drive, and the development of closed form equations for the relative velocity between the lobes and rollers of a single-stage cycloid. Chapter 3 will discuss the testing procedure and results for the single-stage cycloid that was tested. Chapter 4 will then cover the design equations present in the literature for a new two-stage cycloid, and build upon this literature to discuss the relative velocity between the pins and lobes, forces present in these interactions, and the predicted losses. This is compared to the constructed two-stage cycloid to give a ground truth for the analysis with design recommendations stemming from this analysis. Finally, Chapter 5 will summarize the results and conclusions of this work. 

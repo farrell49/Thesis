@@ -1,14 +1,14 @@
 %!TEX root = thesis_main.tex
 
-\chapter{Testing and Analysis of Single Stage Cycloid}\label{ch:single}
+\chapter{Testing and Analysis of single-stage Cycloid}\label{ch:single}
 %Give and Overview of Chapter 3
 
 There is a gap in the literature for the in-use efficiency and lifetime characteristics of cycloidal reducers of the compact design that was presented in Chapter \ref{ch:design}. Previously, the longest set of test data for a compact cycloid was 80 minutes. This work aims to develop an understanding of the in-use characteristics of the single-stage compact design cycloid reducer in both efficiency and the initial analysis of lifetime for a cycloid of this type. Therefore, the single-stage design previously discussed was run through a long duration life-cycle with efficiency testing performed periodically to understand these pertinent characteristics. The actuator was run for over 300 hours with 130k output revolutions. The peak efficiency achieved through this time was 81\% which shows this actuator is competitive in efficiency with a harmonic drive. In addition, no appreciable degradation of performance was seen from break in until testing completion, showing the actuator's lifetime easily exceeds the current testing time.  
 
-This work has been submitted to the International Conference on Robotics and Automation, ICRA with the title ``Cycloidal Geartrain In-Use Efficiency Study.'' Portions of this section are taken directly from this publication. 
+This work has been submitted to the International Conference on Robotics and Automation, ICRA with the title ``Cycloidal Geartrain In-Use Efficiency Study.'' Portions of this section are taken directly from this publication. This chapter will first cover the experimental test setup in Section \ref{ch:single:test_setup}. The results of this testing are presented in Section \ref{ch:single:eff_results}. An analysis of the wear of the components is presented in Section \ref{ch:single:wear_analysis}. Finally, a discussion of these results is given in Section \ref{ch:single:discussion}.
 
 \section{Test Setup} \label{ch:single:test_setup}
-%Give the test setup for the single stage, basically pull the info from the paper 
+%Give the test setup for the single-stage, basically pull the info from the paper 
 
 The intent of testing the cycloidal drive is to experimentally determine and compare the in-use efficiency results to the published performance data for a comparable harmonic drive.
 To accomplish this, the actuator was mounted to a Futek TF600 5000inlb load cell to measure output torque of the actuator.
@@ -24,7 +24,7 @@ The motor driver monitored the actuator power by measuring torque from the load 
 The test computer monitored the high voltage supply and recorded voltage and current to determine input power to the system and received data from the motor driver to calculate output power.
 The test setup is shown in Fig \ref{fig:test_setup}.
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
    \includegraphics[width=0.75\linewidth]{fig/test_stand}
    \caption{Experimental Test Setup.
@@ -42,7 +42,7 @@ The error in the motor efficiency map is assumed to be small and would not influ
 Power losses in the motor driver were also taken into consideration by calculating power losses in the IGBT that drives the motor.
 Instantaneous current draw and a switching frequency of 12 kHz were used for the calculation, neglecting small leakage losses \cite{ref:IGBTPower}.
 
-\begin{figure}[!b]
+\begin{figure}[h]
    \centering
    \includegraphics[width=\linewidth]{fig/eff_test_profile_v4}
    \caption{Testing profile for efficiency.
@@ -101,7 +101,7 @@ The actuator was designed to be liquid cooled to allow operations above the cont
 For long duration testing, the torque values were decreased to avoid thermal issues.
 The motor was tested to approximately 6A\textsubscript{rms} during efficiency testing due to the limit of the power supply.
 Also, the motor driver's rated limits are 150V, therefore the actuator's maximum rated speeds could not be tested.
-The nominal cycle of the actuator as seen in Fig \ref{fig:duty_cycle} is still achievable and has been tested.
+The nominal cycle of the actuator as seen in Table \ref{table:duty_cycle} is still achievable and has been tested.
 
 
 
@@ -111,8 +111,7 @@ The nominal cycle of the actuator as seen in Fig \ref{fig:duty_cycle} is still a
 % - efficiency over the current run time 
 % - specific efficiency runs
 % - compare to the "expected" efficiency from the rolling anlaysis 
-\todo[inline] {Replace this with the newer stuff}
-\begin{figure*}[t]
+\begin{figure}[h]
    \centering
    \includegraphics[width=\linewidth]{fig/total_runtime}
    \caption{Efficiency over time for three different speed/torque profiles during the drive cycle.
@@ -122,22 +121,22 @@ The nominal cycle of the actuator as seen in Fig \ref{fig:duty_cycle} is still a
    As each day begins, there is a clear warm-up period before steady state.
    }
    \label{fig:long_run}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[t]
+\begin{figure}[h]
    \centering
    \includegraphics[width=0.8\linewidth]{fig/eff_test_bar_plot_v3}
-   \caption{Efficiency of the single stage cycloid after 100 hours of testing. Grouping of average efficiencies at each torque step.
+   \caption{Efficiency of the single-stage cycloid after 100 hours of testing. Grouping of average efficiencies at each torque step.
    Efficiency depends heavily on torque, and slightly on speed.}
    \label{fig:eff_results}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[t]
+\begin{figure}[h]
    \centering
    \includegraphics[width=0.8\linewidth]{fig/eff_final}
-   \caption{Efficiency of single stage cycloid after 300 hours of testing. No appreciable loss of efficiency after 129k revolutions.}
+   \caption{Efficiency of single-stage cycloid after 300 hours of testing. No appreciable loss of efficiency after 129k revolutions. TODO - make the legend look the same as the one above }
    \label{fig:eff_results_final}
-\end{figure*}
+\end{figure}
 
 Duty cycle testing was performed first on the actuator.
 These tests were done at lower torques to prevent the motor from overheating to allow extended duration testing.
@@ -156,43 +155,43 @@ After completion of the 300 hours, and 130k cycles of testing, the actuator was 
 
 The first note is that the grease used, Red 'N Tacky from Lucas Oil had turned a much darker color, nearly black. The system with the output pins and plate removed can be seen in Fig \ref{fig:single_full}. After removing the individual pieces and cleaning, the wear patterns in the system become clear. The cycloid plate, Fig \ref{fig:cycloid_plate}, shows smoothing of the peaks of the lobes on the plate, where they interact with the housing pins, but shows no wear deeper in the pockets. This indicates that the machining tolerances were such that these never interacted with the pins. The wear along the faces of each lobe were consistent around the profile, suggesting each lobe carried load at some point in each cycle. Additionally, the internal holes for the output pins shows relatively even wear. These results are typical for each of the three cycloid plates. 
 
-\begin{figure}[t]
+\begin{figure}[h]
    \centering
-   \includegraphics[width=0.8\linewidth]{fig/single_full}
-   \caption{The single stage cycloid with the output plate removed. The initially red grease has been turned nearly black through operation, likely due to metal deposits from the wearing in of the system.}
+   \includegraphics[width=0.4\linewidth]{fig/single_full}
+   \caption{The single-stage cycloid with the output plate removed. The initially red grease has been turned nearly black through operation, likely due to metal deposits from the wearing in of the system.}
    \label{fig:single_full}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[h]
    \centering
    \includegraphics[width=0.8\linewidth]{fig/cycloid_plate}
-   \caption{The profile of one of the cycloid plates from the single stage actuator. Each lobe shows smoothing along convex portion of the lobe and no wear along the concave portion. The wear is also uniform around the profile, showing relatively even load distribution around the profile during operation.}
+   \caption{The profile of one of the cycloid plates from the single-stage actuator. Each lobe shows smoothing along convex portion of the lobe and no wear along the concave portion. The wear is also uniform around the profile, showing relatively even load distribution around the profile during operation.}
    \label{fig:cycloid_plate}
 \end{figure}
 
 
 Three of the housing pins can be seen as an example in Fig \ref{fig:housing_pins}. The wear on these pins is uniform all the way around the pin. This shows that the pin was in fact rotating in the housing during operation, as determined by the sliding analysis in Section \ref{ch:design:pin_roll_1s:sliding_equations}. These three pins are also indicative of the other 57 pins, as each had relatively uniform wear around the profile. This, coupled with the cycloid plate, suggests that during the bulk of operation, the load was shared amongst all of the lobes and pins, rather than a small set of them. This potentially could have happened during the break in period of the system as well. 
 
-\begin{figure}[t]
+\begin{figure}[h]
    \centering
-   \includegraphics[width=0.8\linewidth]{fig/housing_pins}
-   \caption{The pins that rest in the housing for the single stage cycloid. The pins showed uniform wear around their diameter and across the pins, suggesting that the load was shared relatively equally around the diameter of the actuator.}
+   \includegraphics[width=0.4\linewidth]{fig/housing_pins}
+   \caption{The pins that rest in the housing for the single-stage cycloid. The pins showed uniform wear around their diameter and across the pins, suggesting that the load was shared relatively equally around the diameter of the actuator.}
    \label{fig:single_housing_pins}
 \end{figure}
 
 
 The output pins can be seen in Fig \ref{fig:single_output_pins}. The output pins were fixed in the output plate and could not roll, which is evident in their wear pattern. One side of the pin has wear, while the other still has the original black oxide coating. This result makes sense since the pin is only in contact with the cycloid plate through half of the revolution. One interesting result from this though is that some pins show much more wear than others, indicating that fewer output pins were carrying load than the maximum possible, potentially resulting in more losses. A more optimal design of this system would allow these pins to roll in their housing to wear more evenly and in a potentially lower friction interaction. 
 
-\begin{figure}[t]
+\begin{figure}[h]
    \centering
-   \includegraphics[width=0.8\linewidth]{fig/output_pins}
-   \caption{The single stage cycloid output pins. The pins did not rotate in their housing, so the wear is uneven around the diameter of the pin. The pins also show uneven wear from pin to pin, suggesting load was not carried equally among the pins during operation.}
+   \includegraphics[width=0.6\linewidth]{fig/output_pins}
+   \caption{The single-stage cycloid output pins. The pins did not rotate in their housing, so the wear is uneven around the diameter of the pin. The pins also show uneven wear from pin to pin, suggesting load was not carried equally among the pins during operation.}
    \label{fig:single_output_pins}
 \end{figure}
 
 \section{Discussion} \label{ch:single:discussion}
 % Summary
-% Single stage reductions built in this style can result in highly competitive efficiency ratios and 2x specific torque. You still have to deal with torque ripple and a little bit of backlash (unmeasured), but if you can handle those, drop these bad boys in. 
+% single-stage reductions built in this style can result in highly competitive efficiency ratios and 2x specific torque. You still have to deal with torque ripple and a little bit of backlash (unmeasured), but if you can handle those, drop these bad boys in. 
 
 The efficiency of the system is dependent on the torque through the gearbox as shown in Fig \ref{fig:eff_results_final}.
 This contradicts previous studies that suggested that cycloidal drives have a constant efficiency across the torque range.
@@ -202,15 +201,15 @@ A comparison of cycloid, harmonic, and planetary efficiency profiles can be seen
 The figure shows the efficiency for a harmonic drive CSF-45-50-2UH-LW \cite{ref:harmonic_sheet} which has a comparable ratio and torque capability to the tested cycloid and weighs 5.1kg, and a representative planetary efficiency curve from the engineers at Maxon Motor.
 If backlash is acceptable in a system, a cycloidal drive can provide similar or better efficiency profiles to a harmonic drive while providing a potential 2x increase in specific torque (Nm/kg).
 
-\begin{figure}[t]
+\begin{figure}[h]
    \centering
-   \includegraphics[width=\linewidth]{fig/eff_comp_v3}
+   \includegraphics[width=0.7\linewidth]{fig/eff_comp_v3}
    \caption{Comparison of efficiency over maximum torque rating of the tested cycloid, a comparable harmonic drive, and a theoretical planetary gearset.
    The cycloid exhibits the same efficiency increase over torque range and has a comparable and slightly higher efficiency than the harmonic.}
    \label{fig:eff_comp}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[h]
    \centering
    \includegraphics[width=\linewidth]{fig/burn_in}
    \caption{The first three days of testing show a substantial wear-in period for high torque periods.}
