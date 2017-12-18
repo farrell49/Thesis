@@ -2,7 +2,7 @@
 
 \chapter{Introduction}\label{ch:intro}
 Write once I am finished with the rest of the introduction so I can summarize it in a sort of "abstract." 
-Robotic systems often demand high reduction drives in small packages for use in robotic manipulators, vehicles, and many other applications. There are many choices for these reductions, planetary gearsets, belt drives, and harmonic drives. Harmonic drives, outlines in section \ref{intro:harmonic} are the usual go-to reduction when a compact design with high reduction is needed. However, these drives cannot be custom manufactured easily and have torque limitations due to their design. Cycloidal actuators, outlined in section \ref{intro:cycloids} are an alternative high-reduction actuator style that can achieve high reductions in compact packages and carry substantially more torque per mass. The background on these reductions will first be outlined, followed by a summary of the contributions (Section \ref{intro:contributions}) of this thesis and an outline of the main content of the work (\ref{intro:outline}). 
+Robotic systems often demand high reduction drives in small packages for use in robotic manipulators, vehicles, and many other applications. There are many choices for these reductions, planetary gearsets, belt drives, and harmonic drives. Harmonic drives, outlines in section \ref{intro:harmonic} are the usual go-to reduction when a compact design with high reduction is needed. However, these drives cannot be custom manufactured easily and have torque limitations due to their design. Cycloidal actuators, outlined in section \ref{intro:cycloid} are an alternative high-reduction actuator style that can achieve high reductions in compact packages and carry substantially more torque per mass. The background on these reductions will first be outlined, followed by a summary of the contributions (Section \ref{intro:contribution}) of this thesis and an outline of the main content of the work (Section \ref{intro:outline}). 
 
 \section{Motivation} \label{intro:motivation}
 
@@ -36,13 +36,6 @@ Belt drives share many of the benefits of planetary gearsets, and have very mini
 Harmonic drives are generally much more compact for the reduction they provide and have no backlash as well, but run less efficiently than the other two. 
 Due to the higher reduction per volume, harmonic drives are usually the reduction of choice in robotic actuator design in cases where compact design is favored over efficiency.
 
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.7\linewidth]{fig/actuator_type_collage}
-   \caption{TODO: insert a picture collage of other types of reducers}
-   \label{fig:reducer_collage}
-\end{figure}
-
 There exists a fourth option to add to this list, cycloidal drives. 
 Cycloidal drives provide a high reduction per volume similar to a harmonic drive, but can provide a higher specific torque than a harmonic drive. 
 Cycloidal drives do generally have backlash, so these designs cannot replace a harmonic drive in every situation, but a cycloid does provide an interesting option in design cases where high reduction and high torque in a small package are necessary, and a small amount of backlash is acceptable. 
@@ -54,7 +47,7 @@ The concept of a harmonic drive was proposed as early as 1959 by Walton Musser \
 
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.7\linewidth]{fig/harmonic_cartoon}
+   \includegraphics[width=0.3\linewidth]{fig/harmonic_blank}
    \caption{Cartoon rendering of the primary components of a harmonic drive, the wave-generator (green), flex-cup (red), and the circular spline (blue). The wave-generator is connected to the input shaft, the circular spline is fixed to the housing, and the output is harnessed through the motion of the flex-cup. \\
    This figure was created by Jahobr and made available to the public domain.}
    \label{fig:harmonic_cartoon}
@@ -71,7 +64,7 @@ Harmonic drives have two primary advantages in their use. First, harmonic drives
 \begin{figure}[h]
    \centering
    \includegraphics[width=0.7\linewidth]{fig/harmonic_eff}
-   \caption{TODO - correct values -- Harmonic efficiencies over the torque input for a Harmonic Drive CSG-50-80-2UH, a similarly sized actuator to the cycloidal drive studied in this work. This graph is recreated from the information in the Harmonic Drive catalog \cite{ref:harmonic_sheet}. }
+   \caption{Harmonic efficiencies over the torque input for a Harmonic Drive CSF-45-50-2UH-LW, a similarly sized actuator to the cycloidal drive studied in this work. This graph is recreated from the information in the Harmonic Drive catalog \cite{ref:harmonic_sheet}. }
    \label{fig:harmonic_eff}
 \end{figure}
 
@@ -79,7 +72,7 @@ Harmonic drives have two primary advantages in their use. First, harmonic drives
 
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.60\linewidth]{fig/Cycloidal_drive_parts}
+   \includegraphics[width=0.40\linewidth]{fig/Cycloidal_drive_parts}
    \caption{Simple rendering of the key elements that create a cycloidal drive.
    A drive shaft spins a cycloidal disk via an eccentric circle.
    The cycloid plate reacts against the housing pins to create a counter-rotation, harnessed by the output pins. 

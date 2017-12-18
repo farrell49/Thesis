@@ -7,7 +7,7 @@
 
 In recent literature, authors have proposed new concepts for cycloidal drives. A notable addition to the recent literature is a ``two-stage'' design that multiplies the cycloid reduction substantially in a very small package \cite{ref:new_two_stage}. Traditionally, a two-stage reduction takes the output of the first stage and sends it in as the input of the second stage in a stand-alone reduction. However, in the newly proposed ``two-stage'' cycloid, the first stage is directly coupled to the second, generating a potentially very large ratio in a small package. This concept is very intriguing for systems that need very large reductions and have space limitations. 
 
-With the recent advent of this style of design, there still exists many unexplored elements of the design of this drive. The kinematic layout and profile generating equations have been developed, as well as the precautions necessary for machining tolerances, as well as an initial development of the force calculations for one design. These are discussed in Section \ref{ch:dual:initial_equations}. Using the available literature, our group at NASA: Johnson Space Center developed a two-stage cycloid with a fused and counterbalanced set of cycloid plates, discussed further in Section \ref{TODO}. Through these tests, gaps in the analysis of the motion and forces present in the new two-stage concept were identified, specifically pertaining to the loads and relative motion necessary in the interaction between the lobes and housing, and the subsequent losses they generate. This gap is closed in the analysis of this thesis, covered in Section \ref{ch:dual:equations}
+With the recent advent of this style of design, there still exists many unexplored elements of the design of this drive. The kinematic layout and profile generating equations have been developed, as well as the precautions necessary for machining tolerances, as well as an initial development of the force calculations for one design. These are discussed in Section \ref{ch:dual:initial_equations}. Using the available literature, our group at NASA: Johnson Space Center developed a two-stage cycloid with a fused and counterbalanced set of cycloid plates, discussed further. Through these tests, gaps in the analysis of the motion and forces present in the new two-stage concept were identified, specifically pertaining to the loads and relative motion necessary in the interaction between the lobes and housing, and the subsequent losses they generate. This gap is closed in the analysis of this thesis, covered in Section \ref{ch:dual:equations}
 
 \todo[inline]{may need to add a chapter or section about more explicit design of ours? or de-emphasize in the above paragraph}
 
@@ -147,6 +147,7 @@ If a simple set of figures are made to show the force balance for the fused two-
 	\centering
 	\includegraphics[width=0.80\linewidth]{fig/two_stage_loads_pos}
    \caption{The forces acting on a fused two-stage cycloid. The loads on the first stage in this arrangement, shown in red, are in the opposite direction of a typical single-stage cycloid and act through the instant center, M1 and act on the trailing edge with respect to the eccentricity while the loads on the second stage, shown in blue, are in a more typical arrangement to a single stage and pass through the point M2. }
+   \label{fig:two_stage_force_pos}
 \end{figure}
 
 \begin{figure}[h]
@@ -231,7 +232,7 @@ Using these equations, the forces on each of the lobes and pins can be obtained.
 % THIS FITS INTO THE NEXT SECTION, THE QUESTION IS WHERE...
 To begin to understand the losses present in the two-stage cycloid system, the sliding interactions are necessary to derive between all of the pins and rollers, similar to those set out in Section \ref{ch:design:pin_roll_1s:sliding_equations}.
 
-An important distinguish can be made between a single-stage cycloid and the two-stage concept using Figure \ref{fig:second_stage_angle}. The profile for a cycloid is generated based off of Kennedy's Theorem, discussed in Section \ref{ch:design:basic_calc:profile} which places the contact point along the straight line from the center of the housing pin to the line of centers of the motor and the cycloid plate. This distance is defined as 
+An important distinguish can be made between a single-stage cycloid and the two-stage concept using Figure \ref{fig:two_stage_angles}. The profile for a cycloid is generated based off of Kennedy's Theorem, discussed in Section \ref{ch:design:basic_calc:profile} which places the contact point along the straight line from the center of the housing pin to the line of centers of the motor and the cycloid plate. This distance is defined as 
 \begin{equation}
 D_2 = N_2 E
 \end{equation} 
@@ -284,7 +285,7 @@ V_{1} = M = \frac{\omega_2}{Q} L_{op} \sin(\frac{\pi}{2}-(\psi+\gamma))
 \end{equation}
 
 
-Next, the velocity along the common normal, \textit{S} and the tangential velocity \textit{L} of point \textit{P} on the cycloid plate can be determined. If the calculations are correct, the velocity \textit{S} for both the pin, \textit{S\textsubscript{pin}} and \texit{S\textsubscript{plate}} are equal as they must move together to maintain contact. Figure \ref{fig:dual_relavite_motion} shows the geometric values needed to calculate these relative velocities. The angle difference between the angle used to calculate the cycloid profile \textpsi\textsubscript{2} and the actual angle of between the output roller center and the instant center caused by the first stage motion, \textpsi\textsubscript{1}, generate the motion along \textit{S} and \textit{L}. 
+Next, the velocity along the common normal, \textit{S} and the tangential velocity \textit{L} of point \textit{P} on the cycloid plate can be determined. If the calculations are correct, the velocity \textit{S} for both the pin, \textit{S\textsubscript{pin}} and \texit{S\textsubscript{plate}} are equal as they must move together to maintain contact. Figure \ref{fig:dual_relative_motion} shows the geometric values needed to calculate these relative velocities. The angle difference between the angle used to calculate the cycloid profile \textpsi\textsubscript{2} and the actual angle of between the output roller center and the instant center caused by the first stage motion, \textpsi\textsubscript{1}, generate the motion along \textit{S} and \textit{L}. 
 
 \begin{equation}\label{eq:psi_1}
 \psi_1 = \taninv{\frac{E N_1 \sin(\phi_2-\alpha-offset_j) - R_r\sin\psi_2}
@@ -331,85 +332,43 @@ Using the equations laid out in Section \ref{ch:dual:equations}, the force and v
 \subsection{Two-Stage Force and Velocity}\label{ch:dual:test_results:force_vel}
 % Talk through the force and velocity on each pin. Show the graphs of the motion through space of the system. Probably can keep this short? 
 
-The forces and velocities were calculated for the two-stage cycloid using the values set out in Table \ref{table:two_stage_design_params}. An example analysis is displayed in Fig \ref{fig:two_stage_forces}. For all presented analysis, a usage scenario of 0.25rad/s output RPM and 20Nm output torque was used as a basis for comparison. Therefore, for the NASA design, an input of 0.0309Nm and an input speed of 81 rad/s which, given a perfectly efficient system, would yield the desired outputs. 
+The forces and velocities were calculated for the two-stage cycloid using the values set out in Table \ref{table:two_stage_design_params}. An example analysis is displayed in Fig \ref{fig:two_stage_forces_pos}. For all presented analysis, a usage scenario of 0.25rad/s output RPM and 20Nm output torque was used as a basis for comparison. Therefore, for the NASA design, an input of 0.0309Nm and an input speed of 81 rad/s which, given a perfectly efficient system, would yield the desired outputs. 
 
 \begin{figure}[h]
    \centering
-   \begin{tabular}{cccc}
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_vel_0} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_vel_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_vel_pi} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_vel_3pi_2} \\
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_vel_0} &
+   \begin{tabular}{ccc}
+	   \includegraphics[width=0.30\textwidth]{fig/double_1_vel_pi_2} &
+	   \includegraphics[width=0.30\textwidth]{fig/double_1_forces_pi_2} &
+	   \includegraphics[width=0.30\textwidth]{fig/double_1_losses_pi_2} \\
+	   \\
+	   \hline
+	   \\
 	   \includegraphics[width=0.23\textwidth]{fig/double_2_vel_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_vel_pi} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_vel_3pi_2} \\
-	   \\
-	   \hline
-	   \\
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_forces_0} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_forces_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_forces_pi} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_forces_3pi_2} \\
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_forces_0} &
 	   \includegraphics[width=0.23\textwidth]{fig/double_2_forces_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_forces_pi} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_forces_3pi_2} \\
-	   \\
-	   \hline
-	   \\
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_losses_0} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_losses_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_losses_pi} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_losses_3pi_2} \\
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_losses_0} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_losses_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_losses_pi} &
-	   \includegraphics[width=0.25\textwidth]{fig/double_2_losses_3pi_2} \\
+	   \includegraphics[width=0.23\textwidth]{fig/double_2_losses_pi_2} \\
    \end{tabular}
-   \caption{Full set of velocities, forces, and losses through a single input rotation of a two-stage cycloid system with a positive 324:1 ratio.}
-   \label{fig:two_stage_forces}
+   \caption{Full set of velocities, forces, and losses at an input angle of \textpi/2 two-stage cycloid system with a positive 324:1 ratio.}
+   \label{fig:two_stage_forces_pos}
 \end{figure}
 
 \begin{figure}[h]
    \centering
    \begin{tabular}{cccc}
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_vel_0} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_vel_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_vel_pi} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_vel_3pi_2} \\
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_vel_0} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_vel_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_vel_pi} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_vel_3pi_2} \\
+	   \includegraphics[width=0.30\textwidth]{fig/double_1_neg_vel_pi_2} &
+	   \includegraphics[width=0.30\textwidth]{fig/double_1_neg_forces_pi_2} &
+	   \includegraphics[width=0.30\textwidth]{fig/double_1_neg_losses_pi_2} \\
 	   \\
 	   \hline
 	   \\
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_forces_0} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_forces_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_forces_pi} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_forces_3pi_2} \\
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_forces_0} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_forces_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_forces_pi} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_forces_3pi_2} \\
-	   \\
-	   \hline
-	   \\
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_losses_0} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_losses_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_losses_pi} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_1_neg_losses_3pi_2} \\
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_losses_0} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_losses_pi_2} &
-	   \includegraphics[width=0.23\textwidth]{fig/double_2_neg_losses_pi} &
-	   \includegraphics[width=0.25\textwidth]{fig/double_2_neg_losses_3pi_2} \\
+	   \includegraphics[width=0.30\textwidth]{fig/double_2_neg_vel_pi_2} &
+	   \includegraphics[width=0.30\textwidth]{fig/double_2_neg_forces_pi_2} &
+	   \includegraphics[width=0.30\textwidth]{fig/double_2_neg_losses_pi_2} \\
    \end{tabular}
-   \caption{Full set of velocities, forces, and losses through a single input rotation of a two-stage cycloid system with a negative 323:1 ratio.}
-   \label{fig:two_stage_forces}
+   \caption{Full set of velocities, forces, and losses at an input angle of \textpi/2 of a two-stage cycloid system with a negative 323:1 ratio.}
+   \label{fig:two_stage_forces_neg}
 \end{figure}
 
-This can be contrasted with the similar design but utilizing a negative ratio by inverting which cycloid plate has more pins. If the first stage has more pins, the ratio will be positive, if the second stage has more pins, it will be negative. So while the parameters in Table \ref{table:two_stage_design_params} results in a ratio of 324:1, the reverse arrangement in Table \ref{table:two_stage_invert_design_params} results in a ratio of -323:1. The same input motion simulated for the first arrangement is applied to the reverse arrangement and shown in Figure \ref{fig:two_stage_forces_rev}.
+This can be contrasted with the similar design but utilizing a negative ratio by inverting which cycloid plate has more pins. If the first stage has more pins, the ratio will be positive, if the second stage has more pins, it will be negative. So while the parameters in Table \ref{table:two_stage_design_params} results in a ratio of 324:1, the reverse arrangement in Table \ref{table:two_stage_invert_design_params} results in a ratio of -323:1. The same input motion simulated for the first arrangement is applied to the reverse arrangement and shown in Figure \ref{fig:two_stage_forces_neg}.
 
 \subsection{Two-Stage Lobe to Pin Losses} \label{ch:dual:test_results:losses}
 % Show the plots of the losses for the different combinations of things. Show 324 to -323, 324 - 151 - whatever, 324 to 334 
@@ -423,7 +382,8 @@ An analysis of the predicted losses for a two-stage cycloid was conducted using 
    \label{fig:two_stage_as_designed}
 \end{figure}
 
-This efficiency analysis can be contrasted against the tested values of the NASA designed two-stage cycloid system. The constructed actuator was run through a break in period of approximately 10 hours. During this time, the efficiency of the system was not observed to change appreciably. A test cycle, outlined in Table \ref{table:two_stage_test_cycle} was run over the course of TODO hours. The testing was run using the same setup as outlined in Section \ref{ch:single:test_setup}. The two stage was mounted in the same location as the single-stage and run with the same control equipment. The results of this cycling can be seen in Fig \ref{fig:two_stage_results}.
+This efficiency analysis can be contrasted against the tested values of the NASA designed two-stage cycloid system. The constructed actuator was run through a break in period of approximately 10 hours. During this time, the efficiency of the system was not observed to change appreciably. A test cycle, outlined in Table \ref{table:two_stage_test_cycle} was run over the course of TODO hours. The testing was run using the same setup as outlined in Section \ref{ch:single:test_setup}. The two stage was mounted in the same location as the single-stage and run with the same control equipment. The results of this cycling can be seen in Fig \ref{fig:two_stage_eff}.
+\todo[inline] {make the two stage test cycle table}
 
 \begin{figure}[h]
 	\centering
@@ -450,7 +410,7 @@ A generally accepted ``efficient'' system (\textless90\%) is not achieved until 
 
 \subsection{Positive and Negative Ratio Arrangement}\label{ch:dual:discussion:pos_neg}
 
-The first comparison to analyze is the choice of positive or negative arrangement. The most apparent difference between the positive and negative arrangements is the loads are flipped as the input goes around. That is, in Fig \ref{fig:two_stage_forces}, the loads are on pins 1-TODO on stage one and TODO-TODO on stage 2, while in Fig \ref{fig:two_stage_forces_rev} this is flipped, so stage 1 has loads on pins TODO-TODo and stage 2 has loads on pins TODO-TODO. Additionally, in the positive arrangement, the load is slightly lower per pin on the first stage because there are more pins and lobes and higher on the second stage. This is reversed in the negative arrangement. 
+The first comparison to analyze is the choice of positive or negative arrangement. The most apparent difference between the positive and negative arrangements is the loads are flipped as the input goes around. That is, in Fig \ref{fig:two_stage_forces_pos}, the loads are on pins 1-TODO on stage one and TODO-TODO on stage 2, while in Fig \ref{fig:two_stage_forces_neg} this is flipped, so stage 1 has loads on pins TODO-TODo and stage 2 has loads on pins TODO-TODO. Additionally, in the positive arrangement, the load is slightly lower per pin on the first stage because there are more pins and lobes and higher on the second stage. This is reversed in the negative arrangement. 
 
 \begin{figure}[h]
 	\centering
@@ -459,7 +419,7 @@ The first comparison to analyze is the choice of positive or negative arrangemen
    \label{fig:two_stage_pos_neg}
 \end{figure}
 
-While it would appear that these loads are equally flipped, and would therefore cancel out, the coupling of these loads and the relative velocities of the pins to cycloid plates plays into the predicted losses of the system, in which loss is proportional to both force and velocity. Because there is more relative motion between the cycloid plate and the pins in the second stage plate, as evident in both Fig \ref{fig:two_stage_forces} and Fig \ref{two_stage_forces_rev}, if the load is higher on the second stage plates due to this increased velocity condition, losses will increase. This relationship causes the disparity in losses for positive and negative ratios that is demonstrated in Fig \ref{fig:two_stage_pos_neg}, where the negative ratio has a lower loss per  unit of coefficient of friction. This result suggests that, whenever possible, a designer should opt for a negative ratio arrangement to decrease the losses of the actuator. 
+While it would appear that these loads are equally flipped, and would therefore cancel out, the coupling of these loads and the relative velocities of the pins to cycloid plates plays into the predicted losses of the system, in which loss is proportional to both force and velocity. Because there is more relative motion between the cycloid plate and the pins in the second stage plate, as evident in both Fig \ref{fig:two_stage_forces_pos} and Fig \ref{fig:two_stage_forces_neg}, if the load is higher on the second stage plates due to this increased velocity condition, losses will increase. This relationship causes the disparity in losses for positive and negative ratios that is demonstrated in Fig \ref{fig:two_stage_pos_neg}, where the negative ratio has a lower loss per  unit of coefficient of friction. This result suggests that, whenever possible, a designer should opt for a negative ratio arrangement to decrease the losses of the actuator. 
 
 
 

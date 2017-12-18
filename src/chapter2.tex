@@ -45,7 +45,7 @@ R_{hole} = R_o + E.
 This larger diameter hole allows the cycloid plate to move eccentrically around the pins and therefore, half of the pins are receiving the load at any one time from the cycloid-plate. This concept allows for the high reductions and loads seen in single-stage cycloids.
 
 \begin{figure}[h]
-   \left
+   \centering
    \begin{tabular}{cccc}
      \includegraphics[width=0.24\linewidth]{fig/single_0} &
      \includegraphics[width=0.24\linewidth]{fig/single_1} &
@@ -66,8 +66,8 @@ Now that the basic design and motion of a single-stage cycloid has been establis
 
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.60\linewidth]{fig/kennedy_sliding_TODO}
-   \caption{TODO: Create a graphic similar to that found in the text for Kennedy's Theorem. Use the phrasing "figure adapted from \cite{ref:kinematics_and_dynamics}"}
+   \includegraphics[width=0.60\linewidth]{fig/kennedy_sliding}
+   \caption{Graphical articulation of Kennedy's Theorem. The contact points on link 2 and 4 have their own velocity, \texit{F} and \texit{E}, determined by their own motion. However, to remain in contact, their respectively velocities in the \textit{S} direction must be equal. The remaining motion along the common tangent \textit{M} and \textit{L} respectively indicates the relative sliding between the links. In additional, the instant center of links 2 and 4, by Kenney's Theorem, must lie along the \textit{Line of Centers} of the two links rotation. \\This figure was adapted from \cite{ref:kinematics_and_dynamics}"}
    \label{fig:kennedy_sliding}
 \end{figure}
 
@@ -117,7 +117,7 @@ These design parameter decisions and restrictions will be discussed further in s
 
 
 With these defined parameters, the equations necessary for generating the profiles can be developed.
-Fig \ref{fig:single_frames} shows an illustration of the frames necessary for a single-stage cycloid. In this case, the first link is the ground link, the second link is the motor input via the eccentric arm, and the third link is the cycloid plate itself. The interaction that must satisfy Kennedy's Theorem is between the cycloid link and the ground link, (links 1 and 3). The interaction between those two links must have an instant center that falls on the line of instant centers I\textsubscript{12} and I\textsubscript{23} that is normal to the common tangent. To create the cycloid plate profile, the location of this point must be put into the frame of the cycloid plate. Three frames are denoted in \ref{fig:single_frame}, the fixed frame \textit{F}, the motor frame \textit{M}, and the cycloid plate \textit{C}. 
+Fig \ref{fig:single_frames} shows an illustration of the frames necessary for a single-stage cycloid. In this case, the first link is the ground link, the second link is the motor input via the eccentric arm, and the third link is the cycloid plate itself. The interaction that must satisfy Kennedy's Theorem is between the cycloid link and the ground link, (links 1 and 3). The interaction between those two links must have an instant center that falls on the line of instant centers I\textsubscript{12} and I\textsubscript{23} that is normal to the common tangent. To create the cycloid plate profile, the location of this point must be put into the frame of the cycloid plate. Three frames are denoted in \ref{fig:single_frames}, the fixed frame \textit{F}, the motor frame \textit{M}, and the cycloid plate \textit{C}. 
 
 \begin{figure}[h]
    \centering
@@ -232,7 +232,7 @@ The prototype wheel module layout can be seen in Fig \ref{fig:wheel_module}.
 \end{table*}
 
 Based on the load cases, the actuator was required to output a stall torque of 2,440 Nm (1800 ft-lb) with a max output speed of 1.57 rad/s (90 deg/s) at 1,626 Nm (1200 ft-lb).
-The required torque/speed data points are presented in Table \ref{duty_cycle} with an assumed loss of 88\% chosen based on the available literature.
+The required torque/speed data points are presented in Table \ref{table:duty_cycle} with an assumed loss of 88\% chosen based on the available literature.
 The actuator layout for the vehicle placed the motor and cycloid off center of the steering axis with an additional 5:1 reduction into the steering column, thus decreasing the torque needed for the cycloid output, but increasing the potential shock loading.
 
 \subsection{Force Analysis and Sizing} \label{ch:design:single:force_analysis}
@@ -308,7 +308,7 @@ Ma = F_{input} E \cos(N_1 \phi_2 + \gamma)
 \begin{equation} \label{eq:single_y}
 -\sum_{i=1}^{N_{1c}} F_{ri} sin{\alpha_i} + \sum_{j=1}^{N_{oc}} F_{oj} sin(N_1*\phi_2) + F_{input} \cos{\gamma} = 0
 \end{equation}
-\begin{equation} \label{eq:single_torqe}
+\begin{equation} \label{eq:single_torque}
 \sum_{i=1}^{N_{1c}}F_{ri} l_i - \sum_{j=1}^{N_{oc}}F_{oj} R_o \sin(\beta_j + N_1 \phi_2) = 0
 \end{equation}
 
@@ -407,8 +407,9 @@ Through testing and analysis, a gap in the literature was identified pertaining 
 
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.7\linewidth]{fig/kennedy_rolling_TODO}
-   \caption{TODO Create a picture of the rolling contact for Kennedy theorem}
+   \includegraphics[width=0.8\linewidth]{fig/kennedy_rolling}
+   \caption{By Kennedy's theorem, and shown in Fig \ref{fig:kennedy_sliding}, the instant center of two links in contact lies on the intersection of the common normal and the line of centers. Only if this intersection point \textit{P} lies along this intersection are the links rolling without sliding. That is, each point \textit{P} on link 2 and link 4 have equal motion along the same line, shown by vectors \textit{E} and \textit{F}.
+   \\This figure was adapted from \cite{ref:kinematics_and_dynamics}}
    \label{fig:kennedy_rolling}
 \end{figure}
 
@@ -445,14 +446,13 @@ Using this relationship, the sliding velocity between the cycloid plate and hous
 
 \subsection{Predicted single-stage Roller Losses} \label{ch:design:pin_roll_1s:predicted_losses}
 
-Due to the assertion that there is sliding of some type (either the plate along the pin, or the pin rolling in the housing) and there are forces acting on these pins shown in Fig \ref{fig:single_force}, there is some loss associated with this interaction that has not previously been captured in the literature. Using the forces developed along the pins in Section \ref{ch:design:single:force_analysis} and the sliding velocities for each pin developed in Section \ref{ch:design:pin_roll_1s:sliding_equations}, the power losses for the system can be estimated using 
+Due to the assertion that there is sliding of some type (either the plate along the pin, or the pin rolling in the housing) and there are forces acting on these pins shown in Fig \ref{fig:single_forces}, there is some loss associated with this interaction that has not previously been captured in the literature. Using the forces developed along the pins in Section \ref{ch:design:single:force_analysis} and the sliding velocities for each pin developed in Section \ref{ch:design:pin_roll_1s:sliding_equations}, the power losses for the system can be estimated using 
 
 \begin{equation} \label{eq:single_power_loss}
 P_L = \sum_{i=1}^{N_{1c}}\mu F_ri V.
 \end{equation}
 
-Note that there will only be losses on pins that have a contact force, which was defined as the number of pins divided by two at any given time. The estimated losses due to the cycloid disk rolling along the housing pins, which must then slide in the housing can be calculated for the single-stage cycloid for a given range of inputs. The resulting velocities (Fig \ref{fig:single_sliding}), forces (Fig \ref{fig:single_forces}), and losses (Fig \ref{fig:single_losses}) through one revolution can be observed. Using these calculations, the coefficient of friction can be varied to give an estimate of losses versus coefficient of friction, presented in Fig \ref{fig:single_stage_losses}
-These results are shown in Table \ref{table:single_slide_estimate}.
+Note that there will only be losses on pins that have a contact force, which was defined as the number of pins divided by two at any given time. The estimated losses due to the cycloid disk rolling along the housing pins, which must then slide in the housing can be calculated for the single-stage cycloid for a given range of inputs. The resulting velocities (Fig \ref{fig:single_sliding}), forces (Fig \ref{fig:single_forces}), and losses (Fig \ref{fig:single_losses}) through one revolution can be observed. Using these calculations, the coefficient of friction can be varied to give an estimate of losses versus coefficient of friction, presented in Fig \ref{fig:single_stage_losses}.
 
 \begin{figure}[h]
    \centering
