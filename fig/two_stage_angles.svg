@@ -16,11 +16,87 @@
    id="svg16"
    sodipodi:docname="two_stage_angles.svg"
    inkscape:export-filename="/home/lcfarrel/Documents/01_Rice/Thesis/fig/two_stage_angles.png"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
+   inkscape:export-xdpi="250"
+   inkscape:export-ydpi="250"
    inkscape:version="0.92.2 (unknown)">
   <defs
      id="defs10">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker27858"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path27856" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker27650"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path27648"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker27454"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path27452"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker27264"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path27262" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker27080"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mstart"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         transform="scale(0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path27078" />
+    </marker>
     <marker
        inkscape:isstock="true"
        style="overflow:visible"
@@ -58,7 +134,8 @@
        refX="0"
        id="marker4881"
        style="overflow:visible"
-       inkscape:isstock="true">
+       inkscape:isstock="true"
+       inkscape:collect="always">
       <path
          id="path4879"
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
@@ -73,7 +150,8 @@
        refX="0"
        id="Arrow2Mend"
        style="overflow:visible"
-       inkscape:isstock="true">
+       inkscape:isstock="true"
+       inkscape:collect="always">
       <path
          id="path4592"
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
@@ -406,18 +484,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.3649919"
-     inkscape:cx="205.39347"
-     inkscape:cy="228.57082"
+     inkscape:zoom="1.9303901"
+     inkscape:cx="183.91758"
+     inkscape:cy="169.76274"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:snap-grids="false"
-     inkscape:window-width="1317"
-     inkscape:window-height="1028"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
-     inkscape:window-maximized="0"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     inkscape:window-x="1985"
+     inkscape:window-y="260"
+     inkscape:window-maximized="1"
      inkscape:snap-center="true" />
   <metadata
      id="metadata13">
@@ -427,7 +505,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -444,7 +522,7 @@
        r="14.696118"
        transform="rotate(-12.591332)" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.354;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:0.354;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker27080);marker-end:url(#marker27264)"
        d="M 156.90092,161.8309 62.773111,182.68793 47.763171,115.48956"
        id="path20-56"
        inkscape:connector-curvature="0"
@@ -550,30 +628,6 @@
          x="80.649231"
          y="159.23653"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.54117709">E</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:21.64708519px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.54117709"
-       x="40.700233"
-       y="188.14926"
-       id="text8010-24-0"
-       transform="rotate(-12.591332)"><tspan
-         sodipodi:role="line"
-         id="tspan8008-0-8"
-         x="40.700233"
-         y="188.14926"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.54117709">phi2</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:21.64708519px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.54117709"
-       x="59.728554"
-       y="180.89648"
-       id="text8010-9-0"
-       transform="rotate(-12.591332)"><tspan
-         sodipodi:role="line"
-         id="tspan8008-9-5"
-         x="59.728554"
-         y="180.89648"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.54117709">psi_2</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.3069081px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 127.56114,167.91459 100.97039,144.68904"
@@ -598,7 +652,7 @@
        transform="rotate(-12.591332)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.35660896px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-24)"
-       d="m 107.18365,172.17059 c -0.77578,-2.37146 1.25141,-13.76779 4.24058,-17.82875"
+       d="m 97.79693,174.74503 c -0.63872,-8.53925 2.176575,-17.70832 7.08463,-25.50422"
        id="path4563-1"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -669,7 +723,9 @@
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.68289709px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.54117709"
    id="tspan38611">r</tspan><tspan
    style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.77273703px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.54117709"
-   id="tspan38613">cos</tspan>(psi_2)</tspan></tspan></text>
+   id="tspan38613">cos</tspan>(ψ<tspan
+   style="-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.52777778px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal"
+   id="tspan27070">2</tspan>)</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:14.12080288px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.35302004"
@@ -689,7 +745,9 @@
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.40242362px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.35302004"
    id="tspan38636">r</tspan><tspan
    style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.76566577px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.35302004"
-   id="tspan38638">sin</tspan>(psi_2)</tspan></tspan></text>
+   id="tspan38638">sin</tspan>(ψ<tspan
+   style="-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:2.11666668px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal"
+   id="tspan27068">2</tspan>)</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:21.64708519px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.54117709"
@@ -737,22 +795,10 @@
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.35660896px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-24-1)"
-       d="m 116.02415,170.73143 c -1.26089,-4.22608 4.8375,-10.87899 5.94916,-11.74362"
+       d="m 107.97175,172.58177 c -0.9525,-8.92046 0.8627,-15.05939 7.49111,-24.18201"
        id="path4563-1-6"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:21.64708519px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.54117709"
-       x="78.305252"
-       y="190.45642"
-       id="text8010-9-0-3"
-       transform="rotate(-12.591332)"><tspan
-         sodipodi:role="line"
-         id="tspan8008-9-5-3"
-         x="78.305252"
-         y="190.45642"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.54117709">psi_1</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot67386"
@@ -764,7 +810,7 @@
            height="120.18297"
            x="77.704506"
            y="655.30768" /></flowRegion><flowPara
-         id="flowPara67392"></flowPara></flowRoot>    <flowRoot
+         id="flowPara67392" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot67394"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
@@ -775,8 +821,8 @@
            height="104.0685"
            x="84.974808"
            y="689.55322" /></flowRegion><flowPara
-         id="flowPara67400"></flowPara></flowRoot>    <path
-       style="fill:none;stroke:#000000;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="flowPara67400" /></flowRoot>    <path
+       style="fill:none;stroke:#000000;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker27454);marker-end:url(#marker27858)"
        d="m 62.773111,115.92762 v 66.76031 h 93.430469"
        id="path67402"
        inkscape:connector-curvature="0" />
@@ -808,15 +854,54 @@
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:21.64708519px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.54117709"
-       x="104.72691"
-       y="175.67694"
+       style="font-style:normal;font-weight:normal;font-size:24.5068531px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.61267132"
+       x="104.69842"
+       y="175.8474"
        id="text8010-24-0-9"
        transform="rotate(2.408668)"><tspan
          sodipodi:role="line"
          id="tspan8008-0-8-0"
-         x="104.72691"
-         y="175.67694"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.54117709">alpha</tspan></text>
+         x="104.69842"
+         y="175.8474"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.59135914px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.61267132">α</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:22.94008255px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.57350212"
+       x="80.719223"
+       y="174.47023"
+       id="text8010-24"><tspan
+         sodipodi:role="line"
+         id="tspan8008-0"
+         x="80.719223"
+         y="174.47023"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.1173563px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.57350212">φ<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.4692266px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.57350212"
+   id="tspan2768">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.86256313px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3140659"
+       x="91.469696"
+       y="164.47966"
+       id="text2797"><tspan
+         sodipodi:role="line"
+         id="tspan2795"
+         x="91.469696"
+         y="164.47966"
+         style="stroke-width:0.3140659">ψ<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.37827492px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.3140659"
+   id="tspan22803">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.54898119px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.29726687"
+       x="101.0762"
+       y="170.05659"
+       id="text2797-4"><tspan
+         sodipodi:role="line"
+         id="tspan2795-9"
+         x="101.0762"
+         y="170.05659"
+         style="stroke-width:0.29726687">ψ<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.19757485px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.29726687"
+   id="tspan22803-5">1</tspan></tspan></text>
   </g>
 </svg>
