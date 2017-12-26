@@ -424,16 +424,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.3234078"
-     inkscape:cx="1438.5162"
-     inkscape:cy="944.11308"
+     inkscape:zoom="0.6617039"
+     inkscape:cx="1181.365"
+     inkscape:cy="1005.0016"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer4"
      showgrid="false"
      inkscape:window-width="1855"
      inkscape:window-height="1056"
-     inkscape:window-x="1985"
-     inkscape:window-y="260"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
      inkscape:window-maximized="1"
      inkscape:snap-center="true"
      inkscape:snap-intersection-paths="true"
@@ -599,7 +599,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.92523646px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.69541591"
            id="tspan18856-3-9"><tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.81487799px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.69541591"
-   id="tspan20195">ρ</tspan>2</tspan></tspan></text>
+   id="tspan20195">ρ</tspan>22</tspan></tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -704,5 +704,24 @@
        d="m 283.02276,198.08123 170.82687,67.80688"
        id="path7157"
        inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="cut">
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.58823529;paint-order:markers fill stroke"
+       id="rect3600"
+       width="236.71211"
+       height="157.94136"
+       x="297.8894"
+       y="262.90656" />
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3.99642038;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect3607"
+       width="214.3902"
+       height="169.60681"
+       x="301.67148"
+       y="262.87167" />
   </g>
 </svg>
