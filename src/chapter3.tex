@@ -24,7 +24,7 @@ The motor driver monitored the actuator power by measuring torque from the load 
 The test computer monitored the high voltage supply and recorded voltage and current to determine input power to the system and received data from the motor driver to calculate output power.
 The test setup is shown in Fig \ref{fig:test_setup}.
 
-\begin{figure}[h]
+\begin{figure}[t]
    \centering
    \includegraphics[width=0.75\linewidth]{fig/test_stand}
    \caption{Experimental Test Setup.
@@ -42,7 +42,7 @@ The error in the motor efficiency map is assumed to be small and would not influ
 Power losses in the motor driver were also taken into consideration by calculating power losses in the IGBT that drives the motor.
 Instantaneous current draw and a switching frequency of 12 kHz were used for the calculation, neglecting small leakage losses \cite{ref:IGBTPower}.
 
-\begin{figure}[h]
+\begin{figure}[t]
    \centering
    \includegraphics[width=\linewidth]{fig/eff_test_profile_v4}
    \caption{Testing profile for efficiency.
@@ -59,7 +59,7 @@ This testing profile can be seen in Fig \ref{fig:eff_profile}.
 The long term drive cycle was run continuously each day for 6 to 12 hours with the duty cycles shown in Table \ref{table:long_run}.
 The total runtime of the system, not including the initial checkout and verification of the actuator, has been 303 hours.
 
-\begin{table}[h]
+\begin{table}[t]
   \vskip0.2cm
   \caption{Long Run Drive Cycle}
   \label{table:long_run}
@@ -111,7 +111,14 @@ The nominal cycle of the actuator as seen in Table \ref{table:duty_cycle} is sti
 % - efficiency over the current run time 
 % - specific efficiency runs
 % - compare to the "expected" efficiency from the rolling anlaysis 
-\begin{figure}[h]
+
+Duty cycle testing was performed first on the actuator.
+These tests were done at lower torques to prevent the motor from overheating to allow extended duration testing.
+The total test time prior to these duty cycle tests was approximately 5.2 hours to bring up and check out the actuator testbed system.
+Once this checkout was complete, the 300 hours of duty cycle testing were conducted over the course of 39 days with the drive cycle presented in Table \ref{table:long_run}.
+Three of the torque/speed combinations in forward and reverse are plotted on Fig \ref{fig:long_run} to show the general characteristic trends seen in actuator performance.
+
+\begin{figure}[!b]
    \centering
    \includegraphics[width=\linewidth]{fig/total_runtime}
    \caption{Efficiency over time for three different speed/torque profiles during the drive cycle.
@@ -122,6 +129,10 @@ The nominal cycle of the actuator as seen in Table \ref{table:duty_cycle} is sti
    }
    \label{fig:long_run}
 \end{figure}
+\todo[inline]{fix the legend to be a real size}
+
+After the break in period and steady state performance was achieved, a profile of speeds and torques (see Fig \ref{fig:eff_profile}) were run on the actuator to show the relationship between speed, torque, and efficiency.
+This profile was run three times and the results at each torque and speed combination were averaged. The first efficiency cycle was run as seen in Fig \ref{fig:eff_results}. Efficiency cycles were run after each subsequent 100 hours of testing to understand performance over time. The final efficiency test is shown in Fig \ref{fig:eff_results_final}.
 
 \begin{figure}[h]
    \centering
@@ -137,32 +148,24 @@ The nominal cycle of the actuator as seen in Table \ref{table:duty_cycle} is sti
    \caption{Efficiency of single-stage cycloid after 300 hours of testing. No appreciable loss of efficiency after 129k revolutions. TODO - make the legend look the same as the one above }
    \label{fig:eff_results_final}
 \end{figure}
-
-Duty cycle testing was performed first on the actuator.
-These tests were done at lower torques to prevent the motor from overheating to allow extended duration testing.
-The total test time prior to these duty cycle tests was approximately 5.2 hours to bring up and check out the actuator testbed system.
-Once this checkout was complete, the 300 hours of duty cycle testing were conducted over the course of 39 \todo{change} days with the drive cycle presented in Table \ref{table:long_run}.
-Three of the torque/speed combinations in forward and reverse are plotted on Fig \ref{fig:long_run} to show the general characteristic trends seen in actuator performance.
-
-After the break in period and steady state performance was achieved, a profile of speeds and torques (see Fig \ref{fig:eff_profile} were run on the actuator to show the relationship between speed, torque, and efficiency.
-This profile was run three times and the results at each torque and speed combination were averaged. The first efficiency cycle was run as seen in Fig \ref{fig:eff_results}. Efficiency cycles were run after each subsequent 100 hours of testing to understand performance over time. The final efficiency test is shown in Fig \ref{fig:eff_results_final}.
+\todo[inline]{make the legend size reasonable and the same}
 
 \section{Wear Analysis} \label{ch:single:wear_analysis}
 % Look at the pictures that we took to say "check it out, this thing can probably go for a lot longer based on how well it's done so far."
 % The only real thing to look at is those plastic pieces and talk about uneven wearing on the output pins. 
 
-After completion of the 300 hours, and 130k cycles of testing, the actuator was disassembled to qualitatively look at the wear patterns on the cycloid. This analysis gives an interesting look as to the wear and potential lifetime of the system. 
+After completion of the 300 hours, and 129k cycles of testing, the actuator was disassembled to qualitatively analyze the wear patterns on the cycloid. This analysis gives an interesting look as to the wear and potential lifetime of the system. 
 
-The first note is that the grease used, Red 'N Tacky from Lucas Oil had turned a much darker color, nearly black. The system with the output pins and plate removed can be seen in Fig \ref{fig:single_full}. After removing the individual pieces and cleaning, the wear patterns in the system become clear. The cycloid plate, Fig \ref{fig:cycloid_plate}, shows smoothing of the peaks of the lobes on the plate, where they interact with the housing pins, but shows no wear deeper in the pockets. This indicates that the machining tolerances were such that these never interacted with the pins. The wear along the faces of each lobe were consistent around the profile, suggesting each lobe carried load at some point in each cycle. Additionally, the internal holes for the output pins shows relatively even wear. These results are typical for each of the three cycloid plates. 
+The first note is that the grease used, Red 'N Tacky from Lucas Oil, had turned a much darker color, nearly black. The system with the output pins and plate removed can be seen in Fig \ref{fig:single_full}. After removing the individual pieces and cleaning, the wear patterns in the system become clear. The cycloid plate, Fig \ref{fig:cycloid_plate}, shows smoothing of the peaks of the lobes on the plate, where they interact with the housing pins, but shows no wear deeper in the pockets. This indicates that the machining tolerances were such that these never interacted with the pins. The wear along the faces of each lobe were consistent around the profile, suggesting each lobe carried load at some point in each cycle. Additionally, the internal holes for the output pins shows relatively even wear. These results are typical for each of the three cycloid plates. 
 
-\begin{figure}[h]
+\begin{figure}[t]
    \centering
    \includegraphics[width=0.4\linewidth]{fig/single_full}
    \caption{The single-stage cycloid with the output plate removed. The initially red grease has been turned nearly black through operation, likely due to metal deposits from the wearing in of the system.}
    \label{fig:single_full}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!b]
    \centering
    \includegraphics[width=0.8\linewidth]{fig/cycloid_plate}
    \caption{The profile of one of the cycloid plates from the single-stage actuator. Each lobe shows smoothing along convex portion of the lobe and no wear along the concave portion. The wear is also uniform around the profile, showing relatively even load distribution around the profile during operation.}
@@ -172,9 +175,9 @@ The first note is that the grease used, Red 'N Tacky from Lucas Oil had turned a
 
 Three of the housing pins can be seen as an example in Fig \ref{fig:single_housing_pins}. The wear on these pins is uniform all the way around the pin. This shows that the pin was in fact rotating in the housing during operation, as determined by the sliding analysis in Section \ref{ch:design:pin_roll_1s:sliding_equations}. These three pins are also indicative of the other 57 pins, as each had relatively uniform wear around the profile. This, coupled with the cycloid plate, suggests that during the bulk of operation, the load was shared amongst all of the lobes and pins, rather than a small set of them. This potentially could have happened during the break in period of the system as well. 
 
-\begin{figure}[h]
+\begin{figure}[t]
    \centering
-   \includegraphics[width=0.4\linewidth]{fig/housing_pins}
+   \includegraphics[width=0.3\linewidth]{fig/housing_pins}
    \caption{The pins that rest in the housing for the single-stage cycloid. The pins showed uniform wear around their diameter and across the pins, suggesting that the load was shared relatively equally around the diameter of the actuator.}
    \label{fig:single_housing_pins}
 \end{figure}
@@ -182,9 +185,9 @@ Three of the housing pins can be seen as an example in Fig \ref{fig:single_housi
 
 The output pins can be seen in Fig \ref{fig:single_output_pins}. The output pins were fixed in the output plate and could not roll, which is evident in their wear pattern. One side of the pin has wear, while the other still has the original black oxide coating. This result makes sense since the pin is only in contact with the cycloid plate through half of the revolution. One interesting result from this though is that some pins show much more wear than others, indicating that fewer output pins were carrying load than the maximum possible, potentially resulting in more losses. A more optimal design of this system would allow these pins to roll in their housing to wear more evenly and in a potentially lower friction interaction. 
 
-\begin{figure}[h]
+\begin{figure}[!b]
    \centering
-   \includegraphics[width=0.6\linewidth]{fig/output_pins}
+   \includegraphics[width=0.7\linewidth]{fig/output_pins}
    \caption{The single-stage cycloid output pins. The pins did not rotate in their housing, so the wear is uneven around the diameter of the pin. The pins also show uneven wear from pin to pin, suggesting load was not carried equally among the pins during operation.}
    \label{fig:single_output_pins}
 \end{figure}
@@ -215,6 +218,7 @@ If backlash is acceptable in a system, a cycloidal drive can provide similar or 
    \caption{The first three days of testing show a substantial wear-in period for high torque periods.}
    \label{fig:break_in}
 \end{figure}
+\todo[inline]{fix legend size}
 
 There was a substantial break-in time for the actuator before steady state results were achieved highlighted in Fig \ref{fig:break_in}).
 In the high torque case, specifically in the reverse direction, there was an approximately linear increase in efficiency over the course of the first seven hours of duty cycle testing.
@@ -232,6 +236,6 @@ This was chosen because it is designed for high loads for extended periods of ti
 Therefore, during the warm-up period as the actuator temperature increases, the viscosity decrease is likely enough to cause a notable increase in efficiency of the system.
 The authors leave the study of a lower viscosity grease's effect on performance, as well as grease suitable for vacuum, for future work.
 
-Finally, through the efficiency comparison after 100 hours of testing (Fig. \ref{fig:eff_results}) and 300 hours of testing (Fig. \ref{fig:eff_results_final}) there was no appreciable loss in efficiency of the system. The actuator maintained a high level of efficiency, 81\% peak, throughout the testing. This result, coupled with the qualitative analysis of the parts after disassembly suggests that the lifetime of this actuator can greatly exceed the current testing of 130k revolutions, which suggests this is a viable actuator for robotic systems where backlash is acceptable and a high reduction and high torque actuator is necessary. 
+Finally, through the efficiency comparison after 100 hours of testing (Fig. \ref{fig:eff_results}) and 300 hours of testing (Fig. \ref{fig:eff_results_final}) there was no appreciable loss in efficiency of the system. The actuator maintained a high level of efficiency, 81\% peak, throughout the testing. This result, coupled with the qualitative analysis of the parts after disassembly suggests that the lifetime of this actuator can greatly exceed the current testing of 129k revolutions, which suggests this is a viable actuator for robotic systems where backlash is acceptable and a high reduction and high torque actuator is necessary. 
 
 
