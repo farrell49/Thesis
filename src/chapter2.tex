@@ -3,7 +3,7 @@
 \chapter{Single-Stage Cycloid Design}\label{ch:design_1s}
 
 %Intro to the chapter here. Talk about what I talked about, basically a Chapter 2 abstract 
-Single-stage cycloidal drives have been relatively well studied in theory regarding their profiles, machining considerations, load estimates, and simulation results. However, two gaps in the literature have been identified. The first is in the actual in-use efficiency and lifetime characteristics of a single-stage cycloid. The second is a more rigorous definition of the relative motion between the cycloid plate and the housing pins to further characterize losses in the system. This chapter will first cover the theoretical profile generation of the cycloid plates in section \ref{ch:design:basic_calc}. Next, the new calculations for the relative motion and associated losses for the interactions between the single-stage cycloid plate pins and rollers are detailed in Section \ref{ch:design:pin_roll_1s}. Finally, the design of the single-stage cycloid that was tested is reviewed in Section \ref{ch:design:single}.
+Single-stage cycloidal drives have been relatively well studied in theory regarding their profiles, machining considerations, load estimates, and simulation results. However, two gaps in the literature have been identified. The first is in the actual in-use efficiency and lifetime characteristics of a single-stage cycloid. The second is a more rigorous definition of the relative motion between the cycloid plate and the housing pins to further characterize losses in the system. This chapter will first cover the theoretical profile generation of the cycloid plates in Section \ref{ch:design:basic_calc}. Next, the new calculations for the relative motion and associated losses for the interactions between the single-stage cycloid plate pins and rollers are detailed in Section \ref{ch:design:pin_roll_1s}. Finally, the design of the single-stage cycloid that was tested is reviewed in Section \ref{ch:design:single}.
 
 \section{General Design Calculations} \label{ch:design:basic_calc}
 % Talk about the basic design equations for a cycloid, how do you generate the driving profile? 
@@ -30,29 +30,21 @@ Cycloidal drives utilize eccentric motion to induce interactions between the cyc
 \end{figure}
 %\todo[inline]{change cycloid disk to cycloid plate in figure}
 
-The motion induced is complex and generally non-intuitive. An illustration of this motion can be seen in the collection of images in Fig. \ref{fig:single_motion}. The system is designed such that the cycloid plate has one fewer lobe than the housing has rollers \cite{ref:pollitt}. Analysis has been done on systems with more than one lobe difference \cite{ref:hsieh_traditional}, but a single lobe difference is used in this work. If the housing did not exist, the cycloid plate would just move in an eccentric circle with no rotation due to the input shaft's eccentricity. However, due to the lobes interacting with the pins in the housing, and there being one fewer lobes than pins, the lobes move into the spaces between the pins during the eccentric motion. The pushing of the cycloid plate lobes into these gaps causes the cycloid plate to rotate about it's local axis, which will be referred to as the C-axis. This counter-rotation is defined by equation \ref{eq:single_stage_ratio_2} \cite{ref:on_the_lobe} where \textit{N\textsubscript{1}} is the number of housing rollers.
+The motion induced is complex and generally non-intuitive. An illustration of this motion can be seen in the collection of images in Fig. \ref{fig:single_motion}. The system is designed such that the cycloid plate has one fewer lobe than the housing has rollers \cite{ref:pollitt}. Analysis has been done on systems with more than one lobe difference \cite{ref:hsieh_traditional}, but a single lobe difference is used in this work. If the housing did not exist, the cycloid plate would just move in an eccentric circle with no rotation due to the input shaft's eccentricity. However, due to the lobes interacting with the pins in the housing, and there being one fewer lobes than pins, the lobes move into the spaces between the pins during the eccentric motion. The pushing of the cycloid plate lobes into these gaps causes the cycloid plate to rotate about its local axis, which will be referred to as the C-axis. This counter-rotation is defined by Equation \ref{eq:single_stage_ratio_2} \cite{ref:on_the_lobe} where \textit{N\textsubscript{1}} is the number of housing rollers.
 
 \begin{figure}[t]
    \centering
-   \begin{tabular}{cccc}
-     \includegraphics[width=0.24\linewidth]{fig/single_0} &
-     \includegraphics[width=0.24\linewidth]{fig/single_1} &
-     \includegraphics[width=0.24\linewidth]{fig/single_2} &
-     \includegraphics[width=0.24\linewidth]{fig/single_3} \\
-     \includegraphics[width=0.24\linewidth]{fig/single_4} &
-     \includegraphics[width=0.24\linewidth]{fig/single_5} &
-     \includegraphics[width=0.24\linewidth]{fig/single_6} &
-     \includegraphics[width=0.24\linewidth]{fig/single_7} \\
-   \end{tabular}
+   \includegraphics[width=1.0\linewidth]{fig/single_motion} &
    \caption{An example of a single-stage cycloid motion with eight pins (black), seven lobes (blue) for a ratio of 7:1 and five output pins (red) for one full input rotation resulting in 1/7 counter-rotation of the cycloid plate.}
    \label{fig:single_motion}
 \end{figure}
+
 
 \begin{equation} \label{eq:single_stage_ratio_2}
 Q = \frac{N_1-1} {N_1 - (N_1 - 1)} = N_1 -1
 \end{equation}
 
-The intuition for the creation of the counter-rotation of the cycloid plate has now been established, but this counter-rotation must be harnessed in order to create an effective reduction. This is where the output pins play in. The output must not only harness the counter-rotation but must also return the output to be concentric with the input to be used effectively. If the output were fixed to the cycloid plate, the output would have eccentric motion. This results in the conceptual design presented, in which an output plate is mounted on a concentric bearing and has pins of radius \textit{R\textsubscript{o}} that are fixed to it. These pins insert into the cycloid plate into holes that are of diameter $R_{hole}$.
+The intuition for the creation of the counter-rotation of the cycloid plate has now been established, but this counter-rotation must be harnessed in order to create an effective reduction. This is where the output pins plays a role. The output must not only harness the counter-rotation but must also return the output to be concentric with the input to be used effectively. If the output were fixed to the cycloid plate, the output would have eccentric motion. This results in the conceptual design presented, in which an output plate is mounted on a concentric bearing and has pins of radius \textit{R\textsubscript{o}} that are fixed to it. These pins insert into the cycloid plate into holes that are of diameter $R_{hole}$.
 
 \begin{equation} \label{eq:pin_hole_diam}
 R_{hole} = R_o + E.
@@ -67,15 +59,15 @@ Now that the basic design and motion of a single-stage cycloid has been establis
 \begin{figure}[!b]
    \centering
    \includegraphics[width=0.60\linewidth]{fig/kennedy_sliding}
-   \caption{Graphical articulation of Kennedy's Theorem. The contact points on Link 2 and 4 have their own velocity, \textit{F} and \textit{E}, determined by their own motion. However, to remain in contact, their respectively velocities in the \textit{S} direction must be equal. The remaining motion, along the common tangent \textit{M} and \textit{L} respectively indicates the relative sliding between the links. In additional, the instant center of Links 2 and 4, by Kenney's Theorem, must lie along the \textit{Line of Centers} of the two link's rotation. (This figure was adapted from \cite{ref:kinematics_and_dynamics})}
+   \caption{Graphical articulation of Kennedy's Theorem. The contact points on Link 2 and 4 have their own velocity, \textit{F} and \textit{E}, determined by their own motion. However, to remain in contact, their respectively velocities in the \textit{S} direction must be equal. The remaining motion, along the common tangent \textit{M} and \textit{L} respectively indicates the relative sliding between the links. In additional, the instant center of Links 2 and 4, by Kenney's Theorem, must lie along the \textit{Line of Centers} of the two link's rotation. (adapted from \cite{ref:kinematics_and_dynamics})}
    \label{fig:kennedy_sliding}
 \end{figure}
 
-The work by Shin et. al. \cite{ref:on_the_lobe} describes the generating equations for the cycloid profile well and was the basis for the equations used in this work. However, many other works prior to Shin et. al. give the full detail of these profiles \cite{ref:malhorta_2}, \cite{ref:hwang_hsieh}, \cite{ref:design_and_application}.
+The work by Shin et al. \cite{ref:on_the_lobe} describes the generating equations for the cycloid profile well and was the basis for the equations used in this work. However, many other works prior to Shin et al. give the full detail of these profiles (see \cite{ref:malhorta_2}, \cite{ref:hwang_hsieh}, \cite{ref:design_and_application}).
 The cycloid plate profile, if manufactured perfectly, would result in the lobes of the cycloid plate staying in perfect contact with the housing pins throughout the motion. In practice, some clearance is desired when not transmitting load to allow assembly and manufacturing tolerances. The basic principle that is harnessed to generate these profiles is Kennedy's Theorem. Kennedy's Theorem states that ``any three bodies having planar motion relative to one another have three instant centers, and they lie on a straight line''\cite{ref:kinematics_and_dynamics}.  That is, any two bodies that are in contact must have an instant center that falls along the line made by the line of centers of the bodies. In addition, this instant center must also fall along the common tangent line of their interaction. This concept is illustrated in Figure \ref{fig:kennedy_sliding}. Using this definition for where the instant center falls for the contact between the bodies and the common normal, the equations for the profile to meet these criteria can be generated. 
 
 Before the equations are defined, a number of parameters necessary for design must be established. These parameters are listed in Table \ref{table:variable_definitions}. 
-The design parameter decisions and restrictions for the tested actuator will be discussed further in section \ref{ch:design:single}. 
+The design parameter decisions and restrictions for the tested actuator will be discussed further in Section \ref{ch:design:single}. 
 
 \begin{table*}[!b]
   \vskip0.2cm
@@ -109,7 +101,7 @@ The design parameter decisions and restrictions for the tested actuator will be 
 \end{table*}
 
 With these defined parameters, the equations necessary for generating the profiles can be developed.
-Figure \ref{fig:single_frames} shows an illustration of the frames necessary for a single-stage cycloid. In this case, the first link is the ground link, the second link is the motor input via the eccentric arm, and the third link is the cycloid plate itself. The interaction that must satisfy Kennedy's Theorem is between the cycloid link and the ground link (links 1 and 3). The interaction between those two links must have an instant center that falls on the line of instant centers I\textsubscript{12} and I\textsubscript{23} that is normal to the common tangent. To create the cycloid plate profile, the location of this point must be put into the frame of the cycloid plate. Three frames are denoted in Figure \ref{fig:single_frames}, the fixed frame \textit{F}, the motor frame \textit{M}, and the cycloid plate \textit{C}. 
+Figure \ref{fig:single_frames} shows an illustration of the frames necessary for a single-stage cycloid. In this case, the first link is the ground link, the second link is the motor input via the eccentric arm, and the third link is the cycloid plate itself. The interaction that must satisfy Kennedy's Theorem is between the cycloid link (Link 1) and the ground link (Link 3). The interaction between those two links must have an instant center that falls on the line of instant centers I\textsubscript{12} and I\textsubscript{23} that is normal to the common tangent. To create the cycloid plate profile, the location of this point must be put into the frame of the cycloid plate. Three frames are denoted in Figure \ref{fig:single_frames}, the fixed frame \textit{F}, the motor frame \textit{M}, and the cycloid plate \textit{C}. 
 
 \begin{figure}[!b]
    \centering
@@ -117,7 +109,6 @@ Figure \ref{fig:single_frames} shows an illustration of the frames necessary for
    \caption{Coordinate frames used to compute the rotation matrices for cycloid plate profile generation.}
    \label{fig:single_frames}
 \end{figure}
-\todo[inline]{fix frames to show Cx}
 
 The transforms between the fixed frame and the motor frame (Eq. \ref{eq:T_fm}) and the motor frame and the cycloid frame (Eq. \ref{eq:T_mc}) are first defined. 
 
@@ -183,7 +174,7 @@ C_c = \left[\begin{array}{c}
 		\end{array} \right]
 \end{equation}
 
-These equations fully define the basic cycloidal plate profile. However, real life is generally not as friendly as these perfect equations. Therefore, design considerations must be taken into account when actually manufacturing the cycloid plates. These undersizing considerations for machine tolerances are well developed in \cite{ref:design_and_application}, and the recommended undersizing is applied to the design of the cycloids tested in this work. Finally, equations to determine whether undercutting exists in the cycloid profile are presented in \cite{ref:ye} to aid in sizing of the cycloidal profile. 
+These equations fully define the basic cycloidal plate profile. However, physical implementation is not as idealized as these equations. Therefore, design considerations must be taken into account when actually manufacturing the cycloid plates. These undersizing considerations for machine tolerances are well developed in \cite{ref:design_and_application}, and the recommended undersizing is applied to the design of the cycloids tested in this work. Finally, equations to determine whether undercutting exists in the cycloid profile are presented in \cite{ref:ye} to aid in sizing of the cycloidal profile. 
 
 
 
@@ -191,7 +182,7 @@ These equations fully define the basic cycloidal plate profile. However, real li
 \section{Housing Pin Motion Analysis} \label{ch:design:pin_roll_1s}
 % Talk about the rolling of the housing pins in a single-stage. The trick here is to try to say "this is new, pay attention." Also, skirt around the output pins, haven't done that part and that's okay.
 
-Through testing and analysis, a gap in the literature was identified pertaining to the relative sliding between the cycloid plate and the housing pins. The cycloid profile is generated using Kennedy's Theorem about the required instant center locations of links in contact, discussed in Section \ref{ch:design:basic_calc:overview}. Kennedy's Theorem further states that for two links to have only sliding motion with respect to each other, the point of contact must lie along the line of centers between each link's instant center shown in Figure \ref{fig:kennedy_rolling}, otherwise sliding must occur \cite{ref:kinematics_and_dynamics}. Using this fact, equations for the necessary sliding motion between the cycloid plate and the rollers need to be developed to make a more accurate predictive loss model for the compact cycloid designs.
+Through testing and analysis, a gap in the literature was identified pertaining to the relative sliding between the cycloid plate and the housing pins. Work by Wei Bo et al. \cite{ref:sliding} gives some information on this interaction with regards to the contact deformation and lubrication, but lacks in the derivation of the losses associated with this lobe-to-pin interaction that is useful for design purposes. The cycloid profile is generated using Kennedy's Theorem about the required instant center locations of links in contact, discussed in Section \ref{ch:design:basic_calc:overview}. Kennedy's Theorem further states that for two links to have only sliding motion with respect to each other, the point of contact must lie along the line of centers between each link's instant center shown in Figure \ref{fig:kennedy_rolling}, otherwise sliding must occur \cite{ref:kinematics_and_dynamics}. Using this fact, equations for the necessary sliding motion between the cycloid plate and the rollers need to be developed to make a more accurate predictive loss model for the compact cycloid designs.
 
 \subsection{Sliding Equations} \label{ch:design:pin_roll_1s:sliding_equations}
 
@@ -201,7 +192,7 @@ Kennedy's Theorem states that the contact point on two links in contact to remai
    \centering
    \includegraphics[width=0.8\linewidth]{fig/kennedy_rolling}
    \caption{By Kennedy's Theorem, and shown in Figure \ref{fig:kennedy_sliding}, the instant center of two links in contact lies on the intersection of the common normal and the line of centers. Only if the intersection point \textit{P} lies along the line of centers are the links rolling without sliding. That is, each point \textit{P} on link 2 and link 4 have equal motion along the same line, shown by vectors \textit{E} and \textit{F}.
-   This figure was adapted from \cite{ref:kinematics_and_dynamics}}
+   (adapted from \cite{ref:kinematics_and_dynamics})}
    \label{fig:kennedy_rolling}.
 \end{figure}
 
@@ -289,7 +280,7 @@ In 2007 and 2008, NASA developed a manned rover prototype for planetary surfaces
 This robotic vehicle is made up of six independent wheel modules, each with their own drive, steering, and both active and passive suspension.
 In 2014, a new prototype wheel module was designed and created to analyze potential technologies that could be used in these applications.
 In the new design layout, it was possible for the drive wheels to counter-rotate against the steering and put large shock loads into the steering system.
-These requirements which called for a compact package, high load, high shock load, and allowed tolerance of backlash and lent themselves to the selection of a cycloidal drive for the steering actuator.
+The requirements called for a compact package, a high load capability, a high shock load tolerance, and allowed a tolerance of backlash. These requirements lent themselves to the selection of a cycloidal drive for the steering actuator.
 The prototype wheel module layout can be seen in Figure \ref{fig:wheel_module}.
 
 \begin{figure}[!b]
@@ -340,7 +331,7 @@ Knowing the final reduction and the necessary output torque, the maximum load de
    \label{fig:single_loads}
 \end{figure}
 
-The interaction between the elements of a single-stage cycloid can be seen in Figure \ref{fig:single_loads} that details the forces present in a cycloid. The input force from the motor drives through the eccentric bearing to the cycloid plate. These loads are then reacted through the housing rollers and output pins. One will notice that the loads can only form on half of the rollers and pins at a time, as these members are in compression, and if a tension force forms, they will separate and not carry load. In a perfectly manufactured arrangement, the number of lobes in contact, \textit{N\textsubscript{lc}}, and output pins in contact, \textit{N\textsubscript{oc}}, is simply 
+The interaction between the elements of a single-stage cycloid can be seen in Figure \ref{fig:single_loads}, which details the forces present in a cycloid. The input force from the motor drives through the eccentric bearing to the cycloid plate. These loads are then reacted through the housing rollers and output pins. One will notice that the loads can only form on half of the rollers and pins at a time, as these members are in compression, and if a tension force forms, they will separate and not carry load. In a perfectly manufactured arrangement, the number of lobes in contact, \textit{N\textsubscript{lc}}, and output pins in contact, \textit{N\textsubscript{oc}}, is simply 
 
 
 \begin{equation}

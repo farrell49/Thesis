@@ -118,7 +118,7 @@ The total test time prior to these duty cycle tests was approximately 5.2 hours 
 Once this checkout was complete, the 300 hours of duty cycle testing were conducted over the course of 39 days with the drive cycle presented in Table \ref{table:long_run}.
 Three of the torque/speed combinations in forward and reverse are plotted on Figure \ref{fig:long_run} to show the general characteristic trends seen in actuator performance.
 
-\begin{figure}[!b]
+\begin{sidewaysfigure}
    \centering
    \includegraphics[width=\linewidth]{fig/total_runtime}
    \caption{Efficiency over time for three different speed/torque profiles during the drive cycle.
@@ -128,8 +128,7 @@ Three of the torque/speed combinations in forward and reverse are plotted on Fig
    As each day begins, there is a clear warm-up period before steady state.
    }
    \label{fig:long_run}
-\end{figure}
-\todo[inline]{fix the legend to be a real size}
+\end{sidewaysfigure}
 
 After the break-in period and steady state performance was achieved, a profile of speeds and torques (see Figure \ref{fig:eff_profile}) were run on the actuator to show the relationship between speed, torque, and efficiency.
 This profile was run three times and the results at each torque and speed combination were averaged. The first efficiency cycle was run as seen in Figure \ref{fig:eff_results}. Efficiency cycles were run after each subsequent 100 hours of testing to understand performance over time. The final efficiency test is shown in Figure \ref{fig:eff_results_final}.
@@ -144,11 +143,10 @@ This profile was run three times and the results at each torque and speed combin
 
 \begin{figure}[!t]
    \centering
-   \includegraphics[width=0.8\linewidth]{fig/eff_final}
+   \includegraphics[width=1.0\linewidth]{fig/eff_final}
    \caption{Efficiency of single-stage cycloid after 300 hours of testing. There was no appreciable loss of efficiency after 129k revolutions. }
    \label{fig:eff_results_final}
 \end{figure}
-\todo[inline]{make the legend size reasonable and the same}
 
 \section{Wear Analysis} \label{ch:single:wear_analysis}
 % Look at the pictures that we took to say "check it out, this thing can probably go for a lot longer based on how well it's done so far."
@@ -165,7 +163,7 @@ The first note is that the grease used, Red 'N Tacky from Lucas Oil, had turned 
    \label{fig:single_full}
 \end{figure}
 
-\begin{figure}[!b]
+\begin{figure}[!t]
    \centering
    \includegraphics[width=0.8\linewidth]{fig/cycloid_plate}
    \caption{Profile of one of the cycloid plates from the single-stage actuator. Each lobe shows smoothing along convex portion of the lobe and no wear along the concave portion. The wear is also uniform around the profile, showing relatively even load distribution around the profile during operation.}
@@ -185,7 +183,7 @@ Three of the housing pins can be seen as an example in Figure \ref{fig:single_ho
 
 The output pins can be seen in Figure \ref{fig:single_output_pins}. The output pins were fixed in the output plate and could not roll, which is evident in their wear pattern. One side of the pin has wear, while the other still has the original black oxide coating. This result makes sense since the pin is only in contact with the cycloid plate through half of the revolution. One interesting result from this, though, is that some pins show much more wear than others, indicating that fewer output pins were carrying load than the maximum possible, potentially resulting in more losses. A more optimal design of this system would allow these pins to roll in their housing to wear more evenly, and in a potentially lower friction interaction. 
 
-\begin{figure}[!b]
+\begin{figure}[t]
    \centering
    \includegraphics[width=0.7\linewidth]{fig/output_pins}
    \caption{Single-stage cycloid output pins. The pins did not rotate in their housing, so the wear is uneven around the diameter of the pin. The pins also show uneven wear from pin to pin, suggesting load was not carried equally among the pins during operation.}
@@ -218,11 +216,10 @@ If backlash is acceptable in a system, a cycloidal drive can provide similar or 
    \caption{First three days of testing show a substantial wear-in period for high torque periods.}
    \label{fig:break_in}
 \end{figure}
-\todo[inline]{fix legend size}
 
-There was a substantial break-in time for the actuator before steady state results were achieved highlighted in Figure \ref{fig:break_in}).
+There was a substantial break-in time for the actuator before steady state results were achieved, highlighted in Figure \ref{fig:break_in}.
 In the high torque case, specifically in the reverse direction, there was an approximately linear increase in efficiency over the course of the first seven hours of duty cycle testing.
-This testing began after a minimum of five hours of run time spread out through many short sessions while getting the test system running.
+This testing began after a minimum of five hours of runtime spread out through many short sessions while getting the test system running.
 The large increase in efficiency can be noted in the other lower torque profiles as well, starting well below their final steady state values.
 The authors theorize that this is due to break-in of the manufactured parts required because of machining inaccuracies.
 Due to the complex interaction required of the trochoidal motion profile, slight manufacturing deficiencies could cause build-ups of stress and loss in particular points on the drive.
@@ -231,11 +228,11 @@ Through the first hours of testing, these materials likely wore in to each other
 
 Additionally, there is a marked improvement over the first 30 minutes of runtime in the efficiency of the system.
 This is likely due to the grease and heat in the system.
-The gearbox is greased with Lucas Oil Red'N'Tacky which has a viscosity index of 86 min.
-This was chosen because it is designed for high loads for extended periods of time in gear and sliding surface applications, as well as ease of use for Earth testing and verification.
+The gearbox is greased with Lucas Oil Red'N'Tacky, which has a viscosity index of 86 min.
+This grease was chosen because it is designed for high loads for extended periods of time in gear and sliding surface applications, as well as ease of use for testing and verification on Earth.
 Therefore, during the warm-up period as the actuator temperature increases, the viscosity decrease is likely enough to cause a notable increase in efficiency of the system.
 The authors leave the study of a lower viscosity grease's effect on performance, as well as grease suitable for vacuum, for future work.
 
-Finally, through the efficiency comparison after 100 hours of testing (Figure \ref{fig:eff_results}) and 300 hours of testing (Figure \ref{fig:eff_results_final}) there was no appreciable loss in efficiency of the system. The actuator maintained a high level of efficiency, 81\% peak, throughout the testing. This result, coupled with the qualitative analysis of the parts after disassembly suggests that the lifetime of this actuator can greatly exceed the current testing of 129k revolutions, which suggests this is a viable actuator for robotic systems where backlash is acceptable and a high reduction and high torque actuator is necessary. 
+Finally, through the efficiency comparison after 100 hours of testing (Figure \ref{fig:eff_results}) and 300 hours of testing (Figure \ref{fig:eff_results_final}), there was no appreciable loss in efficiency of the system. The actuator maintained a high level of efficiency, 81\% peak, throughout the testing. This result, coupled with the qualitative analysis of the parts after disassembly, suggests that the lifetime of this actuator can greatly exceed the current testing of 129k revolutions. It also suggests this is a viable actuator for robotic systems where backlash is acceptable and a high reduction and high torque actuator is necessary. 
 
 
